@@ -15,7 +15,7 @@ public class Child2 extends Parent {
 				// 단, 미작성시 컴파일러가 추가
 
 		System.out.println("Child2() 기본 생성자로 자식 객체 생성");
-	};
+	}
 	
 
 	public Child2(String house) {
