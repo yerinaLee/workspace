@@ -22,7 +22,7 @@ public class CarRun {
 		Car c1 = new Car();
 		
 		// 자식 참조 변수 = 자식 객체 생성
-		Porsche p1 = new Porsche();
+		Porsche p1 = new Porsche();++
 		Spark s1 = new Spark();
 		
 		
@@ -86,6 +86,11 @@ public class CarRun {
 		System.out.println( ( (Spark)carArr[2] ).getDiscountRate());
 		
 		// 공부함!
+		
+		
+		// 집에서 복습했음 꺄루루룩
+		
+		
 		
 		
 	}
