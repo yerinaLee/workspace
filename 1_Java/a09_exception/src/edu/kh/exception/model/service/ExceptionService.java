@@ -15,7 +15,7 @@ public class ExceptionService {
 	
 	public void ex1() {
 		
-		// Cheched Exception 확인
+		// Checked Exception 확인
 		// 예외처리 구문(try-catch)
 		
 		// ﻿BufferdReader : 빨리 읽어오는 객체
@@ -223,7 +223,7 @@ public class ExceptionService {
 	
 	public void ex7() {
 		// throws : 메서드에서 발생한 예외를
-		//		  호출한 상위 메서드로 전달
+		//		   호출한 상위 메서드로 전달
 		//		  (책임 전가)
 		// 장점 : 한 곳에 예외를 몰아서 처리 가능 (코드 길이 감소)
 
