@@ -47,10 +47,10 @@ public class StudentView {
 				case 1 : addStudent();		 break;
 				case 2 : selectAllStudent(); break;
 				case 3 : selectOne(); 		 break;
-				case 4 : break;
-				case 5 : break;
-				case 6 : break;
-				case 7 : break;
+				case 4 : deleteStudent();    break;
+				case 5 : selectGender();  	break;
+				case 6 : selectGrade();   	break;
+				case 7 : selectName(); 		break;
 				case 8 : break;
 				case 9 : break;
 				
@@ -139,6 +139,99 @@ public class StudentView {
 		
 	}
 	
+	
+	/**
+	 * 학생 1명 삭제 view 메서드
+	 */
+	private void deleteStudent() {
+		System.out.println("\n----- 학생 1명 삭제(index) -----\n");
+		
+		System.out.print("삭제할 학생의 index 번호 : ");
+		int index = sc.nextInt();
+		
+		
+		Student std = service.deleteStudent(index);
+		
+		if(std == null) {
+			System.out.println("해당 인덱스에 학생 정보가 없습니다");
+		} else {
+			System.out.println(std.getName() + "학생의 정보가 삭제되었습니다");
+		}
+	}
+	
+	
+	
+	/**
+	 * 성별 조회 view 메서드
+	 */
+	private void selectGender() {
+
+		System.out.println("\n----- 성별 조회 -----\n");
+
+		System.out.print("조회할 성별을 입력해주세요(M/F) : ");
+		char gender = sc.next().toUpperCase().charAt(0);
+		
+		if(gender != 'M' && gender != 'F') {
+			System.out.println("* M 또는 F를 입력해주세요.");
+			return;
+		}
+		
+		List<Student> searchList = service.selectGender(gender);
+		
+		if(searchList.isEmpty()) {
+			System.out.println("해당하는 학생이 없습니다.");
+		}
+		
+		for ( Student s : searchList) {
+			System.out.println(s);
+		}
+		
+	}
+	
+	
+	/**
+	 * 같은 학년 조회 view 메서드
+	 */
+	private void selectGrade() {
+		System.out.println("\n----- 학년 조회 -----\n");
+		
+		System.out.print("조회할 학년을 입력해주세요 : ");
+		int grade = sc.nextInt();
+		
+		if(grade < 1 || grade > 6) {
+			System.out.println("* 1~6학년 내로 입력해주세요.");
+			return;
+		}
+		
+		List<Student> searchList = service.selectGrade(grade);
+		
+		if(searchList.size() == 0) {
+			System.out.println("검색 결과가 없습니다.");
+		}
+		
+		for(Student s : searchList) {
+			System.out.println(s);
+		}
+	}
+	
+	
+	/**
+	 * 같은 이름 조회 view 메서드
+	 */
+	private void selectName() {
+		
+		System.out.println("\n----- 이름 조회 -----\n");
+		
+		System.out.print("조회할 학생 이름 : ");
+		String name = sc.next();
+		
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 	

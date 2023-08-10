@@ -54,7 +54,64 @@ public class StudentService {
 			return null;
 		}
 		return studentList.get(index);
+	}
+
+
+
+	/** 인덱스가 일치하는 학생 삭제 service 메서드
+	 * @param index
+	 * @return Student 객체 주소 또는 null
+	 */
+	public Student deleteStudent(int index) {
+		
+		if(index < 0 || index >= studentList.size()) {
+			return null;
+		}
+		
+		return studentList.remove(index);
+	}
+
+
+
+	/** 성별 조회 service 메서드
+	 * @param gender
+	 * @return searchList
+	 */
+	public List<Student> selectGender(char gender) {
+		
+		List<Student> searchList = new ArrayList<Student>();
+		
+		for ( Student s : studentList ) {
+			
+			if (s.getGender() == gender) {
+				searchList.add(s);
+			}
+		}
+		
+		return searchList;
+	}
+
+
+
+	/** 학년 조회 service 메서드
+	 * @return searchList
+	 */
+	public List<Student> selectGrade(int grade) {
+		
+		List<Student> searchList = new ArrayList<Student>();
+		
+		for ( Student s : studentList) {
+			if (s.getGrade() == grade) {
+				searchList.add(s);
+			}
+		}		
+		
+		return searchList;
 	} 
+	
+	
+	
+	
 	
 	
 	

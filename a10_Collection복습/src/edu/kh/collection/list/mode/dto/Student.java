@@ -6,12 +6,12 @@ public class Student {
 	private int ban;
 	private int number;
 	private String name;
-	private int gender;
+	private char gender;
 	private int score;
 	
 	public Student() {}
 
-	public Student(int grade, int ban, int number, String name, int gender, int score) {
+	public Student(int grade, int ban, int number, String name, char gender, int score) {
 		super();
 		this.grade = grade;
 		this.ban = ban;
@@ -54,11 +54,11 @@ public class Student {
 		this.name = name;
 	}
 
-	public int getGender() {
+	public char getGender() {
 		return gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 
