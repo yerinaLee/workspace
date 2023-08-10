@@ -21,11 +21,40 @@ public class StudentService {
 	}
 	
 	
+	
+	/** 학생 추가 서비스 메서드
+	 * @param grade
+	 * @param ban
+	 * @param number
+	 * @param name
+	 * @param gender
+	 * @param score
+	 * @return boolean
+	 */
 	public boolean addStudent(int grade, int ban, int number, String name, char gender, int score) {
-		
-		
 		return studentList.add( new Student(grade, ban, number, name, gender, score));
 	}
+	
+	
+	/** 학생 List 반환 service 메서드
+	 * @return studentList
+	 */
+	public List<Student> selectAllStudent() {
+		return studentList;
+	}
+	
+	
+	/** 인덱스가 일치하는 학생 1명 조회
+	 * @param index
+	 * @return Student 객체 주소 또는 null
+	 */
+	public Student selectOne(int index) {
+		
+		if(index < 0 || index >= studentList.size()) {
+			return null;
+		}
+		return studentList.get(index);
+	} 
 	
 	
 	

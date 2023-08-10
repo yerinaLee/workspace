@@ -1,15 +1,16 @@
 package edu.kh.collection.list.view;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
+import edu.kh.collection.list.mode.dto.Student;
 import edu.kh.collection.list.mode.service.StudentService;
 
 public class StudentView {
 	
 	private Scanner sc = new Scanner(System.in);
 	private StudentService service = new StudentService();
-	
 	
 	
 	/**
@@ -43,9 +44,9 @@ public class StudentView {
 				
 				
 				switch(input) {
-				case 1 : addStudent(); break;
-				case 2 : break;
-				case 3 : break;
+				case 1 : addStudent();		 break;
+				case 2 : selectAllStudent(); break;
+				case 3 : selectOne(); 		 break;
 				case 4 : break;
 				case 5 : break;
 				case 6 : break;
@@ -101,6 +102,44 @@ public class StudentView {
 		}
 		
 	}
+	
+	
+	/**
+	 * 학생 전체 조회 view 메서드
+	 */
+	private void selectAllStudent() {
+		
+		System.out.println("\n----- 학생 전체 조회 -----\n");
+		
+		List<Student> studentList = service.selectAllStudent();
+		
+		for(int i = 0; i < studentList.size(); i++) {
+			System.out.printf("[%d] %s \n", i, studentList.get(i));
+		}
+	}
+	
+	
+	
+	/**
+	 * 학생 1명 조회 view 메서드
+	 */
+	private void selectOne() {
+		System.out.println("\n----- 학생 1명 조회(index) -----\n");		
+		
+		System.out.print("조회할 학생의 index 입력 : ");
+		int index = sc.nextInt();
+		
+		Student std = service.selectOne(index);
+			
+		if(std == null) {
+			System.out.println("해당 인덱스에 학생 정보가 없습니다");
+		} else {
+			System.out.println(index + "인덱스의 학생 정보 : " + std);
+		}
+		
+	}
+	
+	
 	
 	
 	
