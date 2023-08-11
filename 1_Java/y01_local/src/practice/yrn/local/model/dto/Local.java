@@ -10,21 +10,19 @@ public class Local {
 	private int theNumberOfPeople; // 인구수
 	private double area; // 면적
 	private String mayor; // 시장이름
-
-	private Map<String, String> historicalPlace = new HashMap<String, String>(); // 역사적 명소 
-	private Map<String, String> naturePlace = new HashMap<String, String>(); // 자연 명소
-	private Map<String, String> religiousPlace = new HashMap<String, String>(); // 종교적 명소
-	private Map<String, String> youngPlace = new HashMap<String, String>(); // 시내
 	
+	private String historicalPlace;
+	private String naturePlace;
+	private String religiousPlace;
+	private String youngPlace;
+
 	
 	public Local() {
 	}
 
-//
 
-	public Local(String name, int localNumber, int theNumberOfPeople, double area, String mayor,
-			Map<String, String> historicalPlace, Map<String, String> naturePlace, Map<String, String> religiousPlace,
-			Map<String, String> youngPlace) {
+	public Local(String name, int localNumber, int theNumberOfPeople, double area, String mayor, String historicalPlace,
+			String naturePlace, String religiousPlace, String youngPlace) {
 		super();
 		this.name = name;
 		this.localNumber = localNumber;
@@ -36,12 +34,6 @@ public class Local {
 		this.religiousPlace = religiousPlace;
 		this.youngPlace = youngPlace;
 	}
-
-
-
-
-
-
 
 
 	public String getName() {
@@ -94,42 +86,42 @@ public class Local {
 	}
 
 
-	public Map<String, String> getHistoricalPlace() {
+	public String getHistoricalPlace() {
 		return historicalPlace;
 	}
 
 
-	public void setHistoricalPlace(Map<String, String> historicalPlace) {
+	public void setHistoricalPlace(String historicalPlace) {
 		this.historicalPlace = historicalPlace;
 	}
 
 
-	public Map<String, String> getNaturePlace() {
+	public String getNaturePlace() {
 		return naturePlace;
 	}
 
 
-	public void setNaturePlace(Map<String, String> naturePlace) {
+	public void setNaturePlace(String naturePlace) {
 		this.naturePlace = naturePlace;
 	}
 
 
-	public Map<String, String> getReligiousPlace() {
+	public String getReligiousPlace() {
 		return religiousPlace;
 	}
 
 
-	public void setReligiousPlace(Map<String, String> religiousPlace) {
+	public void setReligiousPlace(String religiousPlace) {
 		this.religiousPlace = religiousPlace;
 	}
 
 
-	public Map<String, String> getYoungPlace() {
+	public String getYoungPlace() {
 		return youngPlace;
 	}
 
 
-	public void setYoungPlace(Map<String, String> youngPlace) {
+	public void setYoungPlace(String youngPlace) {
 		this.youngPlace = youngPlace;
 	}
 
@@ -140,10 +132,9 @@ public class Local {
 				+ ", area=" + area + ", mayor=" + mayor + ", historicalPlace=" + historicalPlace + ", naturePlace="
 				+ naturePlace + ", religiousPlace=" + religiousPlace + ", youngPlace=" + youngPlace + "]";
 	}
+	
+	
+	
 
-	
-	
-	
-	
 
 }
