@@ -321,6 +321,7 @@ public class LoopEx2 {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		
 		System.out.print("행 : ");
 		int row = sc.nextInt();
 		

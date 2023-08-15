@@ -66,7 +66,7 @@ public class OperatiorEx1 {
 		// input1 또는 input2를 (double)로 강제형변환 시킨다.
 		// 왜? 
 		// (double)input1 / input2
-		// -> doublt / int -> double / double(자동 형변환)
+		// -> double / int -> double / double(자동 형변환)
 		
 		
 		// % (나머지) 연산 -> 몫이 정수로 다 나눠진 후 나머지가 출력됨(실수는 나눠지지 않음)

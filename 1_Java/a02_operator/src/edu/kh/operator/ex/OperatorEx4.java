@@ -32,6 +32,21 @@ public class OperatorEx4 {
 		boolean result = input1 % input2 == 0;
 		
 		System.out.printf("\n%d는 %d의 배수? %b\n", input1, input2, result );			
+
+		
+		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.print("확인할 수 : ");
+//		int num = sc.nextInt();
+//		
+//		System.out.print("배수 : ");
+//		int num2 = sc.nextInt();
+//		
+//		System.out.printf("%d는 %d의 배수? %b", num, num2, num%num2==0);
+		
+		
+		
 		
 	}
 
