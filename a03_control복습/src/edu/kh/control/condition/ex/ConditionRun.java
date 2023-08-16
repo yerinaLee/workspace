@@ -6,6 +6,9 @@ public class ConditionRun {
 		
 		ConditionEx ex = new ConditionEx();
 		
+		ex.ex5();
+		
+		
 	}
 
 }
