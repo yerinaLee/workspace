@@ -20,7 +20,7 @@ public class LoopExRun {
 //		ex.ex212();
 //		ex.test();
 //		ex.ex13();
-//		ex.ex14();
+		ex.ex14();
 //		ex.ex15();
 //		ex.ex16();
 //		ex.ex17();
@@ -28,7 +28,7 @@ public class LoopExRun {
 //		ex.ex2();
 //		ex.ex3();
 //		ex.practice3();
-		ex.practice4();
+//		ex.practice4();
 		
 		
 	}

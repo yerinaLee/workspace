@@ -261,7 +261,7 @@ public class LoopEx {
 		
 		for( ; row >= 1 ; row--) {
 			
-			for( ; col >= 1 ; col--) {
+			for(int y = col ; y >= 1 ; y--) {
 				
 				System.out.print(++count + " ");
 				
