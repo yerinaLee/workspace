@@ -23,33 +23,26 @@ public class IOService {
 		FileOutputStream fos = null;
 		
 		try {
-			fos = new FileOutputStream("C:/Users/user1/Desktop/IOTest/Test.txt");
 			
-			String content = "마치like된거가타손오공\n뚠뚠뚠\n뚠뚠뚠뚠\n뚠\n뚠뚠뚠"+
-						"마치된거가타소노공!";
+			fos = new FileOutputStream("byte/byteTest.txt");
 			
-			for(int i = 0; i < content.length(); i++) {
+			String content = "Hello world";
+			
+			for(int i = 0; i<content.length(); i++) {
 				
 				char ch = content.charAt(i);
-				fos.write(ch);
+				fos.write(i);
 			}
 			
-			System.out.println("출력 완료");
-			
-		} catch (FileNotFoundException e) {
-			System.out.println("파일을 찾을 수 없습니다.");
+		} catch(IOException e) {
 			e.printStackTrace();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			
 		} finally {
-			try {
-				if(fos != null) fos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
 		}
+		
+		
+		
+		
 	}
 	
 	// 문자 기반 출력
@@ -87,31 +80,25 @@ public class IOService {
 		FileInputStream fis = null;
 		
 		try {
+			
 			fis = new FileInputStream("노래가사/Super.txt");
 			
 			int value = 0;
 			
 			while(true) {
-		
+				
 				value = fis.read();
-				if(value == -1) break;
+				
+				if(value == -1) {
+					break;
+				}
 				
 				System.out.print( (char)value );
 			}
-			
-		} catch (FileNotFoundException e) {
-			System.out.println("찾는 파일이 없습니다.");
+		} catch(IOException e) {
 			e.printStackTrace();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			
 		} finally {
-			try {
-				if(fis != null) fis.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
 		}
 	}
 	
@@ -121,34 +108,44 @@ public class IOService {
 		FileReader fr = null;
 		
 		try {
-
-			fr = new FileReader("노래가사/IAM");
+			
+			fr = new FileReader("super");
 			
 			int value = 0;
 			
 			while(true) {
-				value = fr.read();
-				if(value == -1) break;
 				
-				System.out.print( (char)value );
+				value = fr.read();
+				
+				if(value == -1) {
+					break;
+				}
+				
+				System.out.print((char)value);
+				
+				
 				
 			}
 			
 			
-		} catch (FileNotFoundException e) {
-			System.out.println("찾는 파일이 없습니다.");
-			e.printStackTrace();
 			
-		} catch (IOException e) {
-			e.printStackTrace();
 			
+			
+			
+			
+		}catch (IOException e) {
+			e.printStackTrace();
 		} finally {
-				try {
-					if(fr != null) fr.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	
@@ -205,31 +202,35 @@ public class IOService {
 	// 객체 출력 보조 스트림 이용
 	public void objectOutput() {
 		
+		
 		ObjectOutputStream oos = null;
 		
 		try {
 			
 			File folder = new File("object");
-			if(!folder.exists()) folder.mkdir();
+			
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
 			
 			oos = new ObjectOutputStream( new FileOutputStream("object/Member.txt"));
 			
-			Member mem = new Member("mem01", "mem01", "저눠누", 6630);
+			Member mem = new Member("adsf", "sdf", "asf", 36);
 			
 			oos.writeObject(mem);
 			
-			System.out.println("객체 출력 완료");
-	
 			
-		} catch (IOException e){
+			
+			
+			
+			
+			
+		} catch( IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if(oos != null) oos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
+		
+		
+		
 		
 		
 	}

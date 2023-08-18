@@ -16,10 +16,10 @@ public class Server {
 	public void start() {
 		
 		
-		//1. 서버의 포트넘버 정하기
+		// 1. 포트 넘버 정하기 / 1023~65535 사이로! 
 		int port = 8500;
 		
-		// 2. 소켓 객체들 생성하기
+		// 2. 소켓 객체들 생성
 		ServerSocket serverSocket = null;
 		Socket clientSocket = null;
 		
@@ -31,56 +31,53 @@ public class Server {
 		
 		try {
 			
-			// 3. 클라이언트 응답 기달리기
+			//3. 클라이언트가 오길 기다림
 			serverSocket = new ServerSocket(port);
-			System.out.println("waiting for you....^^");
 			
-			// 4. 클라이언트 요청이 오면 클라이언트 소켓열고 accept하기
+			//4. 요청오면 연결!
 			clientSocket = serverSocket.accept();
-			System.out.println("*** Welcom my client!!! ***");
 			
-			// 5. 입출력을 위한 스트림 만들기
+			//5. 스트림 생성
 			is = clientSocket.getInputStream();
 			os = clientSocket.getOutputStream();
 			
-			// 6. 스트림 보강!
+			//6. 스트림 강화
 			br = new BufferedReader( new InputStreamReader(is));
 			pw = new PrintWriter(os);
 			
-			// 7. 대화시도
-			//7-1) 서버 -> 클라이언트 출력
+			//7.소통 ㄱ
 			Date now = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			
-			String message = sdf.format(now) + "[서버 접속 성공]";
-
-			pw.println(message);
+			String message = sdf + "접속 성공";
+			
+			pw.print(sdf);
 			pw.flush();
-			
-			// 7-2) 서버 <- 클라이언트 입력
 			
 			String clientMessage = br.readLine();
 			System.out.println(clientMessage);
 			
 			
+			
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
-			
 		} finally {
+			
 			try {
 				if (br != null) br.close();
-				if (pw != null) pw.close();
-
-				if (serverSocket != null) serverSocket.close();
+				if(pw != null) pw.close(); // + os.close()
+				
 				if (clientSocket != null) clientSocket.close();
+				if (serverSocket != null) serverSocket.close();
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			
 		}
-		
-		
-		
 		
 		
 	}

@@ -1,8 +1,10 @@
 package practice.yrn.local.view;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
+import practice.yrn.local.model.dto.Local;
 import practice.yrn.local.model.service.LocalService;
 
 public class LocalView {
@@ -30,13 +32,13 @@ public class LocalView {
 			System.out.println("#3_선택 지역 지역번호 조회");
 			System.out.println("#4_가까운 지역 조회");
 			
-			System.out.println("\n▼▼▼▼ 떠나볼까? ▼▼▼▼");
-			System.out.println("#5_선택 지역 명소 조회");
-			System.out.println("#6_선택 테마 명소 조회");
-			System.out.println("#7_내가 찾은 지역 명소 추가");
-	
-			System.out.println("\n▼▼▼▼ !!!! ▼▼▼▼");
-			System.out.println("#8_선택 지역 최신 뉴스");
+//			System.out.println("\n▼▼▼▼ 떠나볼까? ▼▼▼▼");
+//			System.out.println("#5_선택 지역 명소 조회");
+//			System.out.println("#6_선택 테마 명소 조회");
+//			System.out.println("#7_내가 찾은 지역 명소 추가");
+//	
+//			System.out.println("\n▼▼▼▼ !!!! ▼▼▼▼");
+//			System.out.println("#8_선택 지역 최신 뉴스");
 			System.out.println("\n#0_ByeByeBye");
 			
 			
@@ -46,13 +48,13 @@ public class LocalView {
 			
 			switch(input) {
 			case 1 : searchAll(); break;
-			case 2 : break;
+			case 2 : select(); break;
 			case 3 : break;
 			case 4 : break;
-			case 5 : break;
-			case 6 : break;
-			case 7 : break;
-			case 8 : break;
+//			case 5 : break;
+//			case 6 : break;
+//			case 7 : break;
+//			case 8 : break;
 			
 			case 0 : System.out.println("프로그램 종료 뾰로롱!"); break;
 			default : System.out.println("메뉴를 다시 선택해주세요!");
@@ -74,15 +76,29 @@ public class LocalView {
 	 */
 	private void searchAll() {
 		
-		System.out.println("\n#_전체 지역 정보 조회");
+		System.out.println("\n#_전체 지역 정보 조회\n");
 		
 		
 		
+		List<Local> localList = service.searchAll();
+		int count = 0;
+		
+		for ( Local l : localList) {
+			System.out.println("["+ ++count +"] " + l);
+			System.out.println();
+		}
+	}
+	
+	
+	/**
+	 * 선택 지역 정보 조회 view
+	 */
+	private void select() {
+		System.out.println("\n#_전체 지역 정보 조회\n");
 		
 		
 		
 	}
-	
 	
 	
 	

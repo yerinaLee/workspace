@@ -18,7 +18,7 @@ public class Member implements Serializable{
 		this.name = name;
 		this.point = point;
 	}
-
+	
 	public String getId() {
 		return id;
 	}
@@ -50,7 +50,7 @@ public class Member implements Serializable{
 	public void setPoint(int point) {
 		this.point = point;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", point=" + point + "]";
