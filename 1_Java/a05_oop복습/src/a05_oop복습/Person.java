@@ -44,7 +44,15 @@ public class Person {
 		return gender;
 	}
 	
-	
-	
 
-}
+} // 원본 클래스 끝
+
+
+
+
+
+
+
+
+
+
