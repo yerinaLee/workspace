@@ -49,7 +49,7 @@ public class LocalView {
 			switch(input) {
 			case 1 : searchAll(); break;
 			case 2 : select(); break;
-			case 3 : break;
+			case 3 : selectLocalNumber(); break;
 			case 4 : break;
 //			case 5 : break;
 //			case 6 : break;
@@ -68,8 +68,7 @@ public class LocalView {
 		} while( input != 0 );
 	}
 	
-	
-	
+
 	
 	/**
 	 * 전체 지역 정보 조회 view 메서드
@@ -94,11 +93,45 @@ public class LocalView {
 	 * 선택 지역 정보 조회 view
 	 */
 	private void select() {
-		System.out.println("\n#_전체 지역 정보 조회\n");
+		System.out.println("\n#_선택 지역 정보 조회\n");
 		
+		System.out.print("찾으실 지역명을 작성해주세요 : ");
+		String name = sc.next();
 		
+		Local selectLocal = service.select(name);
 		
+		if(selectLocal == null) {
+			System.out.println("찾으시는 지역이 없습니다.");
+		} else {
+			System.out.println(selectLocal);
+		}
 	}
+	
+	
+	/**
+	 * 선택 지역 지역 번호 조회 view
+	 */
+	private void selectLocalNumber() {
+		System.out.println("\n#_선택 지역 정보 조회\n");
+		
+		System.out.print("지역번호를 찾을 지역명을 작성해주세요 : ");
+		String name = sc.next();
+		
+		Local selectLocal = service.select(name);
+		
+		if(selectLocal == null) {
+			System.out.println("찾으시는 지역이 없습니다.");
+		} else {
+			System.out.println(selectLocal.getLocalNumber());
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

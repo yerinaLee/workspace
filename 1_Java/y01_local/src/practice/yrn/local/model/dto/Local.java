@@ -3,14 +3,14 @@ package practice.yrn.local.model.dto;
 public class Local {
 	
 	private String name; // 지역명
-	private int localNumber; // 지역번호
+	private String localNumber; // 지역번호
 	private String theNumberOfPeople; // 인구수
 	private double area; // 면적
 	private String mayor; // 시장이름
 	
 	public Local() {}
 	
-	public Local(String name, int localNumber, String theNumberOfPeople, double area, String mayor) {
+	public Local(String name, String localNumber, String theNumberOfPeople, double area, String mayor) {
 		this.name = name;
 		this.localNumber = localNumber;
 		this.theNumberOfPeople = theNumberOfPeople;
@@ -27,11 +27,11 @@ public class Local {
 		this.name = name;
 	}
 
-	public int getLocalNumber() {
+	public String getLocalNumber() {
 		return localNumber;
 	}
 
-	public void setLocalNumber(int localNumber) {
+	public void setLocalNumber(String localNumber) {
 		this.localNumber = localNumber;
 	}
 
