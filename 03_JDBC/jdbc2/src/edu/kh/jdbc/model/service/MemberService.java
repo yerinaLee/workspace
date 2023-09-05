@@ -128,9 +128,4 @@ public class MemberService {
 	}
 	
 	
-	
-	
-	
-	
-
 }

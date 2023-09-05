@@ -42,7 +42,20 @@ public class Member {
 	}
 	
 	
-	
+	// 매개변수 생성자
+	public Member(int memberNo, String memberEmail, String memberPw, String memberNickname, String memberTel,
+			String memberAddress, String enrollDate, String memberDelFl) {
+		this.memberNo = memberNo;
+		this.memberEmail = memberEmail;
+		this.memberPw = memberPw;
+		this.memberNickname = memberNickname;
+		this.memberTel = memberTel;
+		this.memberAddress = memberAddress;
+		this.enrollDate = enrollDate;
+		this.memberDelFl = memberDelFl;
+	}
+
+
 	// getter / setter
 	public int getMemberNo() {
 		return memberNo;

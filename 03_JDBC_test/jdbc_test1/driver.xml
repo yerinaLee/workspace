@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="driver">oracle.jdbc.driver.OracleDriver</entry>
+	
+	<entry key="url">jdbc:oracle:thin:@115.90.212.20:10000:ORCL</entry>
+	
+	<entry key="user">a230724_test</entry>
+	
+	<entry key="pw">test1234</entry>
+	
+</properties>
+
+
+
+
+
+
