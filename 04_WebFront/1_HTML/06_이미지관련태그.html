@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06_이미지 관련 태그</title>
+</head>
+<body>
+  <h1>img 태그</h1>
+  <pre>
+      - 웹 문서에서 사진이나 그림 같은 이미지를 삽입하는 용도의 태그
+
+      [속성]
+
+      1. src : 삽입할 이미지의 경로를 작성하는 속성(파일경로, 웹 주소)
+
+      2. width / height : 이미지 크기(px, %)
+
+      3. alt (대안) : 이미지의 설명을 작성하는 속성
+                  -> 이미지가 출력되지 않는 경우 화면에 표시됨
+                      + 웹 접근성(스크린 리더가 이미지 설명을 읽어줌)
+  </pre>
+  
+  <h3>절대 경로로 이미지 출력하기</h3>
+  <pre>
+    절대 경로 : 변하지 않는 기준점으로부터 목표까지의 경로
+    (서버 배포 시 컴퓨터 절대 경로는 인식되지 않음)
+  </pre>
+  <img src="C:\workspace\04_WebFront\images\cats\cat1.jpg" alt="cat1.jpg 이미지">
+
+  <hr>
+  <h3>상대 경로로 이미지 출력하기</h3>
+
+  <pre>
+    상대 경로 : 현재 파일/페이지 위치를 기준점으로 하여
+              목표까지의 경로를 나타내는 것
+    (절대경로가 노출되지 않기 때문에 서버 배포시에도 사용 가능)
+
+    .. : 상위폴더로 이동
+  </pre>
+
+  <img src="../images/dogs/dog1.jpg" alt="dog1.jpg 이미지">
+
+  <hr>
+
+  <h3>웹 주소를 이용해서 이미지 출력하기</h3>
+
+  <img src="https://utc.org/wp-content/uploads/2022/04/AdobeStock_284430722.jpg" alt="April shower jpg">
+
+
+  <hr><hr><hr>
+
+  <h2>고정 크기 단위(px) : 항상 고정된 크기를 지님</h2>
+  <!-- px, pt -->
+  <!-- 개발하기에는 이게 더 쉬움. 픽셀계산만 잘하면! -->
+  
+  <img src="../images/cats/cat1.jpg" width="300px" height="240px">
+  <img src="../images/cats/cat2.jpg" width="300px" height="240px">
+  <img src="../images/cats/cat3.jpg" width="300px" height="240px">
+  <img src="../images/cats/cat4.jpg" width="300px" height="240px">
+  <img src="../images/cats/cat5.jpg" width="300px" height="240px">
+
+
+  <h2>가변 크기 단위(%) : 화면 또는 영역에 대한 상대적 크기 단위</h2>
+  <!-- %, em, rem, vh, vw -->
+
+  <img src="../images/dogs/dog1.jpg" width="15%" height="240px">
+  <img src="../images/dogs/dog2.jpg" width="15%" height="240px">
+  <img src="../images/dogs/dog3.jpg" width="15%" height="240px">
+  <img src="../images/dogs/dog4.jpg" width="15%" height="240px">
+  <img src="../images/dogs/dog5.jpg" width="15%" height="240px">
+
+
+
+
+</body>
+</html>
