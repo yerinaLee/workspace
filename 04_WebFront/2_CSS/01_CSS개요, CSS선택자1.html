@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_CSS개요, CSS선택자1</title>
+
+  <style>
+    /* css 주석은 범위 주석만 존재 */
+    /* style 태그 : 내부에 CSS 코드만 작성할 수 있는 태그 */
+
+    /* 태그 선택자 */
+    strong{ background-color: coral;}
+    /* strong 태그의 배경색을 coral로 지정 */
+    
+    span{ background-color: pink;}
+    /* span 태그의 배경색을 pink로 지정 */
+    
+    div{ border: 3px solid skyblue;}
+    /* div 태그에 3px 두께의 실선 하늘색 지정 */
+    
+    /****** id선택자 ******/
+    #li1 { background-color: red;}
+    #li2 { background-color: orangered;}
+    #li3 { background-color: yellow;}
+    #li4 { background-color: green;}
+    #li5 { background-color: blue;}
+
+    /* 하나의 요소에 겹쳐서 CSS 추가하기 */
+    /* 콤마(,)를 이용하면 여러 요소 선택 가능 */
+    #li1, #li2, #li3, #li4, #li5 {
+      /* color : 글자색 */
+      color: beige;
+
+      /* font-weight : 폰트 두께 */
+      font-weight: bold;
+
+      padding: 5px;
+    }
+    
+    /****** 클래스 선택자 ******/
+
+    /* 클래스 test1을 지닌 요소의 글자색을 red로 지정 */
+    .test-1 { color : red; }
+
+    /* 클래스 test2를 지닌 요소의 배경색을 black, 글자색을 white로 지정 */
+    .test-2 { 
+      background-color: black;
+      color: white;
+    }
+    /* (중요) CSS가 적용되는 요소가 겹치는 경우
+      마지막에 작성한 CSS가 적용된다!!!
+    */
+
+    /* 클래스 aaa의 글자 크기를 20px로 지정 */
+    .aaa {
+      font-size: 20px;
+    }
+
+    /****** 모든 요소 선택자 ******/
+    * {font-style: normal; }
+
+    /* 웹 폰트 추가 */
+    @font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    /* 모든 요소에 웹폰트 적용 */
+    * { font-family: 'HakgyoansimWoojuR' ;}
+
+  </style>
+  
+
+
+</head>
+<body>
+
+  <h1>CSS(Cascading Style Sheets) </h1>
+
+  <pre>
+    마크업 언어(HTML)가 실제로 화면에 표시되는 방법을 기술하는 언어
+    (모양, 색상, 크기, 스타일 ... 지정 가능)
+
+    하나의 요소에 여러 CSS코드를 겹쳐서 원하는 스타일을 만들 수 있다
+
+    W3C에서 CSS를 웹 표준으로 지정함
+  </pre>
+
+  <hr><hr>
+
+  <h1>CSS 선택자(Selector)</h1>
+
+  <pre>
+    현재 HTML 문서 내에서 특정 요소를 선택하는 문자 또는 문자열(기호)
+
+    (스타일을 적용하고자 하는 요소를 선택하는 방법)
+
+    요소 : 시작태그 + 속성 + 내용 + 종료태그
+    
+    ** CSS 코드를 작성하는 방법 **
+    1. head 태그에 style 태그를 이용해서 작성하는 방법
+    2. 외부에 css 파일을 별도로 생성하여 연결하는 방법
+  </pre>
+
+  <hr>
+
+  <h3>태그 선택자</h3>
+
+  <pre>
+    현재 HTML문서 내에 같은 태그를 모두 선택하는 선택자
+
+    <strong>[작성법]</strong>
+    태그명 { CSS코드; }
+  </pre>
+
+  <div>
+    <strong>strong 태그에 작성된 내용입니다.</strong>
+    <br>
+
+    <span>span 태그에 작성된 내용입니다</span>
+
+    <ul>
+      <li>
+        <strong>strong 태그에 작성된 내용입니다.</strong>
+      </li>
+      <li>
+        <span>span 태그에 작성된 내용입니다</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <hr>
+
+  <h3>id 선택자 (#id속성값)</h3>
+
+  <pre>
+    HTML문서 내에서 id 속성값이 일치하는 요소를 선택하는 선택자
+
+    <strong>(중요!!)</strong>
+    id 속성 값은 페이지 내에서 유일해야 한다!!
+    (제발 중복해서 쓰지마요 ㅠㅠ)
+
+    <strong>[작성법]</strong>
+    #id속성값 { css 코드; }
+  </pre>
+
+  <!-- 각 언어의 표기법
+    Java : 카멜표기법 (helloWorld, userName)
+    DB   : 언더바 표기법 (EMP_NO, DEPT_CODE)
+
+    HTML : 카멜표기법 [id 속성값] (userName, memberAddress)
+           하이픈 표기법 [나머지 속성] (li-1, li-2, user-id)
+   -->
+
+   <!-- ol>li*5#li${id 선택자 테스트$} -->
+   <ol>
+    <li id="li1">id 선택자 테스트1</li>
+    <li id="li2">id 선택자 테스트2</li>
+    <li id="li3">id 선택자 테스트3</li>
+    <li id="li4">id 선택자 테스트4</li>
+    <li id="li5">id 선택자 테스트5</li>
+   </ol>
+
+   <hr>
+
+   <h3>클래스 선택자(.class속성값)</h3>
+   <pre>
+    HTML문서 내에서 클래스 속성값이 일치하는 요소를 선택하는 선택자
+
+    <strong>[작성법]</strong>
+    .class속성값 { CSS 코드; }
+
+    ** 요소에 CSS를 적용할 때에는 id보단 class를 이용하는 것이 좋다 **
+    (css는 대부분 class사용. id는 JS에서 주로 사용)
+   </pre>
+
+   <ul>
+    <li class="test-1">클래스 선택자 테스트1</li>
+    <li class="test-2">클래스 선택자 테스트2</li>
+    <li class="test-1">클래스 선택자 테스트3</li>
+    <li class="test-2">클래스 선택자 테스트4</li>
+    <li class="test-1">클래스 선택자 테스트5</li>
+
+    <li class="aaa">클래스 선택자 테스트6</li>
+    
+    <!-- 여러 클래스 적용 -->
+    <li class="aaa test-1">클래스 선택자 테스트7</li>
+
+    <li class="test-2 aaa">클래스 선택자 테스트8</li>
+
+    <!-- 여러 클래스 작성 시 class 속성 값 순서는 의미 없음
+        -> style 태그 css 코드 작성 순서에 따라 다름
+    -->
+    <li class="test-1 test-2 aaa">클래스 선택자 테스트9</li>
+    <li class="test-2 test-1 aaa">클래스 선택자 테스트9</li>
+</ul>
+
+<hr>
+
+<h3>모든 요소 선택자(*)</h3>
+<pre>
+  단독 사용 시 : 문서에 있는 모든 요소
+
+  다른 선택자와 사용 시 : 선택된 요소의 모든 자식/후손/형제
+</pre>
+
+</body>
+</html>
