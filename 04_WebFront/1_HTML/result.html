@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과 페이지</title>
+</head>
+<body>
+    <h1>입력된 아이디 : <span id="id"></span></h1>
+    <h1>입력된 비밀번호 : <span id="pw"></span></h1>
+    
+    <hr>
+
+    <h1>입력된 이름 : <span id="name"></span></h1>
+    <h1>입력된 나이 : <span id="age"></span></h1>
+
+    <hr>
+
+    <h1>선택된 팀 : <span id="team"></span></h1>
+
+    <h1>선택된 취미 : <span id="hobby"></span></h1>
+
+    <script>
+        const id = document.getElementById("id");
+        const pw = document.getElementById("pw");
+        
+        const params = new URL(location.href).searchParams;
+        id.innerText = params.get("inputId");
+        pw.innerText = params.get("inputPw");
+
+        const name = document.getElementById("name");
+        const age = document.getElementById("age");
+
+        name.innerText = params.get("inputName");
+        age.innerText = params.get("inputAge");
+
+        const team = document.getElementById("team");
+        team.innerText = params.get("team");
+        
+        const hobby = document.getElementById("hobby");
+        hobby.innerText = params.getAll("hobby");
+
+
+    </script>
+</body>
+</html>

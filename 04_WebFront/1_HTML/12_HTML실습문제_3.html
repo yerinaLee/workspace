@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12_HTML실습문제_3</title>
+</head>
+<body>
+  <h1>회원 가입</h1>
+  <fieldset><legend>필수 입력 사항</legend>
+  <table>
+    <tr>
+      <th>ID</th>
+      <td colspan="2"> <input type="text" placeholder="아이디 10글자 이내"> <button>중복 확인</button></td>
+    </tr>
+    <tr>
+      <th>비밀번호</th>
+      <td colspan="2"><input type="text"  size=30 placeholder="영문,숫자,특수문자 포함 8자 이상"></td>
+    </tr>
+    <tr>
+      <th>비밀번호 확인</th>
+      <td colspan="2"> <input type="text" size="30"> </td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><input type="text"></td>
+      <td><select><option>직접입력</option></select></td>
+    </tr>
+
+  </table>
+  </fieldset>
+
+  <fieldset><legend>추가 정보</legend>
+    프로필 사진 <input type="file"><br><br>
+    
+    성별 : <input type="radio" name="gender" checked> 남자 
+    <input type="radio" name="gender"> 여자<br><br>
+    
+    생년월일 : <input type="date"> <br><br>
+
+    취미<br>
+    <input type="checkbox" name="hobby"> 야구
+    <input type="checkbox" name="hobby"> 농구
+    <input type="checkbox" name="hobby"> 축구
+    <br>
+    <input type="checkbox" name="hobby" checked> 공부
+    <input type="checkbox" name="hobby"> 음악감상
+    <br>
+    <input type="checkbox" name="hobby"> 기타 <input type="text">
+    <br><br>
+
+    자기소개<br>
+    <textarea name="" id="" cols="60" rows="8"></textarea>
+  </fieldset>
+  <br>
+  <button>회원가입</button>  
+  <button>다시입력</button>  
+  <button>이전으로</button>  
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08_하이퍼링크 관련 태그</title>
+</head>
+<body>
+  <h1>하이퍼 링크 관련 태그 : a(anchor앵커 , 연결, 고정) 태그</h1>
+
+  <pre>
+    a태그는 현재 HTML 문서와 다른 HTML 문서를 연결해서
+    페이지 이동을 할 수 있게하는 기능을 제공
+    -> 이 때 a태그로 감싸진 문자열 == 하이퍼링크(or 하이터텍스트)
+
+    * 하이퍼링크는 웹(html)문서가 다른 문서와 구분되는 핵심적인 기능
+  </pre>
+
+  <hr>
+
+  <h2>a태그를 이용한 하이퍼 링크 구현</h2>
+  <pre>
+    href(HyperText Reference) 속성 : 연결할 주소를 지정하는 속성
+
+    target="_blank" 속성 : 새 탭에서 열기
+  </pre>
+
+  <!-- ul>li*7>a -->
+  <ul>
+    <!-- 상대 경로 방식으로 수업 파일 연결하기 -->
+    <li>
+      <a href="01_글자관련태그.html">글자 관련 태그</a>
+    </li>
+    <li><a href="02_목록관련태그.html">목록관련태그</a></li>
+    <li><a href="03_글자+목록태그 연습문제.html">글자+목록태그 연습문제</a></li>      
+    <li><a href="04_표관련태그.html">표관련태그</a></li>
+    <li><a href="05_표 연습문제.html">표 연습문제</a></li>
+    <li><a href="06_이미지관련태그.html">이미지관련태그</a></li>
+    <li><a href="07_영역관련태그.html">영역관련태그</a></li>
+  </ul>
+
+  <hr>
+
+
+  <h3>a태그와 다른 태그 같이 사용하기</h3>
+  <!-- a태그는 inline
+        h1태그는 block
+      
+      inline, block을 함께 사용할때는 무조건 block이 감싸는 쪽!
+  -->
+  <h1>
+    <a href="http://www.naver.com" target="_blank">
+      네이버로 이동
+    </a>
+  </h1>
+
+  <h4>이미지 클릭 시 이동하기</h4>
+  <a href="http://www.kh-academy.co.kr" target="_blank">
+    <img src="https://kh-academy.co.kr/resources/images/main/logo.svg" 
+          alt="KH정보교육원 로고" width="50%" height="50px">
+  </a>
+
+
+  <hr><hr>
+
+  <h2>페이지 내부에서 점프하기</h2>
+  <!-- id속성 : 한 HTML 문서 내에서 HTML 요소를 구분하는 식별값 
+        -> 한 HTML 문서 내에 중복되는 id는 존재하면 안됨!
+        -> id는 확정적으로 쓰일 수 있는 곳에서 많이 쓰임. CSS 보다는 JS에서 많이씀!
+
+        # == id 속성을 나타내는 기호 (요소단위)
+        . == class 속성을 나타내는 기호 (그룹단위)
+  
+      -->
+  <ul id="list">
+    <li><a href="#flower1">꽃 1</a></li>
+    <li><a href="#flower2">꽃 2</a></li>
+    <li><a href="#flower3">꽃 3</a></li>
+  </ul>
+
+  <h3 id="flower1">꽃 1</h3>
+  <img src="../images/flowers/flower1.jpg" alt="꽃 첫번째 이미지"> <br>
+  <a href="#list">목록으로 이동</a>
+
+  <h3 id="flower2">꽃 2</h3>
+  <img src="../images/flowers/flower2.jpg" alt="꽃 두번째 이미지"> <br>
+  <a href="#list">목록으로 이동</a>
+
+  <h3 id="flower3">꽃 3</h3>
+  <img src="../images/flowers/flower3.jpg" alt="꽃 세번째 이미지"> <br>
+  <a href="#list">목록으로 이동</a>
+
+
+</body>
+</html>
