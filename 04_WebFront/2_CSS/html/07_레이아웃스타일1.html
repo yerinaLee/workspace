@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07_레이아웃스타일1</title>
+  <link rel="stylesheet" href="../css/07_레이아웃스타일1.css">
+</head>
+<body>
+  <h1>레이아웃(layout)</h1>
+  <pre>
+    사전적 의미 : 배치, 정리
+    기술적 의미 : 구성 요소를 제한된 공간에 효율적으로 배치하는 것
+  </pre>
+  
+  <hr>
+
+  <h1>화면 배치(표시) 방법 : display</h1>
+  <pre>
+    요소가 화면에 어떻게 보여질지 형식을 지정하는 속성
+
+    - block : 화면을 수직분할(행을 나눔, 한 줄 다 차지)
+            + width, height 지정 가능
+
+    - inline : 화면을 수평분할(하나의 행의 열을 나눔 == 글자, 문자열 생각하면 됩니다 한줄!)
+            + width, height 지정 불가능
+    
+    - inline-block : inline의 수평 분할 + block의 width, height 지정
+
+    - none : 요소는 존재하나 화면에는 보이지 않게 함
+
+    - flex : 요소의 정렬되는 방향, 요소간의 간격을 유연하게 처리하는 형식
+
+    - grid : 격자무늬 형식으로 화면을 쉽게 분할하는 형식
+
+  </pre>
+  <hr>
+
+  <h3>block 형식의 요소(div)를 inline 형식으로 변경</h3>
+  <!-- div.block.area$.inline{$번 영역}*5 -->
+  <div class="block area1 inline">1번 영역</div>
+  <div class="block area2 inline">2번 영역</div>
+  <div class="block area3 inline">3번 영역</div>
+  <div class="block area4 inline">4번 영역</div>
+  <div class="block area5 inline">5번 영역</div>
+
+  <hr>
+
+  <h3>inline 형식의 요소(span)을 block 형식으로 변경</h3>
+  <!-- span.area$.block{$번 영역}*5 -->
+  <span class="area1 block">1번 영역</span>
+  <span class="area2 block">2번 영역</span>
+  <span class="area3 block">3번 영역</span>
+  <span class="area4 block">4번 영역</span>
+  <span class="area5 block">5번 영역</span>
+
+  <hr>
+
+  <h3>inline-block 확인하기 (한 줄에 배치 + 크기 적용)</h3>
+  <div class="block area1 inline-block">1번 영역</div>
+  <div class="block area2 inline-block">2번 영역</div>
+  <div class="block area3 inline-block">3번 영역</div>
+  <div class="block area4 inline-block">4번 영역</div>
+  <div class="block area5 inline-block">5번 영역</div>
+
+
+  <hr><hr>
+
+  <h1>화면 분할(영역 분할)</h1>
+
+  <h3>상하 2분할</h3>
+  <pre>
+    [준비물]
+    - 감싸는 요소
+    - 내부 영역 분할 요소
+    - display : block
+    - 크기 단위(px, %)
+  </pre>
+
+  <!-- container : 감싸는 영역 요소 -->
+  <div class="container-1">
+
+    <!-- 내부 영역 분할 요소 (div == display:block) -->
+    <div></div>
+    <div></div>
+
+  </div>
+
+  <h3>상하 3분할</h3>
+  <pre>
+    - 감싸는 요소(부모 요소)클래스명 : container-2
+    - 부모요소 크기 : 너비:300px, 높이:600px
+    - 상하 분할 비율 : 20:30:50
+    - 배경색 자유~
+
+  </pre>
+
+  <div class="container-2">
+
+    <div></div>
+    <div></div>
+    <div></div>
+
+  </div>
+
+  <hr><hr>
+
+  <h3>좌우 2분할</h3>
+  <pre>
+    [준비물]
+    - 감싸는 요소
+    - 내부 분할 요소
+    - display : inline-block (가로로 배치, 크기지정 O)
+    - 가변 크기 단위(%)
+
+    ** 주의 사항 **
+    inline이라는 단어가 들어가 있으면 글자처럼 취급됨!
+    (글자 사이에는 띄어쓰기가 있다!!! 엔터조심해라!!!!)
+  </pre>
+ 
+  <div class="container-3">
+    <div></div><div></div>
+  </div>
+
+  <hr>
+
+  <h3>좌우 3분할</h3>
+  <pre>
+    - 감싸는 요소(부모 요소)클래스명 : container-4
+    - 부모요소 크기 : 너비:600px, 높이:300px
+    - 좌우 분할 비율 : 30:50:20
+    - 배경색 자유~
+  </pre>
+
+  <div class="container-4">
+    <div></div><div></div><div></div>
+  </div>
+
+  <hr>
+
+  <div class="container-5">
+    <!-- retry!! -->
+    <!-- 1열 -->
+    <div id="row1">
+      <div></div><div></div>
+    </div>
+
+    <!-- 2열 -->
+    <div id="row2"></div>
+  </div>
+
+  <hr><hr>
+
+  <div class="container-6">
+    <div class="row6-1">
+      <div class="col6-1"></div><div class="col6-2"></div>
+    </div>
+    <div class="row6-2"></div>
+  </div>
+
+
+</body>
+</html>

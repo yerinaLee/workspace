@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="../css/04_CSS선택자4.css">
+</head>
+<body>
+  <h2>일반 구조 선택자</h2>
+  <pre>
+      형제 관계에 있는 요소 중 특정 요소를 선택하는 선택자
+
+      (중요) 위치를 기준으로 구분함
+
+      :first-child     
+      :nth-child(수열)
+      :last-child
+      :nth-last-child(수열)
+  </pre>
+
+  <div id="test1">
+      <p>테스트1</p>
+      <p>테스트2</p>
+      <p>테스트3</p>
+      <p>테스트4</p>
+      <p>테스트5</p>
+      <pre>테스트6</pre>
+  </div>
+
+  <hr>
+  <h2>형태 구조 선택자</h2>
+  <pre>
+      선택된 형제 관계 요소 중 특정 요소를 선택하는 선택자.
+
+      (선택된 요소들을 기준으로 구분)
+
+      :first-of-type : 같이 선택된 형제들 중에서 첫 번째 요소
+      :last-of-type : 같이 선택된 형제들 중에서 마지막 요소
+      :nth-of-type(수열) : 같이 선택된 형제들 중에서 수열 번째 모든 요소
+      :nth-last-of-type(수열) : 같이 선택된 형제들 중에서 뒤에서 수열 번째 모든 요소
+
+  </pre>
+
+  <div id="test2">
+      <pre>테스트0</pre>
+      <p>테스트1</p>
+      <p>테스트2</p>
+      <p>테스트3</p>
+      <p>테스트4</p>
+      <p>테스트5</p>
+      <pre>테스트6</pre>
+  </div>
+
+  <hr>
+  <h2>부정 선택자 ( 선택자1:not(선택자2) )</h2>
+  <pre>
+    괄호 내 선택자를 제외한 나머지 요소를 선택
+  </pre>
+
+  <ul id="test3">
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    <li>item4</li>
+    <li>item5</li>
+    <li>item6</li>
+    <li>item7</li>
+    <li>item8</li>
+    <li>item9</li>
+    <li>item10</li>
+  </ul>
+
+
+
+</body>
+</html>

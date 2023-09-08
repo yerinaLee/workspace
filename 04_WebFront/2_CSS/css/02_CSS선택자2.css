@@ -1,0 +1,136 @@
+strong{ 
+  color : red;
+  font-size: 1.3em;       /* em: 상대적인것. ~배 */
+}
+
+/*----- 기본 속성 선택자 -----*/
+
+/* div 태그 중 name 속성의 값이 name-1인 요소만 선택 */
+div[name="name-1"] { background-color: chartreuse; }
+
+/* div 태그 중 name 속성의 값이 name-2인 요소만 선택 */
+div[name="name-2"] { background-color: burlywood; }
+
+/* p 태그 중 data 속성의 값이 data-1인 요소만 선택 */
+p[data="data-1"]{background-color: cornflowerblue;}
+
+/* p 태그 중 data 속성의 값이 data-2인 요소만 선택 */
+p[data="data-2"]{background-color: aqua;}
+
+/* 모든 요소 중 name 속성의 값이 name-1인 요소 선택 */
+[name="name-1"] { color : yellow; }
+
+
+/*----- 자식 선택자(>) -----*/
+#parent1 > li { background-color: darkgreen; }
+#parent1 > li > span { background-color: cornflowerblue; }
+
+
+/*----- 후선 선택자(띄어쓰기) -----*/
+
+/* #parent2에 테두리 추가 */
+#parent2 { border: 2px solid black ;}
+
+/* #parent2의 후손 중 모든 p태그 요소의 배경색을 변경 */
+#parent2 p { background-color :darkslategrey }
+
+
+/*----- 반응 선택자 -----*/
+.test-div{
+  /* 10px 실선 검정 테두리 */
+  border: 10px solid black; 
+
+  /* 너비, 높이 지정(block 형식만 가능) */
+  width: 200px;
+  height: 200px;
+
+  /* rgb 16진수 표기법 */
+  background-color: #ddd;
+  
+  /* 아래쪽 요소와 30px 간격 추가 */
+  margin-bottom: 30px;
+
+  /* 요소 위에 마우스 위치 시 손가락으로 변환 */
+  cursor: pointer;
+}
+
+/* 클릭 유지 시 변경 */
+#activeTest:active{
+  background-color: yellow;
+
+  /* width: 190px;
+  height: 190px; */
+
+  /* inset : 음각 */
+  border: 10px inset gray; 
+}
+
+/* 마우스가 올라왔을 때 */
+#hoverTest:hover{
+  /* background-color: hotpink; */
+
+  /* 배경에 이미지 추가 */
+  background-image: url(../../images/dogs/dog1.jpg);
+
+  /* 배경 이미지 크기를 요소에 맞춤 */
+  background-size: cover;
+}
+
+/*----- 상태 선택자 -----*/
+
+/* 입력 요소에 초점이 맞춰졌을 때(:focus) */
+#focus-test:focus {
+  /* background-color: chartreuse; */
+
+  /* outline : 입력 요소 선택 시 생성되는 테두리 */
+  outline-color: blueviolet;
+}
+
+/* 체크가 되었을 때(:checked) */
+input[name="fruits"]:checked{
+  width: 30px;
+  height: 30px;
+  /* background-color: red; */
+  /* -> radio, checkbox 클릭시 보여지는 표시는 이미지이기때문에
+      색상 적용이 되지 않는다!! */
+}
+
+
+/* 활성화(:enabled) / 비활성화(:disabled) */
+#test-div2 > input:enabled{ background-color: aquamarine;}
+
+#test-div2 > input:disabled{ background-color: cornflowerblue;}
+
+
+
+/*----- 동위 선택자 -----*/
+
+/* A + B : A 바로 뒤에 있는 B 선택 */Tilde
+#div1 + div{ background-color: silver;}
+
+/* A ~ B : A 뒤에 있는 모든 B 선택 */
+/* 중간에 관계없는 형제는 건너뜀 */
+#div3 ~ div{ background-color: chocolate;}
+
+
+/*----- 체크박스 만들기 -----*/
+/* 1) label 스타일 지정하기 */
+#check-1 + label{
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  display: inline-block; /* inline + 크기조절 */
+  border-radius: 15%; /* 모서리 라운딩 처리 */
+  cursor: pointer; /* 모서리 손가락 모양 */
+}
+
+/* #check-1 체크박스가 체크 되었을 때 뒤에 있는 label 요소 선택*/
+#check-1:checked + label{
+  background-image: url(../../images/check.png);
+  background-repeat: no-repeat; /* 배경 반복 X */
+  background-size: 27px;
+  background-position: -1px 4px; /* x축 y축 방향으로 이동 */
+}
+
+/* #check-1을 존재는 하지만 보이지 않게 처리 */
+#check-1{ display:none; }

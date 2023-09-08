@@ -1,0 +1,55 @@
+/* :only-child */
+#test1-1 > p:only-child {
+  /* #test1-1 자식 중 p태그가 유일한 자식인 경우 */
+  background-color: gold;
+}
+
+#test1-2 > p:only-child {
+  /* #test1-1 자식 중 p태그가 유일한 자식인 경우 */
+  /* -> p, pre태그 자식이 둘 존재해서 p태그가 유일한 자식이 아니기에 선택 X */
+  background-color: silver;
+}
+
+/* :only-of-type */
+#test2 > p:only-of-type{
+  /* #test2의 자식 p태그가 하나 밖에 없다면 */
+  background-color: palegreen;
+}
+
+/* :only-of-type */
+#test2 > pre:only-of-type{
+  /* #test2의 자식 pre태그가 하나 밖에 없다면 */
+  background-color: violet;
+}
+
+/* :empty */
+#test3 > p:empty{
+  height: 30px;
+  background-color: greenyellow;
+}
+
+/* 여러 선택자 동시 작성 */
+#test4-1, #test4-2, .test4-3{
+  border: 3px dashed violet; /* dashed : 절취선 모양 */
+}
+
+
+/* 특정 요소 내부에 있는 특정 클래스만 선택 */
+
+/* #test5-1의 후손 중 클래스가 c5인 요소 선택 */
+#test5-1 .c5 {
+  background-color: skyblue;
+}
+
+/* #test5-2의 자식 li 태그 중
+  클래스가 c5인 요소 선택*/
+
+/* 띄어쓰기(후손 선택자 조심히 사용!) */
+#test5-2 > li.c5 {
+  background-color: thistle;
+}
+
+/* 여러 클래스가 작성된 요소만 선택 */
+.test6.c6{
+  background-color: red;
+}

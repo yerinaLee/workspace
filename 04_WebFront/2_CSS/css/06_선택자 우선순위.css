@@ -1,0 +1,26 @@
+/* 5순위 : 태그 선택자 */
+div {
+  width: 200px;
+  height: 200px;
+  background-color: red !important ; /* 1순위 : !important */
+}
+
+/* 4순위 : 클래스 선택자 */
+.cls1{
+  background-color: green !important;
+}
+
+/* 3순위 : id 선택자 */
+#test1{
+  background-color: black  !important;
+  color: white;
+  height: 100px;
+}
+
+/* !important로 같은 요소에 같은 CSS 설정이 적용되면
+  1) 감싸고있는 선택자 우선순위를 먼저 판별(높은게 우선)
+  2) 감싸고 있는 선택자 우선순위가 같으면 마지막 작성된 내용이 적용
+*/
+#test1{
+  background-color: violet !important;
+}
