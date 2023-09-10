@@ -1,0 +1,51 @@
+/* 감싸는 화면 */
+.container{
+    width: 500px;
+    height: 500px;
+    border: 3px solid black;
+}
+
+/* 1, 2열 높이지정 */
+.container > div {
+    height: 50%;
+}
+
+/* 2열 색깔 */
+.container > div:nth-child(2) {              
+    background-color: #F2ECBE;
+}
+
+/* 1열 좌우2분할 */
+.row1 > div {
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+    background-color: #E2C799;
+}
+
+/* 1열 1행 컬러 */
+.row1 > .row1-1{
+    background-color: #C08261;
+}
+
+/* 1열1행 좌우2분할 */
+.row1-1 > div {
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+}
+
+/* 1-1-1 컬러 */
+.row1-1 > .row1-1-1{
+    background-color: #9A3B3B;
+}
+
+/* 1열2행 상하2분할 */
+.row1-2 > div{
+    height: 50%;
+}
+
+/* 1-2-1 컬러 */
+.row1-2-1 {
+    background-color: bisque;
+}
