@@ -1,0 +1,78 @@
+.container {
+  width: 1280px;
+  height: 3000px;
+  border : 1px solid black
+}
+
+.col-1{ width: 10%; }
+.col-2{ width: 20%; }
+.col-3{ width: 30%; }
+.col-4{ width: 40%; }
+.col-5{ width: 50%; }
+.col-6{ width: 60%; }
+.col-7{ width: 70%; }
+
+.col{ width: 100%; }
+.row{ height: 100%;}
+
+.row-1{height: 10% ;}
+.row-2{height: 20% ;}
+.row-3{height: 30% ;}
+.row-4{height: 40% ;}
+.row-5{height: 50% ;}
+.row-6{height: 60% ;}
+.row-7{height: 70% ;}
+
+/* 기본 스타일 글꼴 */
+* { font-style: normal;
+  font-family: 'NanumBarunGothic'; }
+
+  @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+   }
+   
+   @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+   }
+   
+   @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+   }
+   
+   .nanumbarungothic * {
+    font-family: 'NanumBarunGothic', sans-serif;
+   }
+
+
+/* 강조 글꼴 */
+.text-impact{
+  font-family: 'SEBANG_Gothic_Bold';
+}
+
+@font-face {
+  font-family: 'SEBANG_Gothic_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.inb {
+  display: inline-block;
+}
+
+.p2{ font-size: 20px; color: rgb(0, 157, 218); text-align: center;}
+.p1{ text-align: center;}
+
+
