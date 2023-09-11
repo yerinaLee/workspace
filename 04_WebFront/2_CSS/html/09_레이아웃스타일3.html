@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_레이아웃 스타일 3</title>
+  <link rel="stylesheet" href="../css/09_레이아웃스타일3.css">
+</head>
+<body>
+  <h1>요소 정렬 스타일(float / clear)</h1>
+
+  <pre>
+    float(뜨다, 띄우다, 뜨는 물건) : 요소를 띄워서 좌/우로 정렬하는 속성
+    
+    clear : float로 인해 띄워져 있는 상태를 해제하는 속성
+
+    (float 사용 시 요소가 겹치는 문제를 clear로 해결)
+  </pre>
+
+  <h3>기본 형태</h3>
+  <div class="test">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>Hello</div>
+      <div>World</div>
+      <div>5</div>
+  </div>
+  
+  <hr>
+
+  <h3>float:left / clear:left</h3>
+  <div class="test">
+      <div class="float-left">1</div>
+      <div class="float-left">2</div>
+      <div class="float-left">3</div>
+      <div class="float-left">4</div>
+      <div>Hello</div>
+      <div class="clear-left">World</div>
+      <div class="float-left">5</div>
+  </div>
+
+  <hr>
+
+    <h3>float:right / clear:right</h3>
+  <div class="test">
+      <div class="float-right">1</div>
+      <div class="float-right">2</div>
+      <div class="float-right">3</div>
+      <div class="float-right">4</div>
+      <div>Hello</div>
+      <div class="clear-right">World</div>
+      <div class="float-right">5</div>
+      <div class="clear-right">안뇽하세용</div>
+  </div>
+
+    <h3>float:left + right / clear:both</h3>
+  <div class="test">
+      <div class="float-left">1</div>
+      <div class="float-left">2</div>
+      <div class="float-right">3</div>
+      <div class="float-right">4</div>
+      <div>Hello</div>
+      <div class="clear-both">World</div>
+      <div class="float-left">5</div>
+  </div>
+
+  <hr>
+
+  <h2>float를 이용한 영역 분할</h2>
+
+  <h3>좌우 2분할</h3>
+  <div class="container-1">
+    <div class="col col-5 bg-4"></div>
+    <div class="col col-5 bg-5"></div>
+  </div>
+
+  <hr>
+
+  <h3>4분할 (田)</h3>
+  <div class="container-2"> <!-- 300 X 300 -->
+
+    <div class="row row-5">
+      <div class="col col-5 bg-2"></div>
+      <div class="col col-5 bg-6"></div>
+    </div>
+    <div class="row row-5">
+      <div class="col col-5 bg-3"></div>
+      <div class="col col-5 my-bg-1"></div>
+    </div>
+
+  </div>
+  <hr>
+
+  <h3>연습문제</h3>
+  <div class="container-3">
+
+    <!-- 1행 -->
+    <div class="row row-2">
+      <div class="col col-2 my-bg-3"></div>
+      <div class="col col-6 my-bg-5"></div>
+      <div class="col col-2 my-bg-3"></div>
+    </div>
+
+    <!-- 2행 -->
+    <div class="row row-4">
+      <div class="col col-5 my-bg-4"></div>
+      <div class="col col-5 my-bg-1"></div>
+    </div>
+    
+    <!-- 3행 -->
+    <div class="row row-4 my-bg-2"></div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08_레이아웃 스타일 2</title>
+  <link rel="stylesheet" href="/2_CSS/css/08_레이아웃스타일2.css">
+</head>
+<body>
+  <h1>요소의 영역(여백) 관련 스타일</h1>
+
+  <pre>
+    HTML 요소는 총 4가지의 영역으로 구성되어 있음.
+
+    1. content(내용) 영역
+      - 요소의 내용이 작성되어지는 영역
+      (시작태그와 종료태그 사이에 작성되는 내용을 생각하면 된다)
+
+    2. padding
+      - content와 border 사이의 공간
+
+    3. border(테두리) 영역
+      - 요소의 테두리가 지정되는 영역
+      - content보다 바깥쪽에서 content를 감싸고 있음
+    
+    4. margin(여백, 간격)
+      - 다른 요소와의 간격을 나타내는 영역
+
+    <hr>
+    box-sizing
+
+    - width/height 크기 조정 속성의 범위를 지정하는 css 속성
+
+    1) content-box
+      - width/height 지정 시 content 영역의 크기만 조정
+        (기본값)
+
+    2) border-box
+      - width/height 지정 시
+      content + padding + border의 크기를 합산한 결과가
+      작성된 width/height와 같아지도록
+      content 영역의 크기를 자동으로 조정
+  </pre>
+
+
+  <hr>
+
+  <h3>기준</h3>
+  <div class="box">내용(content)</div>
+
+  <hr>
+  <h3>content 영역</h3>
+  <div class="box content">내용(content)</div>
+
+  <hr>
+  <h3>border 영역</h3>
+  <div class="box border">내용(content)</div>
+
+  <hr>
+  <h3>padding 영역</h3>
+  <div class="box padding border">내용(content)</div>
+
+  <hr>
+  <h3>margin 영역</h3>
+  <div class="box padding border margin">내용(content)</div>
+  <div class="box padding border margin" id="margin-test">내용(content)</div>
+
+  <hr>
+  <h3>box-sizing : border-box; </h3>
+
+  <pre>
+    요소의 영역 중 실제로 화면에 보여지는 부분인
+    content, padding, border의 크기를 각각 지정하다보니
+    한 요소의 전체 크기를 계산하는데 어려움이 있다!
+    -> 이를 해결하기 위한 방법으로 
+    box-sizing : border-box; 사용
+  </pre>
+
+  <div class="box content padding border border-box">내용(content)</div>
+
+  <hr><hr>
+
+  <h2>padding, border, margin의 방향성</h2>
+  <pre>
+    (OOO는 padding, border, margin)
+    
+    OOO-top : 크기
+    OOO-bottom : 크기
+    OOO-left : 크기
+    OOO-right : 크기
+
+    단, border의 속성값은 [크기 모양 색상] 형식으로 작성
+    
+  </pre>
+
+  <div class="box" id="test2">내용(content)</div>
+
+  <hr>
+
+  <h3>padding, border, margin 크기 한 번에 지정하기</h3>
+  <pre>
+    padding | margin | border-width :
+
+    속성값 1개 : 상하좌우     지정
+    속성값 2개 : 상하   좌우  지정
+    속성값 3개 : 상  좌우  하 지정 (위 -> 아래)
+    속성값 4개 : 상 우 하 좌  지정 (상 기준 시계방향)
+  </pre>
+
+  <div class="box" id="test3">내용(content)</div>
+
+  <hr>
+  <h2>margin : auto; </h2>
+  <pre>
+    다른 요소와의 간격을 자동으로 지정(가운데 정렬)
+    - 기본적으로 좌우 간격만 지정됨
+    - 지정되는 대상은 block 형식의 요소여야 된다
+    (inline형식은 text-align : center; 사용)
+  </pre>
+
+  <div class="container">
+    <div class="box" id="test4">auto 테스트</div>
+  </div>
+
+</body>
+</html>

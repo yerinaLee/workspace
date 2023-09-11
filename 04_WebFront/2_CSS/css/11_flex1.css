@@ -1,0 +1,46 @@
+.flex-container{
+  height: 700px;
+  background-color: #ccc;
+
+  /* flex 지정 */
+  display: flex;
+
+  /* flex-direction : 중심축 방향 + 시작/끝 */
+  /* 기본값 */
+  flex-direction: row; 
+  /* flex-direction: row-reverse;  반대방향! */ 
+  /* flex-direction: column; 수직을 기준으로 */
+  /* flex-direction: column-reverse; 수직 반대방향*/
+
+  /* justify-content : 중심축 방향을 기준으로 item 정렬 */
+
+  /* 기본값 */
+  /* justify-content: flex-start; */
+  justify-content: flex-end; /* 오른쪽 정렬, 중심축은 변화x */
+  justify-content: center; /* 가운데 정렬 */
+
+  justify-content: space-around;
+  justify-content: space-evenly;
+  justify-content: space-between;
+  
+  
+  /* align-items : 교차축을 기준으로 item 정렬 */
+
+  /* 기본값 */
+  /* 원래는 교차축 방향으로 늘어나는데 height 지정을 해놔서 확인 X */
+  /* .item의 height를 삭제하면 확인 가능 */
+  /* align-items: stretch; */
+
+  align-items: flex-start; /* 맨 위! */
+  align-items: center; /* 가운데! */
+  align-items: flex-end; /* 맨 밑! */
+
+  align-items: baseline;
+}
+
+
+/* .item2{ padding: 5px;}
+.item3{ padding: 10px;}
+.item4{ padding: 15px;}
+.item5{ padding: 20px;} */
+

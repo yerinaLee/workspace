@@ -1,0 +1,102 @@
+div{
+  border : 1px solid black;
+  box-sizing: border-box;
+}
+
+.test{
+  width: 300px;
+  height: 200px;
+  background-color: #eee;
+}
+
+/* float:left */
+.float-left{
+  width: 50px;
+  height: 50px;
+  background-color: teal;
+
+  float: left;
+}
+
+/* float:left 상태 해제 */
+.clear-left{ clear: left;}
+
+/* float:right */
+.float-right{
+  width: 30px; /* 크기 변경해보면서 테스트 */
+  height: 30px;
+  background-color: tan;
+
+  float: right;
+}
+
+.clear-right{ clear : right; }
+
+/* both : left + right */
+.clear-both{ clear: both; }
+
+
+/* --------------------------------------------------------- */
+
+/* 영역 분할 */
+div{ /* 크기 지정, 영역분할을 편하게 하기 위한 기본설정 */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-1{ background-color: red;}
+.bg-2{ background-color: orange;}
+.bg-3{ background-color: yellow;}
+.bg-4{ background-color: yellowgreen;}
+.bg-5{ background-color: green;}
+.bg-6{ background-color: blue;}
+.bg-7{ background-color: purple;}
+
+.col{
+  height: 100%;
+  float: left;
+}
+
+.col-1{ width: 10%;}
+.col-2{ width: 20%;}
+.col-3{ width: 30%;}
+.col-4{ width: 40%;}
+.col-5{ width: 50%;}
+.col-6{ width: 60%;}
+
+
+.row{ width: 100%; }
+
+.row-1{ height: 10% }
+.row-2{ height: 20% }
+.row-3{ height: 30% }
+.row-4{ height: 40% }
+.row-5{ height: 50% }
+
+.container-1{
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+/* 4분할 */
+.container-2{
+  width: 300px;
+  height: 300px;
+}
+
+.my-bg-1{ background-color: silver; }
+.my-bg-2{ background-color: slateblue; }
+.my-bg-3{ background-color: thistle; }
+.my-bg-4{ background-color: salmon; }
+.my-bg-5{ background-color: pink; }
+.my-bg-6{ background-color: palevioletred; }
+
+
+/* 연습문제 */
+.container-3{
+  width: 800px;
+  height: 600px;
+}
+

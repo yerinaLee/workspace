@@ -1,0 +1,106 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+} 
+
+/* content 영역 */
+.content{
+  width: 150px;
+  height: 150px;
+  /* 개발자 도구 -> 해당 요소 css 제일 밑에 이미지 확인 
+    -> content 영역만 크기 증가
+  */
+  box-sizing: content-box ; /* 기본값 */
+}
+
+/* border 영역 */
+.border {
+  border: 10px solid brown;
+  /* 상하좌우 10px 실선 브라운 테두리 */
+}
+
+/* padding 영역 */
+.padding {
+  padding: 20px;
+  /* content영역과 border사이 상하좌우 모두 20px만큼 띄움(벌림) */
+}
+
+/* margin영역 */
+.margin{
+  margin: 50px;
+  /* 상하좌우 다른 요소와 50px만큼 떨어짐(간격을 만듦) */
+  /* 거리두기 ㅋㅋㅋ */
+}
+
+/* margin 영역은 겹쳐지는 영역으로 더 큰 값이 적용된다(한팔나란히) */
+#margin-test{
+  margin: 100px;
+  /* 상하좌우 다른 요소와 100px만큼 떨어짐(간격을 만듦) */
+}
+
+/* box-sizing : border-box; */
+/* width/height 속성의 크기가 (content의)
+  content + padding + border와 같도록
+  content 영역의 크기를 자동 조정  // 많이씁니다!!!
+*/
+.border-box{
+  box-sizing: border-box; /* 테두리까지가 하나의 박스야~라는 뜻 */
+}
+
+/* padding, border, margin의 방향성 */
+#test2 {
+
+  display: inline-block;
+
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+
+  border-top: 5px solid rebeccapurple;
+  border-bottom: 10px double black; /* 이중실선 */
+  border-left: 15px dotted rebeccapurple;
+  border-right: 20px dashed #000;
+
+}
+
+/* padding, border, margin 크기 한 번에 지정하기 */
+#test3{
+
+  border: 1px solid black;
+
+  padding : 30px; /* 상하좌우 */
+  padding : 30px 50px; /* 상하 좌우 */
+  padding : 30px 50px 10px ; /* 상 좌우 하 */
+  padding : 30px 20px 40px 50px ; /* 상 우 하 좌 */
+
+  border-width : 3px; /* 상하좌우 */
+  border-width : 3px 10px; /* 상하 좌우 */
+  border-width : 3px 5px 10px ; /* 상 좌우 하 */
+  border-width : 3px 5px 10px 20px ; /* 상 우 하 좌 */
+
+  margin : 30px; /* 상하좌우 */
+  margin : 30px 10px; /* 상하 좌우 */
+  margin : 30px 5px 10px ; /* 상 좌우 하 */
+  margin : 30px 5px 10px 20px ; /* 상 우 하 좌 */
+
+}
+
+/* margin : auto 테스트 */
+.container {
+  box-sizing: border-box;
+  width: 500px;
+  height: 300px;
+  border: 3px solid black;
+}
+
+#test4{
+  margin: auto;
+  margin-top: 100px;
+}
