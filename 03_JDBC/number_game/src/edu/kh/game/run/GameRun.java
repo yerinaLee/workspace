@@ -8,10 +8,7 @@ public class GameRun {
 		
 		GameView view = new GameView();
 		view.menudisplay();
-		
 	}
-	
-	
 	
 	
 	

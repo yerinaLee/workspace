@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+div, main, header, footer, section, article, nav, aside, form {
+  border: 1px solid black;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main{
+  width: 1140px;
+  flex-grow: 1;
+  min-height: 500px;
+}
+
+
+/* ---------------------- header ------------------------ */
+
+header{
+  display: flex;
+  height: 200px;
+}
+
+header > section:nth-of-type(1){ width: 15%;}
+header > section:nth-of-type(2){ width: 70%;}
+header > section:nth-of-type(3){ width: 15%;}
+
+/* 홈로고 */
+header > section:nth-of-type(1){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-logo{
+  width: 120px;
+  height: auto;
+}
+
+/* 검색창 부분 */
+header > section:nth-of-type(2){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-area{
+  width: 500px;
+}
+
+.search-area fieldset{
+  border: 2px solid #455ba8;
+  padding: 2px;
+  border-radius: 5px;
+  display: flex;
+}
+
+/* 검색창 */
+#query{
+  border:none;
+  outline: none;
+
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  width: 92%;
+}
+
+#search-btn{
+  width: 8%;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #455ba8;
+}
+
+/* ---------------------- nav ------------------------ */
+nav{
+  height: 50px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+  border-bottom: 2px solid black;
+}
+
+nav > ul{
+  display: flex;
+  list-style: none;
+  height: 100%;
+}
+
+nav li{
+  flex: 0 1 150px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 11px 0;
+  display: block;
+  text-align: center;
+
+  height: 100%;
+  border-radius: 5px;
+
+  transition-duration: 0.1s;
+}
+
+nav a:hover{
+  background-color: #455ba8;
+  color: white;
+}
+
+
+/* ---------------------- content ------------------------ */
+.content{
+  min-height: 800px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.content-1{
+  width: 70%;
+  padding: 20px;
+}
+
+.content-1 > * { margin-bottom: 20px;}
+
+.content-2 {width: 30%;}
+
+.content-2 > form {
+  height: 150px;
+  padding: 10px;
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.id-pw-area{
+  border: 1px solid #ccc;
+  display: flex;
+  flex-basis: 60%;
+}
+
+/* id/pw */
+.id-pw-area > section:first-child{
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.id-pw-area > section:first-child > input {
+  border: none;
+  outline: none;
+  border-right: 1px solid #ccc;
+  height: 50%;
+  padding: 5px;
+}
+
+input[name="input-id"] {
+  border-bottom: 1px solid #ccc !important;
+}
+
+.id-pw-area > section:first-child > input:focus {
+  border: 2px solid #455ba8 !important;
+}
+
+.id-pw-area > section:last-child{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.id-pw-area > section:last-child > button{
+  width: 100%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+.id-pw-area > section:last-child > button:hover{
+  background-color: #455ba8;
+  color: white;
+}
+
+.content-2 label {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  padding: 5px 0;
+  user-select: none;
+}
+
+input[name="saveId"]{
+  margin-right: 5px;
+}
+
+.signup-find-area{
+  margin-top: 10px;
+  padding-left: 5px;
+}
+
+.signup-find-area > a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+.signup-find-area > span {
+  padding: 0 10px;
+}
+
+
+
+
+/* ---------------------- footer ------------------------ */
+
+footer{
+  width: 100%;
+  height: 200px;
+  background-color: #a3add342;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer > p{
+  font-weight: bold;
+  margin: 16px 0;
+}
+
+footer > article > *{
+  font-size: 14px;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+footer span{
+  padding: 0 10px;
+}

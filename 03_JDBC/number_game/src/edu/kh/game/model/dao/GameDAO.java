@@ -5,6 +5,8 @@ import static edu.kh.game.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.kh.game.model.dto.Gamer;
 
@@ -13,6 +15,11 @@ public class GameDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
+	/** 회원가입
+	 * @param conn
+	 * @param gamer
+	 * @return
+	 */
 	public int insertGamer(Connection conn, Gamer gamer) {
 
 		int result = 0;
@@ -99,9 +106,12 @@ public class GameDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
+				
+				gamer = new Gamer(); 
+				
 				gamer.setGamerNo( rs.getInt("GAMER_NO") );
-				gamer.setGamerNickname( rs.getString("GAMER_NICKNAME" ));
-				gamer.setGamerPw( rs.getString("GAMER_PW" ));
+				gamer.setGamerNickname(nickName);
+				gamer.setGamerPw(pass);
 				gamer.setEnrollDate( rs.getString("ENROLL_DATE") );
 				gamer.setTryCount( rs.getInt("TRY_COUNT")  );
 				gamer.setGamerRecords( rs.getInt("GAMER_RECORDS") );
@@ -110,10 +120,112 @@ public class GameDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			
+			close(rs);
+			close(pstmt);
 		}
 		
 		return gamer;
+	}
+
+
+	/** 게임 기록 갱신 서비스
+	 * @param conn
+	 * @param gamerNo
+	 * @param count
+	 * @return
+	 */
+	public int gamePlay(Connection conn, int gamerNo, int count) {
+
+		int result = 0;
+		
+		String sql ="UPDATE GAMER\r\n"
+				+ "SET GAMER_RECORDS = ?\r\n"
+				+ "WHERE GAMER_NO = ?\r\n";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, count);
+			pstmt.setInt(2, gamerNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 게임횟수 추가
+	 * @param conn
+	 * @param gamerNo
+	 * @return
+	 */
+	public int gamePlayTry(Connection conn, int gamerNo) {
+		
+		int result = 0;
+		
+		String sql ="UPDATE GAMER\r\n"
+				+ "SET TRY_COUNT = TRY_COUNT +1\r\n"
+				+ "WHERE GAMER_NO = ?";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, gamerNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 게임 전체 랭킹
+	 * @param conn
+	 * @return
+	 */
+	public List<Gamer> ranking(Connection conn) {
+		
+		List<Gamer> gamerList = new ArrayList<Gamer>();
+		
+		String sql ="SELECT RANK() OVER(ORDER BY GAMER_RECORDS) \"RANKING\", GAMER_NICKNAME, GAMER_RECORDS \r\n"
+				+ "FROM GAMER\r\n"
+				+ "WHERE GAMER_RECORDS != 1000000";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int rank = rs.getInt("RANKING");
+				String gamerNickname = rs.getString("GAMER_NICKNAME");
+				int gamerRecords = rs.getInt("GAMER_RECORDS");
+				
+				Gamer gamer = new Gamer(gamerNickname, gamerRecords, rank);
+				
+				gamerList.add(gamer);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return gamerList;
 	}
 
 }

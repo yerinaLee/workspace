@@ -1,5 +1,6 @@
 package edu.kh.game.view;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -38,6 +39,7 @@ public class GameView {
 			System.out.println("2. 숫자 게임 플레이");
 			System.out.println("3. 내 기록 보기");
 			System.out.println("4. 랭킹 보기");
+			System.out.println("5. 로그인");
 			System.out.println("0. 게임 종료");
 			
 			try {
@@ -52,6 +54,7 @@ public class GameView {
 				case 2 : gamePlay();  break;
 				case 3 : records(); break;
 				case 4 : ranking(); break;
+				case 5 : login(); break;
 				case 0 : System.out.println("게임을 종료합니다. 바이바이!"); break;
 				default : System.out.println("메뉴 번호만 입력해주세요~");break;
 				
@@ -104,7 +107,7 @@ public class GameView {
 		String pw = sc.next();
 		sc.nextLine();
 		
-		Gamer gamer = new Gamer(nickName, pw, gamerRecords); // 여기부터하세욧!!
+		Gamer gamer = new Gamer(nickName, pw, gamerRecords);
 		
 		int result = service.insertGamerRecords(gamer);
 		
@@ -114,6 +117,25 @@ public class GameView {
 	}
 	
 	
+	
+	/** 게임횟수, 기록 업데이트
+	 * @param count
+	 */
+	private void countRanking(int count) {
+		
+		if(loginGamer != null) {
+			
+			// 게임카운트 +1
+			service.gamePlayTry(loginGamer.getGamerNo());
+			
+			if(count < loginGamer.getGamerRecords()) { // 최고기록 갱신
+				int result = service.gamePlay(loginGamer.getGamerNo(), count); 
+				System.out.println("최고기록 갱신! 축하드립니다!");
+			}
+		}
+		
+	}
+
 	
 	/**
 	 * 게임진행 view
@@ -144,12 +166,31 @@ public class GameView {
 				System.out.println("정답!!!");
 				System.out.printf("%d회 만에 정답을 맞추셨습니다.\n", count);
 				
-				System.out.print("현재 기록을 저장하시겠습니까?(Y/N) : ");
-				char yn = sc.next().toUpperCase().charAt(0);
-				sc.nextLine();
-				
-				if(yn == 'Y') insertGamerRecords(count); // 회원가입 진행!
-				else System.out.println("\n굿게임! 또봐요!^^");
+				if(loginGamer != null) { //로그인 O
+					
+					// 게임카운트 +1
+					countRanking(count);
+					
+				} else { // 로그인 X
+					System.out.print("현재 기록을 저장하시겠습니까?(Y/N) : ");
+					char yn = sc.next().toUpperCase().charAt(0);
+					sc.nextLine();
+					
+					if(yn == 'Y') {
+						
+						System.out.print("1.로그인 / 2.회원가입 >> ");
+						int input2 = sc.nextInt();
+						sc.nextLine();
+						
+						switch(input2) {
+						case 1 : loginRecords(count);
+								 countRanking(count); break; // 로그인 진행
+						case 2 : insertGamerRecords(count); break; // 회원가입 진행!
+						default : System.out.println("잘못된 입력입니다."); break;
+						}
+					}
+					else System.out.println("\n굿게임! 또봐요!^^"); break;
+				}
 			}
 
 		} while(input != answer);
@@ -164,8 +205,14 @@ public class GameView {
 		
 		System.out.println("\n~~~~ 로그인 ~~~~\n");
 		
+		if(loginGamer != null) {
+			System.out.println("이미 로그인 되어있습니다.");
+			return;
+		}
+		
 		System.out.print("닉네임 : ");
 		String nickName = sc.next();
+		sc.nextLine();
 		
 		System.out.print("비밀번호 : ");
 		String pass = sc.next();
@@ -176,8 +223,56 @@ public class GameView {
 		if(gamer != null) {
 			System.out.println(nickName + "님 로그인이 되었습니다.");
 			loginGamer = gamer;
+			
 		} else {
 			System.out.println("가입 정보가 없습니다.");
+			
+			System.out.print("회원가입 하시겠습니까?(Y/N) : ");
+			char yn = sc.next().toUpperCase().charAt(0);
+			sc.nextLine();
+			
+			if(yn == 'Y') insertGamer(); // 회원가입 진행!
+			else System.out.println("\n다음에 또 만나요!^^");
+		}
+	}
+	
+	
+
+	/**
+	 * 로그인(기록있음) view
+	 */
+	private void loginRecords(int count) {
+		
+		System.out.println("\n~~~~ 로그인 ~~~~\n");
+		
+		if(loginGamer != null) {
+			System.out.println("이미 로그인 되어있습니다.");
+			return;
+		}
+		
+		System.out.print("닉네임 : ");
+		String nickName = sc.next();
+		sc.nextLine();
+		
+		System.out.print("비밀번호 : ");
+		String pass = sc.next();
+		sc.nextLine();
+		
+		Gamer gamer = service.login(nickName, pass);
+		
+		if(gamer != null) {
+			System.out.println(nickName + "님 로그인이 되었습니다.");
+			loginGamer = gamer;
+			
+		} else {
+			System.out.println("가입 정보가 없습니다.");
+			
+			System.out.print("회원가입 하시겠습니까?(Y/N) : ");
+			char yn = sc.next().toUpperCase().charAt(0);
+			sc.nextLine();
+			
+			if(yn == 'Y') insertGamerRecords(count); // 회원가입 진행!
+			else System.out.println("\n다음에 또 만나요!^^");
 		}
 	}
 	
@@ -188,11 +283,18 @@ public class GameView {
 	 */
 	private void records() {
 		
+		System.out.println("\n~~~~ 게임 기록보기 ~~~~\n");
 		
 		// 로그인 확인
+		if(loginGamer == null) {
+			System.out.println("로그인 후 사용해주세요");
+			login();
+			return;  // 로그인 후 바로 게임기록보게하고싶은데 이건 잘 모르겠으니까 일단 리턴으로 함 ㅋㅋㅋ
+		}
 		
-		
-		
+		System.out.printf("\n***%s님의 게임기록***\n", loginGamer.getGamerNickname());
+		System.out.printf("총 게임 횟수 : %d회\n", loginGamer.getTryCount());
+		System.out.printf("최고 기록 : %d번째 정답\n\n",loginGamer.getGamerRecords());
 	}
 	
 	
@@ -202,8 +304,24 @@ public class GameView {
 	 */
 	private void ranking() {
 		
+		System.out.println("\n~~~~ 랭킹 보기 ~~~~\n");
 		
+		// DB orderby 레코드순, 탑 10명만 나오도록하기 (순위, 닉네임, 게임 기록)
+		// List로 받기 
 		
+		List<Gamer> gamerList = service.ranking();
+		
+		if(gamerList.isEmpty()) {
+			System.out.println("게임 기록이 존재하지 않습니다.");
+			return;
+		}
+		
+		System.out.printf("순위 | 닉네임 | 기록\n");
+		System.out.println("====================");
+
+		for(Gamer gamer : gamerList) {
+			System.out.printf(" %d위 | %s | %d번째\n", gamer.getGamerRanking(), gamer.getGamerNickname(), gamer.getGamerRecords());
+		}
 		
 	}
 	

@@ -14,10 +14,6 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
   }
 
-div, main, header, footer, section, article, nav, aside, form {
-  border: 1px solid black;
-}
-
 body{
   display: flex;
   flex-direction: column;
@@ -31,6 +27,7 @@ main{
   min-height: 500px;
 }
 
+
 /* --------------- header --------------- */
 
 header{
@@ -38,6 +35,9 @@ header{
   display: flex;
   flex-direction: column;
   position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
 }
 
 header > section:first-child{height: 30%;}
@@ -60,7 +60,16 @@ header a {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'TAEBAEKmilkyway';
 }
+
+@font-face {
+  font-family: 'TAEBAEKmilkyway';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 #case-click{
   width: 50px;
@@ -143,7 +152,9 @@ nav{
   height: 70px;
   display: flex;
   position: sticky;
-  background-color: rgb(215, 225, 241)
+  background-color: rgb(215, 225, 241);
+  top: 150px;
+  z-index: 1000;
 }
 
 nav > section:nth-child(1){width: 15%;}
@@ -189,36 +200,62 @@ nav > .menus a {
   
   height: 100%;
   transition-duration: 0.1s;
-  
 }
 
 nav > .menus a:hover{
   color: rgb(34, 104, 255);
 }
 
+
+
 /* --------------- 메인화면 이미지 --------------- */
+
 .main-image{
-  height: 600px;
+  height: 700px;
   display: flex;
-  background-color: rgb(23, 67, 138)
+  box-shadow: none;
+  position: relative; 
+  overflow: hidden;
 }
 
 .main-video{
-  width: 100%;
+  width: 1200vh;
+  height: 1070px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-text{
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  font-size: 50px;
+  color: white;
+  font-family: 'SUITE-Regular';
+  font-weight: bold;
+  line-height: 80px;
+}
+
+@font-face {
+  font-family: 'SUITE-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
 }
 
 
-
-/* --------------- 세컨드 나브 --------------- */
+/* --------------- 2nd nav --------------- */
 
 .second-nav{
   height: 200px;
   display: flex;
-  align-content: space-between
+  justify-content: center;
+  overflow: hidden;
 }
 
-
-
+.second-nav > section:nth-child(1){width: auto; height: 100%;}
+.second-nav > section:nth-child(2){width: auto; height: 100%;}
+.second-nav > section:nth-child(3){width: auto; height: 100%;}
 
 
 

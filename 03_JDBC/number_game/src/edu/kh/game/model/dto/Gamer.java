@@ -8,6 +8,7 @@ public class Gamer {
 	private String enrollDate;
 	private int tryCount;
 	private int gamerRecords;
+	private int gamerRanking;
 	
 	// 기본생성자
 	public Gamer() {}
@@ -36,6 +37,13 @@ public class Gamer {
 		this.gamerRecords = gamerRecords;
 	}
 	
+	public Gamer(String gamerNickname, int gamerRecords, int gamerRanking) {
+		super();
+		this.gamerNickname = gamerNickname;
+		this.gamerRecords = gamerRecords;
+		this.gamerRanking = gamerRanking;
+	}
+
 	// getter/setter
 	public int getGamerNo() {
 		return gamerNo;
@@ -84,8 +92,14 @@ public class Gamer {
 	public void setGamerRecords(int gamerRecords) {
 		this.gamerRecords = gamerRecords;
 	}
-
 	
+	public int getGamerRanking() {
+		return gamerRanking;
+	}
+	
+	public void setGamerRanking(int gamerRainking) {
+		this.gamerRanking = gamerRainking;
+	}
 	
 	
 	@Override
