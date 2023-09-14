@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_JS개요</title>
+</head>
+<body>
+  <h1>JS 개요</h1>
+
+  <h3>스크립트(script) 언어</h3>
+  <pre>
+    ex) 자바스크립트, 파이썬
+    기본 프로그램의 동작을 사용자의 요구에 맞게 수행되도록 해주는 용도의 언어
+    
+    별도로 소스코드를 컴파일하지 않고
+    인터프리터(interpreter, 한 줄씩 코드를 읽어서 해석)
+    를 이용해서 코드를 바로 실행
+    -> 장점 : 컴파일에 소요되는 시간이 없음
+    -> 단점 : 프로그램 실행 시간이 상대적으로 느림
+
+    짧은 소스코드 파일로 상호작용 하도록 고안됨
+
+  </pre>
+
+  <h3>자바스크립트(JavaScript)</h3>
+  <pre>
+    웹 브라우저에서 주로 사용하는
+    인터프리터 방식의 객체 지향 프로그래밍 언어이다.
+
+    (이름에 Java 들어갔다고 해서 Java랑 관련있는 것 아닙니다...)
+
+    ECMA Script 따르는 대표적인 웹 기술
+    (국제적 표준 기구의 기준에 맞게 만들어짐)
+    (ES5, ES6, ...)
+  </pre>
+
+  <hr>
+
+  <h2>JavaScript 작성 방법</h2>
+  <ul>
+    <li>브라우저 개발자도구 -> 콘솔(console)에 직접 작성하기</li>
+
+    <li>html 내부에 script 태그를 이용해 작성(internal 방식)
+    <br>
+
+    <!-- onclick : 클릭이 되었을 때 -->
+    <!-- 버튼이 클릭이 되었을 때 internalFn() 함수를 호출 -->
+    <button type="button" onclick="internalFn()">
+      internal 방식 확인
+    </button>
+
+    <script>
+      /* JS를 작성할 수 있는 태그 */
+      /* 보통은 body 태그 제일 밑에 작성!!!! */
+      function internalFn(){
+        alert("internal 버튼을 클릭하셨습니다");
+      }
+    </script>
+    </li>
+
+    <li>
+      html 외부 .js 파일에 작성 후 연결해서 사용(external 방식)
+      <br>
+      <button type="button" onclick="externalFn()">
+        external 방식 확인
+      </button>
+    </li>
+
+    <li>
+      태그에 직접 JS코드를 작성(inline 방식, 권장 X 수정하기힘들어서 테스트할때나 사용)
+      <br>
+
+      <!-- 
+        JS는 "" / '' 둘 다 문자열(string)을 의미함
+        -> 혼용 사용하는 경우가 매우 많음
+       -->
+      <button type="button" onclick="alert('inline 버튼 클릭됨')">
+        inline 방식 확인
+      </button>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h3>JS 맛보기</h3>
+
+  <button type="button" onclick="lightMode()">라이트 모드</button>
+  
+  <button type="button" onclick="darkMode()">다크 모드</button>
+
+
+
+
+  <!-- external 방식 외부 파일 연결 방법 -->
+  <!-- src : 소스코드 파일 위치(경로) -->
+  <script src="../js/01_JS개요.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_요소 접근 방법</title>
+  <link rel="stylesheet" href="../css/03_요소접근방법.css">
+</head>
+<body>
+  
+  <h1>DOM(Document Object Model)</h1>
+
+  <pre>
+    웹 문서(HTML)의 모든 요소를 객체 형식으로 표현한 것
+    (HTML 요소 == JS에서 객체라고 부름)
+
+    -> 문서 내 특정 요소에 접근 가능
+      + 요소(객체)에 속성 값을 세팅 또는 얻어올 수 있다
+  </pre>
+  <hr>
+
+  <h1>DOM을 이용한 요소 접근 하기</h1>
+
+  <pre>
+      1. id로 접근하기 : document.getElementById("id속성값");
+          -> 아이디가 일치하는 요소(객체)를 얻어옴
+
+      2. class로 접근하기 : document.getElementsByClassName("class속성값"); 
+          -> 클래스가 일치하는 모든 요소를 얻어와 배열 형태로 반환  
+          
+      3. name으로 접근하기 : document.getElementsByName("name속성값"); 
+          -> name이 일치하는 모든 요소를 얻어와 배열(NodeList, 유사배열) 형태로 반환  
+
+      4. tag로 접근하기 : document.getElementsByTagName("tag명"); 
+          -> 태그가 일치하는 모든 요소를 얻어와 배열 형태로 반환  
+
+      5. CSS 선택자로 접근하기
+          
+          1) document.querySelector("CSS 선택자");
+              -> 선택자가 선택한 요소 중 첫 번째 요소를 반환
+
+          2) document.querySelectorAll("CSS 선택자");
+              -> 선택한 요소 모두를 배열(NodeList, 유사배열) 형태로 반환
+  </pre>
+
+  <hr>
+
+  <h3>id로 요소(DOM 객체) 접근하기</h3>
+  <button onclick="idTest()">클릭할 때 마다 배경색 변경</button>
+  <div class="area" id="div1"></div>
+
+  <hr>
+
+  <h3>class로 요소(DOM 객체) 접근하기</h3>
+  <button onclick="classTest()">배경색 변경</button>
+  <div class="area div2"></div>
+  <div class="area div2"></div>
+  <div class="area div2"></div>
+
+  <hr>
+
+  <h3>태그명으로 요소(DOM 객체) 접근하기</h3>
+  <button onclick="tagTest()">배경색 변경</button>
+  <ul>
+    <li>40</li>
+    <li>80</li>
+    <li>255</li>
+    <li>144</li>
+    <li>240</li>
+  </ul>
+
+  <h3>name으로 요소(DOM 객체) 접근하기</h3>
+
+  <table>
+    <tr>
+      <td>
+        <input type="checkbox" name="hobby" id="game" value="게임">
+        <label for="game">게임</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="music" value="음악감상">
+        <label for="music">음악감상</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="movie" value="영화감상">
+        <label for="movie">영화감상</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <input type="checkbox" name="hobby" id="coding" value="코딩">
+        <label for="coding">코딩</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="exercise" value="운동">
+        <label for="exercise">운동</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="book" value="독서">
+        <label for="book">독서</label>
+      </td>
+    </tr>
+  </table>
+
+  <div class="area" id="name-div"></div>
+  <button onclick="nameTest()">선택한 요소만 출력하기</button>
+
+  <hr>
+
+  <!-- 사실 제일 많이 사용~ -->
+  <h3>CSS 선택자로 요소(DOM객체) 접근하기</h3> 
+  <div id="css-div">
+    <div class="area">test1</div>
+    <div class="area">test2</div>
+  </div>
+
+  <button onclick="cssTest()">확인하기</button>
+
+
+
+  <script src="../js/03_요소접근방법.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

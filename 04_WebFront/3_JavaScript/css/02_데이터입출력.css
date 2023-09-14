@@ -1,0 +1,32 @@
+* { box-sizing: border-box;}
+
+.box {
+  width: 500px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border: 2px solid green;
+}
+
+.container2{
+  width: 520px;
+  height: 300px;
+  border: 1px solid black;
+  background-color: bisque;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start; /* 교차축 시작방향에 따닥따딱 붙어서 정렬됨 */
+
+  /* overflow : 자식 요소가 부모 요소를 초과했을 때에 대한 설정 */
+  /* auto : 자식이 부모를 넘기전엔 변화가 없다가
+            넘어서는 순간 스크롤이 생성 */
+  
+  /* hidden : 넘어간 자식 요소를 숨김 */
+  overflow: auto;
+}

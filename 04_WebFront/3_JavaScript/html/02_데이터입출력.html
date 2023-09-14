@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_데이터 입출력</title>
+  <link rel="stylesheet" href="../css/02_데이터입출력.css">
+
+</head>
+<body>
+  
+  <h3 class="title">innerText</h3>
+
+  <pre>
+    js에서 요소에 작성된 내용(content)를
+    읽거나 변경하는 속성
+  
+    - 내용만 읽어옴
+    (내용에 태그가 포함되어있어도 읽어오지 않음)
+
+    - 변경되는 내용에 태그, 마크업 특수문자가 포함되어 있어도
+      해석되지 않는다
+  </pre>
+
+  <!-- submit 타입은 form태그와 같이 사용해야 의미가 있다
+  (단독 사용은 그냥 버튼임) -->
+  <button onclick="getBoxText()">innerText로 읽어오기</button>
+  <button onclick="setBoxText()">innerText로 변경하기</button>
+
+  <p id="test1" class="box">
+    테스트1 입니다. <br>
+    <b>안녕하세요</b>
+
+    &times; &copy; &lt; &gt;
+  </p>
+
+  <hr>
+  <h3>innerHTML</h3>
+
+  <pre>
+    자바스크립트에서 요소 전체를(태그 + 내용) 읽어들이거나 변경하는 속성
+
+    - 내용을 읽어올 때 태그 + 내용 모두를 포함해서 읽음
+
+    - 내용을 변경할 때 태그, 마크업 특수문자가 모두 해석됨
+  </pre>
+
+  <button onclick="getBoxHTML()">innerHTML로 읽어오기</button>
+  <button onclick="setBoxHTML()">innerHTML로 변경하기</button>
+
+  <p id="test2" class="box">
+    테스트2 입니다. <br>
+    <b>안녕하세요</b>
+
+    &times; &copy; &lt; &gt;
+  </p>
+
+  <hr>
+
+  <h3>[window.]alert("내용") </h3>
+  <pre>
+    - alert : 알리다, 경고, 경보
+    - 브라우저에 경고창(알림창, 대화 상자)을 띄우는 함수
+  </pre>
+  <button onclick="alert('확인~~!!')"> alert 확인 </button>
+
+  <hr>
+  
+  <h3>[window.]confirm('내용')</h3>
+  <pre>
+    - "내용"에 대한 확인/취소 결과를 얻고자 할 때 사용하는 함수
+
+    - alert에 확인/취소 두 개의 버튼이 생성됨
+      확인 -> true  반환
+      취소 -> false 반환
+  </pre>
+
+  <button onclick="confirmFn()">아래 박스에 배경색 추가?</button>
+  <div class="box" id="confirm-box"></div>
+
+  <hr>
+  <h3>[window.]prompt("내용")</h3>
+  <pre>
+    - 텍스트를 입력할 수 있는 alert
+
+    - 텍스트 입력 후 확인 클릭 시
+      -> 입력한 텍스트가 그대로 반환
+
+    - 취소 클릭 시
+      -> null 반환
+  </pre>
+
+  <button onclick="promptFn()">prompt 확인</button>
+  <h4 id="prompt-result">위 버튼을 클릭해주세요</h4>
+
+
+  <hr>
+  <h3>innerHTML 응용</h3>
+  <button onclick="addBox()">추가하기</button>
+
+  <div class="container2" id="con2">
+    <div class="box2"></div>
+  </div>
+
+
+  <script src="../js/02_데이터입출력.js"></script>
+</body>
+</html>
