@@ -1,0 +1,32 @@
+@media screen and (max-width : 768px) {
+  body {background-color: skyblue;}
+}
+
+/* 햄버거 버튼 */
+.nav-btn{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: none;
+  font-size: 1.5em;
+
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  
+  user-select: none;
+  cursor: pointer;
+
+  /* 1140px 초과인 경우는 안보이게 설정 */
+  display: none !important;
+}
+
+/* 화면 너비가 최대 1140px 이하일 경우 적용 */
+@media screen and (max-width : 1140px) {
+  /* and 뒤에 띄어쓰기 필수! */
+  main{
+    width: 100%;
+    margin-top: 10px;
+    min-width: 768px;
+  }
+}

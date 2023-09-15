@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_변수와 자료형</title>
+  <link rel="stylesheet" href="../css/04_변수와자료형.css">
+</head>
+<body>
+
+  <h1>변수 선언 위치에 따른 구분</h1>
+
+  <h3>Java(기본적으로 block level scope)</h3>
+  <code>
+    public class 클래스명{
+      
+      // 필드
+      private 자료형 변수명; // 인스턴스 변수
+      public static 자료형 변수명; // 클래스 변수(static 변수)
+  
+      
+      // 메서드
+      // 접근제한자 반환형 메서드명(매개변수) {  }
+
+      public void setName(String name /* 메서드 지역변수 */){
+
+        int num = 10; // 메서드 지역변수
+
+        if(num == 10){
+          String str = "java"; // if 지역변수
+        }
+
+        this.name = name;
+      }
+
+    }
+
+  </code>
+
+  <hr>
+
+  <h1>Javascript</h1>
+  <h3>ES5 이전 버전 (var)</h3>
+
+  <pre>
+    var : function level scope
+    -> 함수 내부에서 var로 선언하면 함수에 안에서만 쓸 수 있다
+    -> 단, if, for, while 등의 다른 {} 내부에 작성되어도
+       함수 안에 있다면 무조건 function level
+
+    + 호이스팅(hoisting)
+    + 변수명 중복 가능
+  </pre>
+
+  <code>
+    // js 파일 내부라고 가정
+
+    var num1; // 전역 변수 (선언된 후 같은 문서 어디서든 사용 가능)
+    JS파일 자체가 하나의 큰 블록이된다. 
+
+    num2; // 전역 변수(변수명 앞에 아무런 키워드 없으면 전역 변수로 선언)
+    temp = 40; // temp 전역변수가 선언되고 40이 대입됨
+
+    function 함수명(매개변수  /* function 지역 변수 */){
+      
+      var num3; // function 지역 변수
+      num4; // 전역 변수(변수명 앞에 아무런 키워드 없으면 전역 변수로 선언)
+
+      if(num3 == num4){
+        var num5; // function 지역 변수
+
+        num6; // 전역 변수(변수명 앞에 아무런 키워드 없으면 전역 변수로 선언)
+      }
+
+
+    }
+
+  </code>
+  
+  <hr>
+  <h3>ES6 이후</h3>
+  <pre>
+    var   : 변수, 변수명 중복 O(덮어쓰기), 함수 레벨 scope
+    let   : 변수, 변수명 중복 X, 블록{} 레벨 scope
+    const : 상수, 변수명 중복 X, 블록{} 레벨 scope
+
+    1순위 : const 
+            (JS는 특정 요소를 선택해서 사용하는 경우가 많아서 변수에 고정시켜둠)
+
+    2순위 : let
+
+    3순위 : var (ES6 이후 부터 사용 빈도가 많이 적어짐)
+  </pre>
+
+
+  <hr>
+  <h1>자바스크립트의 자료형</h1>
+
+  <pre>
+      자바스크립트는 변수 선언 시 별도의 자료형을 지정하지 않음.
+      -> 변수에 대입되는 값(리터럴)에 의해서 자료형이 결정됨.
+
+      - string (문자열)
+      - number (숫자)  -> 정수/실수 모두 포함
+      - boolean (논리값)
+      - object (객체)  ->  배열(Array), 자바스크립트 객체 {k:v , k:v}
+      - ★요즘많이씀!) function (함수)
+      - undefined (정의되지 않은 변수) -> 변수가 선언만 됐지, 값이 대입되지 않음.
+
+      (참고)
+      - null (참조하는게 없음) -> document.getElementById("오타")  (가장 흔한 경우)
+                                  -> id가 일치하는 요소가 없어서 참조할 수 없다
+      (null은 타입보단 값(리터럴)의 개념)
+  </pre>
+
+  <button onclick="typeTest()">자료형 확인</button>
+  <br>
+  <div id="box">
+  </div>
+  
+
+  <script src="../js/04_변수와자료형.js"></script>
+</body>
+</html>

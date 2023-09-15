@@ -9,3 +9,52 @@
   height: 100px;
   border: 1px solid black;
 }
+
+/* ---- 카카오톡 - 채팅창 만들기 ---- */
+/* 전체 감싸는 요소 */
+.chatting{
+  width: 360px;
+  /* height를 따로 안주면 안에 들어가는 자식요소의 크기만큼 정해짐 */
+  border: 1px solid black;
+  margin : 50px 20px;
+}
+
+/* 채팅 출력 부분 */
+#chatting-bg{
+  width: 100%;
+  height: 400px;
+  background-color: rgb(178, 199, 217);
+
+  overflow: auto; /* 처음엔 안보이다 나중에 보임(스크롤) */
+}
+
+/* 채팅 내용 */
+#chatting-bg > p {
+  margin: 20px 10px;
+  text-align: right;
+}
+
+#chatting-bg > p > span {
+  background-color: rgb(254, 234, 51);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* 입력 부분 */
+#chatting-input{
+  width: 100%;
+  display: flex;
+  height: 22px;
+}
+
+#chatting-input > input{
+  height: 100%;
+  width: 90%;
+  outline: none;
+  padding-left: 5px;
+}
+
+#chatting-input > button{
+  height: 100%;
+  width: 10%;
+}

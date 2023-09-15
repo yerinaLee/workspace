@@ -4,9 +4,9 @@
   margin: 0;
 }
 
-div, main, header, footer, section, article, nav, aside, form {
+/* div, main, header, footer, section, article, nav, aside, form {
   border: 1px solid black;
-}
+} */
 
 body {
   display: flex;

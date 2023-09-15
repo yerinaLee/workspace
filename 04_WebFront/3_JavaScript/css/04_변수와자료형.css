@@ -1,0 +1,25 @@
+code {
+  background-color: antiquewhite;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: block;
+
+  /* white-space : 공백 관련 설정 */
+  /* pre-wrap : pre태그로 감싼 것 같은 효과. 디게많이써요!! */
+  white-space: pre-wrap;
+
+  font-size: 16px;
+  font-family: "D2Coding";
+}
+
+#box{
+  border: 2px solid burlywood;
+
+  /* 기본적으로 500 * 400 크기를 갖고있다가
+    혹시라도 내용이 크기를 초과하면 자동으로 늘어나게함
+   */
+  min-width: 500px;
+  min-height: 400px;
+  display: inline-block;
+}
