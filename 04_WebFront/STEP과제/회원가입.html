@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="../STEP과제/회원가입.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="title">
+      
+      <!-- 로고 -->
+      <section id="logo">
+        <a href="http://naver.com">
+          <img src="네이버 로고.png" alt="로고" width="100px">
+        </a>
+      </section>
+
+      <!-- 실명인증 -->
+      <section id="realName">
+        <label for="check">실명인증된 아이디로 가입</label>
+        <input type="checkbox" id="check">
+      </section>
+    </header>
+    
+    <form action="#">
+      <main class="input-all">
+        <section class="input-1st">
+          <section>
+            <input type="text" name="member" placeholder="아이디" class="input" id="in-id">
+          </section>
+
+          <section>
+            <input type="password" name="member" placeholder="비밀번호" class="input" id="in-pw">
+          </section>
+          <section>
+            <input type="password" name="member" placeholder="비밀번호 재확인" class="input" id="in-pw">
+          </section>
+          <section>
+            <input type="email" name="member" placeholder="[선택] 비밀번호 분실 시 확인용 이메일" class="input" id="in-email">
+          </section>
+        </section>
+
+        <section class="input-2nd">
+          <section>
+            <input type="text" name="member" placeholder="이름" class="input" id="in-name">
+          </section>
+
+          <section>
+            <input type="text" name="member" placeholder="생년월일 8자리"  class="input" id="in-birth">
+          </section>
+
+          <section class="input" id="in-gender">
+            <ul>
+              <li class="radio-gender">
+                <input type="radio" name="member" value="M" class="blind" id="gender1">
+                <label for="gender1">남자</label>
+              </li>
+              <li class="radio-gender">
+                <input type="radio" name="member" value="F" class="blind" id="gender2">
+                <label for="gender2">여자</label>
+              </li>
+              <li class="radio-gender">
+                <input type="radio" name="member" value="0" class="blind" id="gender3">
+                <label for="gender3">선택안함</label>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <input type="tel" name="member" placeholder="휴대전화번호" class="input" id="in-phone">
+          </section>
+        </section>
+      </main>
+      
+      <!-- 인증요청 버튼 -->
+      <footer class="send">
+        <button>인증요청</button>
+      </footer>
+
+    </form>
+  </div>
+</body>
+</html>
