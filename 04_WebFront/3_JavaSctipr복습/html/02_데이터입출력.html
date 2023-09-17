@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_데이터 입출력</title>
+  <link rel="stylesheet" href="../css/02_데이터입출력.css">
+
+</head>
+<body>
+  <button onclick="getBoxText()">
+    innerText로 읽어오기
+  </button>
+
+  <button onclick="setBoxText()">
+    innerText로 변경하기
+  </button>
+
+  <p id="test1" class="box">
+    테스트1 입니다. <br>
+    <b>안녕하쇼~</b>
+
+    &times; &copy; &lt; &gt;
+  </p>
+
+
+  <hr>
+
+  <button onclick="getBoxHTML()">innerHTML로 읽어오기</button>
+  
+  <button onclick="setBoxHTML()">innerHTML로 읽어오기</button>
+
+  <p id="test2" class="box">
+    테스트2 입니다. <br>
+    <b>안녕하세요</b>
+
+    &times; &copy; &lt; &gt;
+  </p>
+
+  <hr>
+
+  <button onclick="confirmFn()">아래 박스에 배경색 추가?</button>
+  <div class="box" id="confirm-box"></div>
+
+  <button onclick="alert('확인~!!')">alert 확인</button>
+
+  <button onclick="promptFn()">prompt확인</button>
+  <h4 id="prompt-result">위 버튼을 클릭해주셈</h4>
+
+  <hr>
+
+  <button onclick="addBox()">추가하기</button>
+
+  <div class="container2" id="con2">
+    <div class="box2"></div>
+  </div>
+
+
+
+
+
+  <script src="../js/02_데이터입출력.js"></script>
+</body>
+</html>

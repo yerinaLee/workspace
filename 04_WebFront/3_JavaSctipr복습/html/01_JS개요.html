@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_JS개요</title>
+</head>
+<body>
+  <button type="button" onclick="internalFn()">
+    internal 방식 확인
+  </button>
+
+  <script>
+    function internalFn(){
+      alert("internal 버튼을 클릭하셨습니다");
+    }
+  </script>
+
+
+  <button type="button" onclick="externalFn()">
+    external 방식 확인
+  </button>
+
+
+  <hr>
+
+  <button type="button" onclick="lightMode()">라이트모드</button>
+  <button type="button" onclick="darkMode()">다크모드</button>
+
+
+
+  <script src="../js/01_JS개요.js"></script>
+
+</body>
+</html>
