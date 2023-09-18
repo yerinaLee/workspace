@@ -9,7 +9,11 @@ btn.addEventListener("click", function(){
   const infoAll = document.querySelectorAll(".info");
   // console.log(infoAll[2].value); // 성공!!
 
-  box.style.width = infoAll[0].value+ "px";
+  width = document.querySelector("#width");
+  // console.log(width.value); // ok
+  box.style.width = width.value + "px";
+
+  // box.style.width = infoAll[0].value+ "px";
   box.style.height = infoAll[1].value+ "px";
   box.style.fontSize = infoAll[2].value+ "px";
   box.style.color = infoAll[3].value;
