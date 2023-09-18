@@ -27,7 +27,65 @@
     <li>240</li>
   </ul>
 
+  <hr>
 
+  <table>
+    <tr>
+      <td>
+        <input type="checkbox" name="hobby" id="game" value="게임">
+        <label for="game">게임</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="music" value="음악감상">
+        <label for="music">음악감상</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="movie" value="영화감상">
+        <label for="movie">영화감상</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <input type="checkbox" name="hobby" id="coding" value="코딩">
+        <label for="coding">코딩</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="exercise" value="운동">
+        <label for="exercise">운동</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="book" value="독서">
+        <label for="book">독서</label>
+      </td>
+    </tr>
+  </table>
+
+  <div class="area" id="name-div"></div>
+  <button onclick="nameTest()">선택한 요소만 출력하기</button>
+
+  
+  <div id="css-div">
+    <div class="area">test1</div>
+    <div class="area">test2</div>
+  </div>
+
+  <button onclick="cssTest()">확인하기</button>
+
+  <hr>
+
+
+  <div class="chatting">
+    <div id="chatting-bg">
+      <p><span>입력되는 채팅 출력</span></p>
+      <p><span>입력되는 채팅 출력</span></p>
+      <p><span>입력되는 채팅 출력</span></p>
+  </div>
+
+  <div id="chatting-input">
+    <input type="text" id="user-input">
+    <button onclick="readValue()">입력</button>
+  </div>
 
 
   <script src="../js/03_요소접근방법.js"></script>

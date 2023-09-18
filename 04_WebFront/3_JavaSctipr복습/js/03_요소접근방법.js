@@ -28,7 +28,61 @@ function tagTest(){
   for(let i = 0; i < arr.length; i++){
     arr[i].style.backgroundColor = "rgb(14,6,"+ arr[i].innerText +")";
   }
-
-
-
 }
+
+
+function nameTest(){
+
+  const hobbyArray = document.getElementsByName("hobby");
+
+  let str = "";
+  let count = 0;
+
+  for(let i = 0; i < hobbyArray.length; i++){
+
+    if(hobbyArray[i].checked){
+      count++;
+      str += hobbyArray[i].value + " ";
+    }
+  }
+
+  const div = document.getElementById("name-div");
+  
+  div.innerHTML = str + "<br><br> 선택된 input 개수 : " + count;
+}
+
+
+
+function cssTest(){
+  document.querySelector("#css-div").style.border = "3px solid red";
+
+  document.querySelector("#css-div > div").style.fontSize = "40px";
+
+  const arr = document.querySelectorAll("css-div > div");
+
+  arr[0].style.backgroundColor = "tomato";
+  arr[1].style.backgroundColor = "yello";
+}
+
+
+function readValue(){
+  const bg = document.querySelector("#chatting-bg");
+  const input = document.querySelector("#user-input");
+
+  if(input.value.trim().length == 0) {
+    alert("채팅 내용 입력 ㄱㄱ");
+  } else {
+    bg.innerHTML += "<p><span>"+input.value+"</span></p>";
+    bg.scrollTop = bg.scrollHeight;
+  }
+  input.value = "";
+  input.focus();
+}
+
+document.querySelector("#user-input").addEventListener("keyup", function(e){
+  
+  if(e.key == "Enter") {
+    readValue();
+  }
+
+});
