@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결과</title>
+</head>
+<body>
+  <h2> id : <span id="id"></span></h2>
+  <h2> pw : <span id="pw"></span></h2>
+
+  <script>
+    const id = document.getElementById("id");
+    const pw = document.getElementById("pw");
+
+    // parameter : 전달인자(전달된 값)
+    // location : 
+    // BOM (Browser Object Model - 브라우저를 나타내는 객체) 객체 중 하나로
+    // 주소, 히스토리 관련 정보를 가지고 있는 객체
+
+    // location.href : 현재 주소 얻어오기 (주소 창 값 가져오기)
+    // location.href = 주소;    -> 해당 주소로 이동 (주소 창 값 집어넣기)
+    
+    // URL.searchParams -> 주소에 담긴 데이터만 얻어오기
+    const params = new URL(location.href).searchParams;
+
+    // URL.searchParams.get("키") : 데이터 중 키가 일치하는 값 얻어오기
+    id.innerText = params.get("id");
+    pw.innerText = params.get("pw");
+
+  </script>
+  
+</body>
+</html>

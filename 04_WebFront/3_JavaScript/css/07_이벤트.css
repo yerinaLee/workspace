@@ -1,0 +1,47 @@
+.warning{
+  white-space: pre-wrap; /* pre태그처럼 띄어쓰기 등 모두 적용 */
+  border: 2px solid red;
+  font-weight: bold;
+}
+
+#test3{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  background-color: yellowgreen;
+  cursor: pointer;
+  user-select: none; /* 블록 불가 */
+  transition-duration: 0.3s;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+#box4{
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  transition-duration: 0.5s;
+}
+
+
+#create-btn, #calc{
+  background-color: yellow;
+  border: 1px solid yellowgreen;
+  font-weight: bold;
+}
+
+#count-input{
+  width: 40px;
+}
+
+.boxCal{
+  border: 1px solid black;
+  padding: 30px 30px ;
+}
+
+#calc-result, #calc-aver {
+  display: inline-block;
+  margin: 0 30px;
+}

@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  width: 900px;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  display: space-evenly;
+  border: 2px solid black;
+}
+
+.container > .box{
+  /* display: inline-block; */
+  width: 200px;
+  height: 200px;
+  margin: 0 20px;
+  border: 1px solid black;
+  border-radius: 3px;
+  
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  align-items: center;
+  padding: 60px 0px;
+}

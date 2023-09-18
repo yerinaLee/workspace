@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박스</title>
+  <link rel="stylesheet" href="../css/00_박스.css">
+</head>
+<body>
+  <table>
+    <tr>
+      <th>너비 : </th>
+      <td><input type="number" id="" class="info"> px</td>
+      <th>높이 : </th>
+      <td><input type="number" id="" class="info"> px</td>
+    </tr>
+
+    <tr>
+      <th>글자크기 : </th>
+      <td><input type="number" id="" class="info"> px</td>
+      <th>굵기 : </th>
+      <td><label for="normal">보통</label><input type="radio" name="f-weight" id="normal" value="normal">
+        <label for="bold">굵게</label><input type="radio" name="f-weight" id="bold" value="bold"></td>
+    </tr>
+
+    <tr>
+      <th>글자색 : </th>
+      <td><input type="text" name="" id="" class="info"></td>
+      <th>배경색 : </th>
+      <td><input type="text" name="" id="" class="info"></td>
+    </tr>
+
+    <tr>
+      <th>가로정렬 : </th>
+      <td colspan="2"><label for="left">왼쪽 </label><input type="radio" name="h-align" id="left" value="left">
+        <label for="center">가운데 </label><input type="radio" name="h-align" id="center" value="center">
+        <label for="right">오른쪽 </label><input type="radio" name="h-align" id="right" value="right"></td>
+    </tr>
+
+    <tr>
+      <th>세로정렬 : </th>
+      <td colspan="2"><label for="up">위 </label><input type="radio" name="v-align" id="up" value="top">
+        <label for="center">가운데 </label><input type="radio" name="v-align" id="center" value="middle">
+        <label for="down">아래 </label><input type="radio" name="v-align" id="down" value="bottom"></td>
+    </tr>
+
+    <tr>
+      <th>출력 문자열 : </th>
+      <td colspan="2"><input type="text" id="" class="info"></td>
+    </tr>
+
+  </table>
+
+  <button id="btn">적용하기</button>
+  <br>
+  <div id="box"></div>
+
+
+
+  <script src="../js/00_박스.js"></script>
+</body>
+</html>
