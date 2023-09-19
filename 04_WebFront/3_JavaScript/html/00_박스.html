@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/00_박스.css">
 </head>
 <body>
-  <table>
+  <table class="table">
     <tr>
       <th>너비 : </th>
       <td><input type="number" id="width" class="info"> px</td>
@@ -32,16 +32,16 @@
 
     <tr>
       <th>가로정렬 : </th>
-      <td colspan="2"><label for="left">왼쪽 </label><input type="radio" name="h-align" id="left" value="left">
+      <td colspan="2"><label for="left">왼쪽 </label><input type="radio" name="h-align" id="left" value="flex-start">
         <label for="center">가운데 </label><input type="radio" name="h-align" id="center" value="center">
-        <label for="right">오른쪽 </label><input type="radio" name="h-align" id="right" value="right"></td>
+        <label for="right">오른쪽 </label><input type="radio" name="h-align" id="right" value="flex-end"></td>
     </tr>
 
     <tr>
       <th>세로정렬 : </th>
-      <td colspan="2"><label for="up">위 </label><input type="radio" name="v-align" id="up" value="top">
-        <label for="center">가운데 </label><input type="radio" name="v-align" id="center" value="middle">
-        <label for="down">아래 </label><input type="radio" name="v-align" id="down" value="bottom"></td>
+      <td colspan="2"><label for="up">위 </label><input type="radio" name="v-align" id="up" value="flex-start">
+        <label for="center">가운데 </label><input type="radio" name="v-align" id="center" value="center">
+        <label for="down">아래 </label><input type="radio" name="v-align" id="down" value="flex-end"></td>
     </tr>
 
     <tr>

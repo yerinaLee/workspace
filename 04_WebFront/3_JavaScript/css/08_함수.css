@@ -1,0 +1,16 @@
+code{
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid orange;
+  background-color: bisque;
+  font-weight: bold;
+  font-family: 'D2Coding';
+  display: block;
+  white-space: pre-wrap; /* 내용을 작성된 형태 그대로 출력(pre태그) */
+}
+
+.important{
+  color: red;
+  font-size: 40px;
+  background-color: antiquewhite;
+}
