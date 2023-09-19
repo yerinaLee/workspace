@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07_이벤트</title>
+  <link rel="stylesheet" href="../css/07_이벤트.css">
+</head>
+<body>
+
+  <button onclick="inlineEventModel(this)">인라인이벤트모델</button>
+
+  <button id="test2-1">고전이벤트모델</button>
+  <button id="test2-2">이벤트 제거</button>
+  <button id="test2-3">고전 이벤트 모델 단점</button>
+
+  <div id="test3">클릭하면 크기가 쭉!</div>
+
+  <div id="box4"></div>
+  <input type="text" id="input4">
+  <button id="btn4">변경하기</button>
+
+
+  <a href="https://www.naver.com" id="move">네이버ㄱ</a>
+
+
+
+
+  <form action="result.html" id="login" name="loginform"
+    onsubmit="return testFn()">
+  
+    아이디 : <input type="text" name="id" id="input-id">
+    <br>
+    비밀번호: <input type="password" name="pw" id="input-pw">
+
+    <button type="submit" id="login-btn">로그인</button>
+    <button type="button" id="login-btn2">버튼 타입 로그인</button>
+  </form>
+
+  <div class="boxCal">
+    입력 칸 생성 : <input type="text" id="count-input">
+    <button id="create-btn">생성</button>
+    
+    <ul id="list"></ul>
+
+    <button id="calc">계산하기</button>
+
+
+  </div>  
+
+
+
+
+
+
+
+  <script src="../js/07_이벤트.js"></script>
+</body>
+</html>
