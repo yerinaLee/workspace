@@ -1,0 +1,79 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  width: 600px;
+  min-height: 70vh;
+  border: 3px solid skyblue;
+  border-radius: 20px;
+  margin: 50px auto;
+}
+
+
+.container-row{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+
+.input-area{
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* 빙고 영역 */
+.bingo-area{
+  justify-content: center;
+  align-items: center;
+}
+
+.bingo-row{
+  display: flex;
+}
+
+.bingo-col{
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  margin: 3px;
+  border-radius: 8px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 24px;
+  font-family: sans-serif;
+  
+  user-select: none;
+  cursor: pointer;
+}
+
+.bingo-col:hover{
+  background-color: cadetblue;
+  color: white;
+}
+
+.bingo-col:active{
+  background-color: aqua;
+  font-weight: bold;
+}
+
+/* 클래스가 연달아 써져있는건 두가지 클래스를 모두 포함한다는것 */
+.bingo-col.check{
+  background-color: darkblue;
+  color: wheat;
+}
+
+.bingo-col.bingo{
+  background-color: green;
+  color: white;
+}
+
+#bingo-board{
+  color: cadetblue;
+}
