@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12_문자열,숫자,형변환,연산자</title>
+  <link rel="stylesheet" href="../css/12_문자열,숫자,형변환,연산자.css">
+</head>
+<body>
+  
+  <h3>문자열 관련 함수</h3>
+
+  <pre>
+    - 문자열.indexOf("str") :
+        문자열에 "str"과 똑같은 부분이 있다면 시작 인덱스,
+        없으면 -1 반환
+
+
+    - 문자열.substring(시작인덱스, 종료인덱스(미포함))
+       문자열을 시작인덱스부터 
+       종료인덱스 미만까지 잘라서 반환
+
+    - 문자열.split("구분자")
+       문자열을 "구분자"로 잘라서 배열로 반환
+
+       ex) "a/b/c".split("/") -> ["a","b","c"]
+  </pre>
+
+  <button id="btn1">문자열 관련 함수</button>
+  <hr>
+
+  <h3>숫자 관련 리터럴/함수</h3>
+  <pre>
+    숫자(number)관련 리터럴 표기법 : 
+      12(정수), 3.14(실수), Infinity(무한), NaN(Not a Number)
+
+    숫자 관련 함수 제공 객체 : Math
+     - JS에 기본적으로 내장되어 있음
+
+      Math.round(number) : 반올림
+      Math.ceil(number)  : 올림
+      Math.floor(number) : 내림
+      Math.trunc(number) : 버림/절삭
+      Math.abs(number)   : 절대값
+
+      Math.random() : 0.0 <= 난수 < 1
+
+    소수점을 원하는 자릿수까지 표현 : 숫자.toFixed(자릿수)
+     - 지정된 자릿수 바로 뒤에서 반올림해서 표현
+
+     ex) (3.45).toFixed(1) : 3.5 // 소수둘째자리에서 반올림해서 첫째자리를 표현한다
+  </pre>
+
+  <button id="btn2">숫자 관련 리터럴/함수</button>
+
+
+  <hr>
+
+  <h3>형변환 함수(String -> number)</h3>
+  <pre>
+    Number("숫자") -> 숫자 (정수, 실수)
+
+    parseFloat("숫자") -> 숫자 (정수, 실수)
+    parseInt("숫자") -> 숫자 (정수)
+  </pre>
+
+  <button id="btn3">형변환 함수</button>
+
+
+  <hr>
+
+  <h3>동등 / 동일 비교 연산자</h3>
+
+  <pre class="test">
+    * 동등 : 값의 크기가 같을 때, 형태 (자료형 관계 x)
+      - 동등 비교 연산자 : == / !=
+
+      ex) 1 == '1' (true)
+          1 == true (true)
+    
+    * 동일 : 값의 모든 것이 같을 때(크기, 형태, 자료형)
+      - 동일 비교 연산자 : === / !==
+
+      ex) 1 === "1" (false)
+          1 === true (false)
+  </pre>
+
+  <button id="btn4">동등 / 동일 비교 연산자</button>
+
+
+
+
+
+
+
+
+
+  <script src="../js/12_문자열,숫자,형변환,연산자.js"></script>
+</body>
+</html>

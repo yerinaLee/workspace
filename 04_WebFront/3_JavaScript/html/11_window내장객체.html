@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11_window내장객체</title>
+  <link rel="stylesheet" href="../css/11_window내장객체.css">
+</head>
+<body>
+  
+  <h1>window 객체</h1>
+  <pre>
+    - 브라우저 창 자체를 나타내는 객체
+
+    - 자바스크립트 모든 객체의 최상위 부모 (DOM보다 위에있음)
+
+    window
+      - DOM(Docment Object Model) : document
+        (브라우저에서 페이지가 보이는 부분)
+
+      - BOM(Browser Object Moder) : location, history, screen, navigator
+        (DOM을 뺀 나머지 부분)
+
+  </pre>
+
+  <hr>
+
+  <h3>[window.]setTimeout(함수, 지연시간(ms)) </h3>
+  <pre>
+    - 지연시간이 지난 후 함수를 수행하게 만드는
+      window의 내장 함수
+
+    - 시간과 관련된 setTimeout / setInterval은
+      비동기로 동작하는 특징이 있음!
+
+    - (타이머같은 느낌)
+  </pre>
+
+
+  <button id="test1">setTimeout() 확인하기</button>
+
+  <hr>
+
+  <h3>[window.]setInterval(함수, 지연시간(ms))</h3>
+  
+  <pre>
+    - 세팅된 지연시간이 지날 때 마다 함수를 수행
+
+    - 비동기로 동작
+
+    - (반복알람같은 느낌)
+  </pre>
+
+  <h1 id="target2">0</h1>
+  <button id="test2">1초마다 1씩 증가</button>
+
+
+  <hr>
+
+  <h3>[window.]clearInterval( setInterval() )</h3>
+  <pre>
+    - 매개변수로 전달된 setInterval()을 지우는 함수
+    - 알람 삭제기능 ㅋㅋ
+  </pre>
+
+  <h1 id="stopwatch">00:00:00</h1>
+  <button id="start">START</button>
+  <button id="stop">STOP</button>
+
+  <hr>
+  <h3>window.open("URL", "팝업창 이름", "팝업창 특성(옵션)")</h3>
+  <!-- 자바의 오버로딩 느낌 -->
+  <ol>
+      <li>
+          <h3>url</h3>
+          <pre>
+              새 창에서 요청할 URL
+          </pre>
+      </li>
+      <li>
+          <h3>팝업창 이름</h3>
+          <pre>
+              사용자 임의 지정 : 새 창 이름 지정
+              _blank : 새 탭 또는 새 창(기본값)
+              _self : 현재 탭 또는 현재 창
+              _parent : 부모페이지 // 잘안씀
+              _top : 최상위 페이지 // 잘안씀
+          </pre>
+      </li>
+      <li>
+          <h3>팝업창 특성(옵션)</h3>
+          <pre>
+              쉼표로 구분된 창 기능 목록을 포함하는 문자열 name=value또는 부울 기능의 경우 name. 
+              이러한 기능에는 창의 기본 크기 및 위치, 최소 팝업 창을 열지 여부 등과 같은 옵션이 포함됩니다.
+      
+              popup
+              최소한의 팝업창 사용
+              팝업 창에 포함된 UI 기능은 일반적으로 주소 표시줄만 포함하여 브라우저에서 자동으로 결정됩니다.
+              활성화 popup되지 않고 창 기능이 선언되지 않은 경우 새 탐색 컨텍스트는 탭이 됩니다.
+      
+      
+              width또는innerWidth
+              스크롤 막대를 포함하여 콘텐츠 영역의 너비를 지정합니다. 최소 필수 값은 100입니다.
+      
+              height또는innerHeight
+              스크롤 막대를 포함하여 콘텐츠 영역의 높이를 지정합니다. 최소 필수 값은 100입니다.
+      
+              left또는screenX
+              새 창이 생성될 사용자의 운영 체제에서 정의한 대로 작업 영역의 왼쪽에서 픽셀 단위로 거리를 지정합니다.
+      
+              top또는screenY
+              새 창이 생성될 사용자의 운영 체제에서 정의한 대로 작업 영역의 위쪽에서 픽셀 단위로 거리를 지정합니다.
+
+          </pre>
+      </li>
+  </ol>  
+
+
+  <button id="open1">open1</button>
+  <button id="open2">open2(팝업창)</button>
+  <button id="open3">open3(옵션적용)</button>
+
+  <hr>
+
+  <h3>팝업창(자식창)이 열리게한 창(부모)의 값을 얻어오기 / 변경하기 </h3>
+
+  <pre>
+    - 팝업창 == 자식
+    - 팝업창을 열게한 창 == 부모
+  </pre>
+
+  팝업창이 읽어갈 값 : <input type="text" id="read-value">
+  <button id="open4">팝업창(자식) 열기</button>
+
+  <br><br><br>
+
+  팝업창이 세팅한 값 : <input type="text" id="write-value">
+
+
+
+
+  
+  <script src="../js/11_window내장객체.js"></script>
+</body>
+</html>

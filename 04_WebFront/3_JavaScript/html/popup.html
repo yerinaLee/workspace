@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팝업창(자식)</title>
+</head>
+<body>
+  <h1>팝업창(자식) 입니다요</h1>
+
+  <p>
+    부모의 #readValue에 작성된 값 : <span id="parent-value"></span>
+  </p>
+
+  <p>
+    부모의 #writeValue에 전달할 값 : <br>
+    <input type="text" id="send-value">
+    <button id="send-btn">보내고 창 닫기</button>
+  </p>
+
+
+
+  <script>
+    const parentValue = document.querySelector("#parent-value");
+
+    // opener : 팝업창을 연 '부모 창'
+    parentValue.innerText 
+      = opener.document.querySelector("#read-value").value;
+    
+    // 아이디 중복검사에서 많이 사용
+
+    // 보내고 닫기
+    const sendBtn = document.querySelector("#send-btn");
+    const sendValue = document.querySelector("#send-value");
+
+
+    sendBtn.addEventListener("click", ()=> {
+
+      // 부모 창의 #writeValue의 값으로 sendValue의 값 대입
+      opener.document.querySelector("#write-value").value = sendValue.value;
+
+      // 현재 창 닫기
+      window.close();
+    })
+  </script>
+</body>
+</html>

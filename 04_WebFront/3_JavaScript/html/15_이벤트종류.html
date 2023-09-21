@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15_이벤트종류</title>
+  <link rel="stylesheet" href="../css/15_이벤트종류.css">
+</head>
+<body>
+
+  <h1>JS 이벤트 종류</h1>
+  <h3>focus : 초점이 맞춰졌을 때</h3>
+  <h3>focus-out(추천x!)</h3>
+  <h3>blur : 초점을 잃었을 때</h3>
+  <input type="text" id="focus-test">
+
+  <hr>
+
+  <h3>change : input의 값이 변했을 때</h3>
+  <pre>
+    - checkbox, radio : 체크 됐을 때 / 해제 됐을 때
+                        change 이벤트 발생
+
+    -text, number 관련 :
+     input의 초점을 잃었을 때(blur)
+     이전 값과 현재 값이 다를 경우 change 발생
+     (값의 변화를 인지함 (실시간 x)) 
+  </pre>
+
+  <input type="checkbox" id="check-test">
+
+  <br>
+
+  <input type="text" id="input-change">
+
+  <hr>
+
+  <h3>input 이벤트</h3>
+  <pre>
+    - input 요소에 값이 입력되는 모든 동작을 인식해 발생하는 이벤트
+    
+    - 단점 : 키보드 관련 이벤트는 입력한 키를 알 수 있지만
+            (e.key로 얻어와짐)
+            input 이벤트는 e.key 사용 불가
+            (이벤트 객체 e에 key 속성이 존재하지 않음)
+  </pre>
+
+  <input type="text" id="test">
+
+  
+  <script src="../js/15_이벤트종류.js"></script>
+</body>
+</html>

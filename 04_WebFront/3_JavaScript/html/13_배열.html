@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13_배열</title>
+</head>
+<body>
+  
+  <h1>배열(Array)</h1>
+  <pre>
+    배열 : 변수를 묶음으로 다루는 것
+            (변수가 연속적으로 나열됨)
+
+    * JS 변수의 특징 : 값이 저장되기 전 까지는 자료형을 알 수 없다
+                    -> 값이 없으면 자료형이 지정되지 않는다
+
+    JS 배열의 특징
+    1. 자료형 제한 X (정수, 문자열, 객체...)
+    2. 길이 제한 X
+    == 자바의 Collection 중 List와 비슷
+
+    [JS 배열 선언 방법]
+
+    const arr = new Array(); // 0칸 짜리 배열 (비어있는 배열) 생성 
+
+    const arr = new Array(3); // 3칸 짜리 배열 생성 (속도빠름, but 메모리 낭비가능성있음)
+
+    const arr = []; // 비어있는 배열 생성
+
+    const arr = [1,2,3]; // 배열 생성 및 초기화
+  </pre>
+
+  <button id="btn1">배열 생성 및 기초 사용방법</button>
+
+  <hr>
+
+  <h1 style="color:red">배열 관련 함수</h1>
+
+  <pre>
+    <strong style="color:purple">
+      배열 관련 함수는 기본적으로
+      배열(Array) 또는 유사배열(HTMLCollection, NodeList, ...)에
+      모두 사용 가능하지만
+
+      유사 배열의 종류에 따라 사용불가한 배열함수도 존재한다.
+      (확인 방법 -> 콘솔에 배열 출력 후 prototype 확인)
+    </strong>
+
+    (Stack 구조의 개념을 따온 함수)
+    ★ 배열명.push() : 배열 마지막 요소로 추가
+    ★ 배열명.pop()  : 배열 마지막 요소를 꺼내옴
+
+    배열명.unshift() : 배열 첫 번째 요소로 추가
+    배열명.shift() : 배열 첫 번째 요소를 꺼내옴
+
+
+    배열.indexOf("값") 
+    : 배열 내 요소 중 "값"이 일치하는 요소의 index를 반환
+        단, 없으면 -1 반환 (중복 검사에 많이 사용)
+
+
+    배열명.sort([정렬기준함수]) : 배열 정렬
+    - [정렬기준함수] 미작성 
+        -> 각 요소의 값을 문자열 순서대로 정렬
+
+    - [정렬기준함수] 작성 
+        -> 정렬 기준에 맞게 요소들을 정렬함
+
+
+    배열명.toString() : 모든 요소를 하나의 문자열로 반환
+                        요소 사이에 "," 추가됨
+
+    배열명.join("구분자") : 모든 요소를 하나의 문자열로 반환
+                            요소 사이에 "구분자" 추가됨
+                            
+  </pre>
+
+  <button id="btn2">배열 함수 확인하기</button>
+
+
+  <pre>
+    콜백 함수(Callback Function) : 
+      - 함수 코드 수행 후 반환된 결과를
+      감싸고 있거나 다른 함수에 다시 전달해서 영향을 주는 것
+
+    * 배열명.forEach(콜백함수([item, index]))
+    : 배열 요소를 하나씩 순차적으로 꺼내서
+      item 변수에 저장한 다음
+      콜백함수 내부 코드를 수행.
+      (요소 하나 꺼낼때 마다 콜백 함수 1회씩 수행)
+      (index : 현재 요소의 인덱스) 
+
+    *** 배열(Array), NodeList에서 사용 가능 ***
+  </pre>
+
+  <button id="forEach-btn">forEach 확인하기</button>
+
+
+  <pre>
+    * 배열명.map(콜백함수(item, index))
+    - 배열의 모든 요소를 차례대로 접근하여
+      콜백 함수를 수행 -> 반환 결과를 모아 새로운 배열 생성
+  </pre>
+  
+  <button id="map-btn">map 확인하기</button>
+
+  
+  <pre>
+    // reduce : 배열의 sum
+    // filter : 배열의 필터링. 조건식이 포함된 for문 배열
+  </pre>
+
+
+  <hr>
+  <h3>for( (item) of (배열명) )</h3>
+  <pre>
+    - 배열 / 유사배열의 모든 요소를 순서대로 접근하는
+      향상된 for문
+  </pre>
+
+  <button id="for-of">for of 확인하기</button>
+
+  <ul>
+    <li class="test"></li>
+    <li class="test"></li>
+    <li class="test"></li>
+    <li class="test"></li>
+    <li class="test"></li>
+  </ul>
+
+
+  <script src="../js/13_배열.js"></script>
+</body>
+</html>
