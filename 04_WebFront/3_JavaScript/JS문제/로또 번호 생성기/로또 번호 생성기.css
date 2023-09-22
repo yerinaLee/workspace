@@ -1,0 +1,92 @@
+:root{
+  --ball-color-1 : #fbc400; /* 1의자리수 컬러 */
+  --ball-color-2 : #69c8f2;
+  --ball-color-3 : #ff7272;
+  --ball-color-4 : #aaa;
+  --ball-color-5 : #b0d840;
+  --cretae-btn-color : #d43301;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: auto;
+  padding: 10px 10px;
+}
+
+.container>p:first-child {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header{
+  border: 3px solid gainsboro;
+  border-radius: 20px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+header > p{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+#btn{
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+  border: 1px solid #d43301;
+  border-radius: 5px;
+  color: #d43301;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+}
+
+
+.lotto{
+  border: 2px solid gainsboro;
+  border-radius: 20px;
+  width: 400px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
+}
+
+#test{
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  /* border: 1px solid black; */
+
+
+  justify-content: center;
+  align-items: center;
+  color: white; /* 이거 white로 바꿔야함! */
+  font-weight: bold;
+  background-color: #fbc400;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16_회원가입</title>
+  <link rel="stylesheet" href="../css/16_회원가입.css">
+</head>
+<body>
+  <!-- 
+    - 아이디, 비밀번호, 비밀번호 확인, 이름, 성별
+
+    - 아이디 : 영어 대/소문자 + 숫자 + 특수문자(-, _) 포함 6글자 이상 16글자 이하
+
+    - 비밀번호 : 영어 대/소문자 + 숫자 + 특수문자(!@#$%^&*) 포함 8글자 이상 20글자 이하
+
+    - 비밀번호 확인 : 비밀번호와 같은지 확인(단 빈칸 제외)
+
+    - 이름 : 한글 2~15 (단자음, 단모음 제외)
+
+    - 성별 : 남/여 중 하나 반드시 선택
+    
+    
+    - 값 입력시(keyup, input) 검사 -> 아이디, 비밀번호, 비밀번호 확인, 이름
+    - 제출시(submit) 검사 -> 
+        전부 다 유효한지 + 성별 선택했는지
+    
+    - 아이디, 비밀번호, 비밀번호 확인을 순서대로 입력하지 않았을 때
+      (이전 요소를 입력 안하고 다음으로 넘어갔을때)
+      -> alert("이전 요소를 먼저 입력해주세요") 후 포커스 이동
+  -->
+
+  <h2>회원 가입</h2>
+
+  <!-- form태그에 name속성이 있을 경우
+  JS에서 document.name속성 값으로 요소 접근 가능 -->
+  <form action="#" name="signupForm">
+    <table>
+      <tbody>
+        <tr>
+          <td>아이디 : </td>
+          <td>
+            <!-- name속성은 K 값이 된다 -->
+            <input type="text" class="signup-input" id="input-id" name="id">
+            <br>
+            <span class="input-result">영어, 숫자, -, _ 6~16글자 사이</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>비밀번호 : </td>
+          <td>
+            <input type="password" class="signup-input" id="input-pw" name="pw">
+            <br>
+            <span class="input-result">영어, 숫자, !@#$%^&* 8~20글자 사이</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>비밀번호 확인 : </td>
+          <td>
+            <input type="password" class="signup-input" id="input-pw-check">
+            <br>
+            <span class="input-result">비밀번호를 먼저 입력해주세요</span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>이름 : </td>
+          <td>
+            <input type="text" class="signup-input" id="input-name" name="name">
+            <br>
+            <span class="input-result">한글 2~15(단자음, 단모음 제외)</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>성별 : </td>
+          <td>
+            <label>
+              남 <input type="radio" name="gender" value="M">
+            </label>
+            <label>
+              여 <input type="radio" name="gender" value="F">
+            </label>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th colspan="2">
+            <button type="submit">회원 가입</button>
+          </th>
+        </tr>
+      </tfoot>
+  </form>
+
+  <script src="../js/16_회원가입.js"></script>
+</body>
+</html>

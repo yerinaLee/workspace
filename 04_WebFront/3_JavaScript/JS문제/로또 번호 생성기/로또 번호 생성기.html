@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로또 번호 생성기</title>
+  <link rel="stylesheet" href="로또 번호 생성기.css">
+</head>
+<body>
+  
+  <div class="container">
+
+    <p>로또 번호 생성기</p>
+
+    <header>
+      <p>생성할 번호 조합 개수 선택</p>
+      <section class="times-row1">
+        <label><input type="radio" name="times" id="1time"> 1회</label>
+        <label><input type="radio" name="times" id="3time"> 3회</label>
+        <label><input type="radio" name="times" id="5time"> 5회</label>
+        <label><input type="radio" name="times" id="10time"> 10회<br></label>
+        <input type="radio" name="times" id="10time"> <input type="text" placeholder="직접입력" size="7px"> 회
+      </section>
+      <button id="btn">생성</button>
+    </header>
+
+    <footer>
+      <div class="lotto">
+        <div id="test">1</div>
+        <div id="test">1</div>
+        <div id="test">1</div>
+        <div id="test">1</div>
+        <div id="test">1</div>
+        <div id="test">1</div>
+      </div>
+    </footer>
+
+    <!-- 생성을 하면서 동시에 컬러는 클래스로 넣고(숫자에 따라서 다르게), 숫자는 랜덤으로 innerTEXT로 넣기 -->
+
+  </div>
+  <script src="로또 번호 생성기.js"></script>
+</body>
+</html>

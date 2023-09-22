@@ -1,0 +1,25 @@
+tbody > tr > td:first-child{
+  /* table에서만 사용 가능한 속성 */
+  vertical-align: top;
+  font-weight: bold;
+}
+
+tbody > tr > td:last-child > input{
+  width: 200px;
+  padding: 2px;
+}
+
+tbody > tr > td:last-child > span{
+  font-size: 12px;
+}
+
+tfoot  button{
+  width: 100%;
+  margin-top: 10px;
+  background-color: teal;
+  color: white;
+}
+
+.check{ color: green; }
+.error{ color: red; }
+
