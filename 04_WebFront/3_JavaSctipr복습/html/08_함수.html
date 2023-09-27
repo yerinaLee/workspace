@@ -8,111 +8,20 @@
 </head>
 <body>
   
-  <h1>기본적인 함수 선언, 정의, 호출</h1>
-
-  <code>
-    function 함수명(매개변수) { // 함수 선언
-      // 수행할 코드            // 함수 정의
-    }
-
-    함수명(매개변수);           // 함수 호출
-  </code>
-
-
-  <input type="text" size="4" readonly value="0" id="count">
+  <input type="text" id="count" size="4" readonly value="0">
   <button id="increment">1 증가</button>
 
-  <hr>
-
-  <h1>익명 함수(이름이 없는 함수)</h1>
-
-  <code>
-    function(매개변수){        // 함수 선언
-      // 수행할 코드           // 함수 정의
-    }
-  </code>
-
-  <pre>
-    - 이름이 없는 함수이기 때문에
-      원하는 시점에 함수를 호출하는 것이 불가능!
-
-    - 대신 선언된 위치에서 바로 수행됨
-
-    1) 이벤트 핸들러
-    2) 변수명 = 익명함수 (변수에 함수 대입)
-  </pre>
 
   <button id="btn2">익명 함수 확인</button>
 
-  <hr>
-
-  <h1>즉시 실행 함수</h1>
-
-  <code>
-    (function(매개변수){
-      // 함수 정의
-    })();
-
-    // 함수명 자리에 익명함수를 대신 작성한 모양
-  </code>
-
-  <pre>
-    - 익명 함수의 한 종류로써
-    함수가 정의 되자마자 바로 실행되는 함수
-
-    *** 즉시 실행 함수 사용 이유
-    1) 함수 선언, 정의, 호출의 일련의 과정을 수행하지 않아도 바로 실행된다.
-        -> 호출부가 없으므로 일반적인 함수보다 속도적 우위를 가지고 있음.
-
-    ★ 2) 사용하려는 변수명이 전역변수로 사용되어지고 있는 경우
-      즉시 실행 함수를 이용하여 내부의 지역 변수로 작성하여
-      변수명 충돌 문제를 해결할 수 있다. 
-  </pre>
-
-  <hr><hr>
-
-
-  <h1 class="important">화살표 함수(Arrow Function)</h1>
-
-  <code>
-    - 익명 함수의 한 종류
-    - 익명 함수를 간단히 표기하는 방법 (ES6)
-    
-    익명 함수 : function(){}
-
-    1. 기본 형태 : () => {}
-
-    <!-- 매개변수 1개면 () 생략 가능!! -->
-    2. 매개변수 1개: (e) => {} 또는 
-                      e => {}       // () 생략
-
-    3. 매개변수 n개: (a,b,c) => {}  // () 생략 불가
-   
-    4. 함수 정의 부분에 return 한 줄만 있을 경우 :
-
-      1) 익명 함수 :                 function(){ return 1+2; }
-
-      2) 화살표 함수(기본) :         () => { return 1+2; }
-
-      3) 화살표 함수(return 한 줄) : () => 1 + 2
-                                    // { return  } 생략
-    
-    5. 함수 정의 부분에 return 한 줄 만 있는데
-      return하는 값이 object(객체, 배열 등)인 경우 :
-      {} 생략 불가!!!
-
-      () => { return{name:"홍길동", age:20}; }
-  </code>
-
   <button class="arrow">화살표 함수 기본 형태</button>
-
   <button class="arrow">매개변수가 1개인 경우</button>
-
   <button class="arrow">매개변수가 n개인 경우</button>
+  <button class="arrow">{ return } 생략</button>
+  <button class="arrow">{ return } 생략 불가</button>
 
-  <button class="arrow">{ return }생략</button>
 
-  <button class="arrow">{ return }생략 불가</button>
+
 
 
 

@@ -1,0 +1,67 @@
+* {
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0; 
+ font-weight: bold;
+ font-family: 'HakgyoansimWoojuR';
+ font-size: 20px;
+}
+
+@font-face {
+  font-family: 'HakgyoansimWoojuR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+  padding-top: 40px;
+}
+
+table{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-spacing: 10px;
+}
+
+table > tr{
+  margin: 50px;
+}
+
+.signup{
+  border-width: 0;
+  border-bottom: 1px dashed gray;
+}
+
+.input-result{
+  font-size: 12px;
+  color: gray;
+}
+
+#btn{
+  width: 350px;
+  height: 40px;
+  margin-top: 20px;
+  background-color: pink;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(83, 83, 83);
+  border: 0;
+  cursor: pointer;
+}
+
+
+

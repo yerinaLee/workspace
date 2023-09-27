@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servlet Project</title>
+
+  <!-- 
+    webapp 폴더가 절대경로 기준
+    "/" == webapp 폴더
+  -->
+  <link rel="stylesheet" href="/resources/css/servlet.css">
+
+</head>
+<body>
+  <h1>예리</h1>
+
+  <h1>index.html 파일은 메인 페이지 역할의 html 파일 입니다</h1>
+  (확인은 web.xml)
+
+  <hr>
+
+  <h1>서버 제출 테스트 1</h1>
+  <pre>
+    - 이름과 나이를 입력 받아 서버로 제출
+
+    * 준비물 *
+    1) input 태그 : 값을 입력하는 양식을 제공
+      - name 속성 : 서버로 제출 시 Key 역할을 하는 속성
+      - input에 입력된 값 또는 value 속성의 값 : Value 역할
+
+    2) form 태그 : 내부에 작성된 input 값을 지정된 경로로 제출
+      - 지정된 경로로 제출 ==  클라이언트가 서버에 요청
+
+      - action 속성 : 제출할 경로(주소)
+                      (주소 == 무슨 요청인지 지정)
+
+      - method 속성 : 제출 방법(데이터 전달 방식)
+  </pre>
+
+  <form action="/example1" method="GET">
+    <pre>
+      - action="/example1"
+        -> 최상위주소/example1 주소로 요청을 보내겠다(제출하겠다)
+
+      - method="GET"
+        -> 제출되는 데이터를 주소에 담아서 제출하겠다
+          ex) 주소 ?name=홍길동&age=20
+                      (쿼리 스트링)
+    </pre>
+
+    이름 : <input type="text" name="inputName">
+    <br>
+    나이 : <input type="number" name="inputAge">
+    <br>
+    <button type="submit">서버로 제출하기(== 요청하기)</button>
+
+  </form>
+
+
+  <hr>
+
+  <h1>서버 제출 테스트 2</h1>
+
+  <!-- method 안적으면 기본 값 GET -->
+  <form action="/example2">
+    <h3>커피 주문하기</h3>
+
+    주문자 : <input type="text" name="orderer">
+    <br>
+
+    커피 : 
+    <select name="coffee">
+      <!-- option 태그 내용이 value가 됨 -->
+      <option>아메리카노</option>
+      <option>에스프레소</option>
+      <option>카푸치노</option>
+      <option>민초라떼</option>
+      <option>돌체콜드브루</option>
+    </select>
+    <br>
+
+    ICE <input type="radio" name="type" value="ICE">
+    HOT <input type="radio" name="type" value="HOT">
+    <br>
+
+    옵션 <br>
+    연하게 <input type="checkbox" name="opt" value="mild">
+    얼음 추가 <input type="checkbox" name="opt" value="addIce">
+
+    <br>
+
+    <button>주문하기</button>
+  </form>
+
+  <hr><hr>
+
+  <h1>POST 방식 데이터 전달1</h1>
+
+  <form action="/login" method="post">
+    ID :   <input type="text"     name="id">     <br>
+    PW :   <input type="password" name="pw">     <br>
+    NAME : <input type="text"     name="name">   <br>
+    <button>로그인</button>
+  </form>
+
+
+  <hr>
+
+  <h1>POST 방식 데이터 전달2</h1>
+
+
+  <form action="/randomMenu" method="post">
+    <h3>점심메뉴 랜덤 뽑기</h3>
+
+    <div class="container">
+      <input type="text" name="menu">
+    </div>
+
+    <button type="button" id="addBtn">추가</button>
+    <button>제출</button>
+  </form>
+
+
+  <script src="/resources/js/servlet.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>댓글</title>
+  <link rel="stylesheet" href="../css/댓글.css">
+</head>
+<body>
+  <main class="container">
+    <span>작성자명: </span>
+    <input type="text" class="name" name="input-name" size="15">
+    <section class="write-area">
+      <textarea name="input-text" id="input-text"></textarea>
+      <button id="submit-btn">댓글 등록</button>
+    </section>
+
+    <section class="comment-area">
+      <div>
+        <p class="name">작성자명</p>
+        <p class="date">2023-09-25 11:14:30</p>
+      </div>
+      <p class="comment">댓글을         
+        등록하고
+        삭제해보세요</p>
+      
+      <div><button class="delete-btn">삭제</button></div>
+    </section>
+  </main>
+
+  <script src="../js/댓글.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  width: 80%;
+  /* border: 1px solid black; */
+  margin-top: 30px;
+}
+
+/* 코멘트 작성 zone */
+.container > span:first-child{
+  font-size: 20px;
+}
+
+.name{
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.write-area{
+  display: flex;
+}
+
+#input-text{
+  width: 90%;
+  flex-grow: 1;
+  height: 90px;
+  resize: none;
+  font-size: 18px;
+  padding: 5px;
+}
+
+#submit-btn{
+  width: 90px;
+  height: 90px;
+  margin-left: 3px;
+  background-color: #455BA8;
+  color : white;
+  font-weight: bold;
+  border: 0;
+  cursor: pointer;
+}
+
+#submit-btn:hover{
+  background-color: #455ba8e7;
+}
+
+
+/* 댓글 등록 zone */
+
+.comment-area > div:first-child {
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 2px solid black;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.623);
+  margin-top: 30px;
+  line-height: 40px;
+} 
+
+.name{
+  font-weight: bold;
+  padding: 5px 20px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.date{
+  display: inline-block;
+  font-size: 15px;
+  padding: 5px 20px;
+}
+
+
+.comment{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.623);
+  font-size: 20px;
+  padding: 15px 5px;
+}
+
+.comment-area > div:last-child{
+  display: flex;
+  justify-content: end;
+}
+
+.delete-btn{
+  background-color: #455BA8;
+  color : white;
+  border: 0;
+  cursor: pointer;
+  height: 30px;
+  width: 50px;
+  margin: 8px 0;
+}
+
+.delete-btn:hover{
+  background-color: #455ba8e7;
+}
