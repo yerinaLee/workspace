@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSTL</title>
+</head>
+<body>
+  
+  <h1>JSTL(JSP Standard Tag Library)</h1>
+
+  <pre>
+    JSP에서 자주 사용되거나 공통적으로 사용되는
+    Java 문법(코드)을
+
+    스크립틀릿(<% %>) 대신 HTML 태그 형식으로 태그화 하여
+    표준으로 제공하는 라이브러리(아파치 재단에서 제공)
+
+    - if, for, 변수 선언(scope 지정 가능)
+      변수 제거(scope 지정 가능), 형변환,
+      문자열, 숫자, 날짜 관련 포맷 지정
+  </pre>
+
+  <hr>
+
+  <h1>JSTL 적용 방법</h1>
+  <ol>
+    <li>JSTL 관련 jar 파일을 webapp/WEB-INF/lib 폴더에 추가</li>
+
+    <li>JSTL을 사용하려는 JSP 파일 상단에
+        taglib JSP 지시자를 추가
+    </li>
+  </ol>
+
+  <hr><hr>
+
+  <h3>JSTL 확인하기</h3>
+
+  <ul>
+    <li>
+      JSTL 기초 <button id="btn1">이동</button>
+    </li>
+
+    <li>
+      JSTL 조건문 <button id="btn2">이동</button>
+    </li>
+
+    <li>
+      JSTL 반복문 <button id="btn3">이동</button>
+    </li>
+
+  </ul>
+
+  <!-- resources 폴더 내 파일 접근 시 절대 경로 사용 권장 -->
+  <!-- 절대 경로 기준 : webapp (== /) _ 이건 파일경로가 아니라 웹경로임 -->
+  <script src="/resources/js/main.js"></script>
+</body>
+</html>
