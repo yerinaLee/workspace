@@ -1,0 +1,74 @@
+:root{
+  /* 10px 기준, rem 단위 사용 예정 */
+  font-size: 62.5%;
+
+  --error-color : red;
+  --normal-color : green;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  /* 1rem = 10px, 400px */
+  width: 30rem; 
+  min-height: 30rem;
+}
+
+main > h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 로그인 감싼 요소 */
+.login-container{
+  display: flex;
+  flex-direction: column;
+}
+
+/* 로그인 행 */
+.login-row{
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.login-row > label {
+  width: 15%;
+  font-size: 2rem;
+  font-weight: bold;
+}     
+
+.login-row > input{
+  width: 85%;
+  font-size: 2rem;
+  padding: 0.3rem 0.5rem;
+}  
+
+/* 로그인 버튼 */
+.login-row > button {
+  width: 100%;
+  font-size: 2rem;
+}
+
+/* 회원 가입 */
+.login-row:last-child{
+  justify-content: center;
+}
+
+.login-row a{
+  font-size: 1.5rem;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}  

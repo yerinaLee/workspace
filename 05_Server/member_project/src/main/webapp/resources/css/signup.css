@@ -1,0 +1,38 @@
+main{
+  width: 45rem;
+}
+
+.signup-row{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  font-size: 1.6rem;
+}
+
+.input-container{
+  display: flex;
+}
+
+.input-container > label{
+  width: 30%;
+  font-weight: bold;
+}
+
+.input-container > input:not([type="radio"]){
+  width: 80%;
+  padding: 0.3rem;
+}
+
+.input-container > input[type="radio"]{
+  margin: 0 2rem;
+}
+
+.message{
+  font-size: 1.2rem;
+  margin-left: 11rem;
+}
+
+
+.signup-row > button{
+  height: 3rem;
+}
