@@ -28,37 +28,59 @@
 
         <section class="content">
             <section class="content-1">
-
             </section>
 
             <section class="content-2">
 
-                <form action="/member/login" method="POST" id="loginFrm">
-                    <fieldset class="id-pw-area">
-                        <section>
-                            <input type="text" name="memberEmail" 
-                                placeholder="이메일" autocomplete="off" value="" >
-
-                            <input type="password" name="memberPw" placeholder="비밀번호">                  
-                        </section>
-                        <section>
-                            <button>로그인</button>
-                        </section>
-                    </fieldset>
-
-                    <label>
-                        <input type="checkbox" name="saveId"  > 아이디 저장
-                    </label>
-
-                    <article class="signup-find-area">
-                        <a href="/member/signUp">회원가입</a>
-                        <span>|</span>
-                        <a href="#">ID/PW 찾기</a>
-                    </article>
-                </form>
-
-
+                <%-- 어떤 scope에도 loginMemebr가 없거나 null이면 --%>
+                <c:if test="${empty loginMember}">
                 
+                    <form action="/member/login" method="POST" id="loginFrm">
+                        <fieldset class="id-pw-area">
+                            <section>
+                                <input type="text" name="memberEmail" 
+                                    placeholder="이메일" autocomplete="off" value="" >
+    
+                                <input type="password" name="memberPw" placeholder="비밀번호">                  
+                            </section>
+                            <section>
+                                <button>로그인</button>
+                            </section>
+                        </fieldset>
+    
+                        <label>
+                            <input type="checkbox" name="saveId"  > 아이디 저장
+                        </label>
+    
+                        <article class="signup-find-area">
+                            <a href="/member/signUp">회원가입</a>
+                            <span>|</span>
+                            <a href="#">ID/PW 찾기</a>
+                        </article>
+                    </form>
+                </c:if>
+
+                <%-- loginMemebr가 존재하는 scope가 있을 때 --%>
+                <c:if test="${ not empty loginMember }">
+
+                    <article class="login-area">
+
+                        <a href="#">
+                            <img id="memberProfile" src="/resources/images/user.png">
+                        </a>
+
+                        <div class="my-info">
+                            <div>
+                                <a href="#" id="nickname">${loginMember.memberNickname}</a>
+                                <a href="/member/logout" id="logoutBtn">로그아웃</a>
+                            </div>
+                            
+                            <p>${loginMember.memberEmail}</p>
+                        </div>
+                    
+                    </article>
+
+                </c:if>
             </section>
         </section>
     </main>

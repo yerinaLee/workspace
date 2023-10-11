@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+
+	<!-- mapper : java(DAO)에서 호출한 id에 따라 SQL을 연결하는 파일
+				  (SQL + 마이바티스 태그 작성)  -->
+	
+	<!-- *** 필수 작성 *** -->				  
+	<!-- namespace : SQL이 모여있는 공간(mapper)의 이름 지정하는 속성  -->
+
+	<!-- mapper.xml 생성 시 아래 구문은 무조건 삭제!! -->
+	<!--   <cache-ref namespace=""/> -->
+	
+	
+	<!-- SQL - SELECT 관련 속성
+	
+		- id : 태그를 식별하는 값
+	
+		- parameterType : 넘어온 값의 자료형
+		 
+		- resultType : 조회 결과를 담아서 반환할 객체/변수의 자료형 
+	 -->
+	
+	<!-- 로그인 -->
+	<select id="login"
+		parameterType="edu.kh.project.member.model.dto.Member"
+		resultType="edu.kh.project.member.model.dto.Member">
+		
+		SELECT MEMBER_NO , MEMBER_EMAIL , MEMBER_NICKNAME , MEMBER_TEL , MEMBER_ADDRESS , PROFILE_IMG , AUTHORITY, 
+				TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE 
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL ='N'
+		AND MEMBER_EMAIL = #{memberEmail}
+		AND MEMBER_PW = #{memberPw}
+	</select>
+
+
+</mapper>
