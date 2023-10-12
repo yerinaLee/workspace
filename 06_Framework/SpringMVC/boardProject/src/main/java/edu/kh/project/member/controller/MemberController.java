@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -144,10 +145,12 @@ public class MemberController {
 	 * </p>
 	 * @param inputMember : 이메일, 비밀번호 저장 커맨드 객체
 	 * @param model :  데이터 전달용 객체
+	 * @param ra : 리다이렉트 시 데이터를 request scope로 전달하는 객체
 	 * @return
 	 */
-	@PostMapping("/login")
+	@PostMapping("login")
 	public String login(Member inputMember, Model model, RedirectAttributes ra) {
+		
 		
 		// 로그인 서비스 호출
 		Member loginMember = service.login(inputMember);
@@ -215,6 +218,92 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	
+	
+	/** 회원가입 화면 전환
+	 * @return
+	 */
+	@GetMapping("signup") // signup 앞에 / 를 지워도 자동으로 붙음
+	public String signup() {
+		
+		// /WEB-INF/views/member/signup.jsp로 forward
+		return "member/signup";
+	}
+	
+	
+	
+	/** 회원가입 진행
+	 * @return
+	 */
+	@PostMapping ("signup")
+	public String signup(Member inputMember,
+			@RequestParam("memberAddress") String[] memberAddress, 
+			RedirectAttributes ra) {
+		
+		// RedirectAttributes : 리다이렉트시 값을 1회성으로 전달하는 객체
+		
+		// memberAddress : 주소 3개가 저장된 배열
+		
+		// 회원가입 서비스 호출 후 결과(INSERT 행의 갯수) 반환받기
+		int result = service.signup(inputMember, memberAddress);
+		
+		// service 호출 결과
+		// 1) 1 == INSERT 성공
+		// 2) 0 == INSERT 실패
+		// 3) 예외 발생
+
+		
+		// 1) 회원가입 성공 시
+		if(result > 0) {
+			// 메인페이지로 리다이렉트 후
+			// "회원 가입 성공" alert() 출력
+			ra.addFlashAttribute("message", "회원 가입 성공");
+			return "redirect:/";
+		}
+		
+		// 2) 회원 가입 실패 시
+		// 회원 가입 페이지로 리다이렉트 후
+		// "가입 실패" alert() 출력
+		ra.addFlashAttribute("message", "가입 실패...");
+		return "redirect:/member/signup";
+		
+		// 참조 : 리다이렉트는 GET방식 요청이다!
+		
+	}
+	
+	   
+   /* 스프링 예외 처리 방법(3종류, 우선 순위, 중복 사용)
+    * 
+    * 1순위 : 메서드 단위로 처리
+    *       -> try-catch  / throws
+    * 
+    * 2순위 : 클래스 단위로 처리
+    *       -> @ExceptionHandler
+    * 
+    * 3순위 : 프로그램 단위(전역) 처리
+    *       -> @ControllerAdvice
+    * 
+    * */
+	
+	// @ExceptionHandler(Exception.class)
+	// - 현재 클래스(컨트롤러) 내부에서 발생하는 
+	//	 모든 예외(Exception.class) 발생 시
+	//	 아래 작성된 메서드로 다루겠다는 어노테이션
+	
+	/*
+	@ExceptionHandler(Exception.class)
+	public String exceptionHandler(Exception e, Model model) {
+		
+		e.printStackTrace(); // 콘솔에 에러 발생 메서드 모두 출력
+		
+		// model : 값 전달 객체 (기본 request scope)
+		// e : 예외 객체
+		model.addAttribute("e", e);
+		
+		// forward구문. /WEB-INF/vies/common/error.jsp로 forward
+		return "common/error";
+	}
+	*/
 	
 	
 }

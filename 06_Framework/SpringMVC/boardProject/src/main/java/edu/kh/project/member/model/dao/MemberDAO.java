@@ -6,6 +6,17 @@ import edu.kh.project.member.model.dto.Member;
 
 public interface MemberDAO {
 
+	/** 로그인
+	 * @param inputMember
+	 * @return
+	 */
 	Member login(Member inputMember);
+
+	
+	/** 회원가입
+	 * @param inputMember
+	 * @return
+	 */
+	int signup(Member inputMember);
 
 }

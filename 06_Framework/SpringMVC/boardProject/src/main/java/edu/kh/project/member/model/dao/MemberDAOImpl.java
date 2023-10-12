@@ -28,5 +28,27 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
+	
+	
+	@Override
+	public int signup(Member inputMember) {
+		
+		// (반환형)
+		//   int   sqlSession.insert("namespace.id" [, 파라미터])
+		
+		// - insert(), update(), delete()
+		//	 메서드의 결과는 성공한 행의 개수(int 타입) 반환
+		
+		
+		return sqlSession.insert("memberMapper.signup", inputMember);
+		
+		// -> mybatis-config.xml에 등록된 mapper 파일 중
+		// namespace가 "memberMapper"인 파일 내에서
+		// id가 "signup"인 SQL태그(insert)를 수행
+		// 이 때, 파라미터로 inputMember를 전달하여 SQL 수행
+		// SQL 수행 완료 후 insert 결과 행의 갯수를 반환
+	}
+	
+	
 
 }

@@ -1,0 +1,33 @@
+:root{
+  font-size: 62.5%;
+  
+  --main-color : #66B97E;
+  --footer-color : #d9d9d9;
+}
+
+
+* {
+  font-family:'GmarketSansMedium';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+main{
+  width: 130rem;
+}

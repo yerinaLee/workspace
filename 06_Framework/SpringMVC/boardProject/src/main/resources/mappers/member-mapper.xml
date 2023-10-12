@@ -15,24 +15,66 @@
 	<!-- SQL - SELECT 관련 속성
 	
 		- id : 태그를 식별하는 값
-	
 		- parameterType : 넘어온 값의 자료형
-		 
 		- resultType : 조회 결과를 담아서 반환할 객체/변수의 자료형 
 	 -->
+	 
+	 <!--
+	 	mapper에서 java data(파라미터)를 SQL에 삽입하는 방법
+	 	
+	 	1) #{변수명 | 필드명} : SQL에 삽입 시 양쪽에 ''붙여서 삽입
+							 	ex) MEMBER_EMAIL = #{memberEmail}
+							 					-> 'member01@naver.com'
+		==========================================================================
+			 	
+	 	2) ${변수명 | 필드명} : SQL에 삽입 시 양쪽에 ''붙이지 않고 삽입(그대로 in)
+							 	ex) MEMBER_EMAIL = ${memberEmail}
+							 					-> member01@naver.com
+
+		??? ${} 언제 사용할까 ???
+		1) 삽입할 값이 숫자인 경우 (숫자 리터럴은 '' 없음)
+		
+		2) SQL문 자체가 변해야 하는 경우에 사용
+		   ex) SELECT MEMBER_NICKNAME, ${key} FROM "MEMBER"
+
+		   	   - ${key}가 ENROLL_DATE인 경우
+		   	   SELECT MEMBER_NICKNAME, ENROLL_DATE FROM "MEMBER"					 					
+
+		   	   - ${key}가 MEMBER_ADDRESS인 경우
+		   	   SELECT MEMBER_NICKNAME, MEMBER_ADDRESS FROM "MEMBER"					 					
+	  -->
 	
 	<!-- 로그인 -->
 	<select id="login"
 		parameterType="edu.kh.project.member.model.dto.Member"
 		resultType="edu.kh.project.member.model.dto.Member">
 		
-		SELECT MEMBER_NO , MEMBER_EMAIL , MEMBER_NICKNAME , MEMBER_TEL , MEMBER_ADDRESS , PROFILE_IMG , AUTHORITY, 
+		SELECT MEMBER_NO , MEMBER_EMAIL , MEMBER_NICKNAME , MEMBER_PW, MEMBER_TEL , MEMBER_ADDRESS , PROFILE_IMG , AUTHORITY, 
 				TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE 
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL ='N'
 		AND MEMBER_EMAIL = #{memberEmail}
-		AND MEMBER_PW = #{memberPw}
 	</select>
+
+	<!-- 
+	
+		*** insert, update, delete 태그에서 사용 가능한 속성
+		
+		- parameterType : 전달된 파라미터의 타입
+		
+		( resultType이 존재하지 않는다!!! )
+		-> 반환형이 int 고정이기때문에 작성하지 않음 
+	-->
+	
+	<!-- 회원 가입 -->
+	<!-- parameterType="Member" : mybatis-config.xml에 등록된 별칭 사용 -->
+	<insert id="signup" parameterType="Member" >
+		
+		INSERT INTO "MEMBER"
+		VALUES(SEQ_MEMBER_NO.NEXTVAL , #{memberEmail}, #{memberPw}, #{memberNickname}, #{memberTel},
+		#{memberAddress}, NULL, DEFAULT, DEFAULT, DEFAULT)
+
+	</insert>
 
 
 </mapper>

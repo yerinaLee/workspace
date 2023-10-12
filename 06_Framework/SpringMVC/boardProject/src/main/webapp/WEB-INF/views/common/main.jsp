@@ -53,7 +53,7 @@
                         </label>
     
                         <article class="signup-find-area">
-                            <a href="/member/signUp">회원가입</a>
+                            <a href="/member/signup">회원가입</a>
                             <span>|</span>
                             <a href="#">ID/PW 찾기</a>
                         </article>

@@ -3,9 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- 
+		servlet-context.xml == DispatcherServlet 설정 파일
+		
+		DispatcherServlet
+		1) 모든 요청을 받아서 주소에 따라 알맞은 컨트롤러 메서드와 매핑
+			-> Handler Mapping 과정에서 요청에 알맞은 컨트롤러 메서드를 찾음
+			   (@RequestMapping, @PostMapping, @GetMapping)
+    -->
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -14,8 +25,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-
+	
+	
 	<!-- View Resolver(응답화면 해결사, forward 쉽게 하기) -->
+	<!-- DispatcherServlet 생성시 같이 아래 설정 내용을 적용하여 같이 생성됨 -->
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> <!-- bean을 xml로 등록하는 방법  -->
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -24,6 +37,14 @@
 	
 	<context:component-scan base-package="edu.kh.project" />
 	
+	
+	
+	<!-- @Treansactional 어노테이션 인식하는 태그 추가 -->
+	<!--
+		1) namespaces 탭으로 이동해서 tx 체크
+		2) 태그 작성
+	-->	
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	
 </beans:beans>
