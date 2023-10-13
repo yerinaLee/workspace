@@ -77,10 +77,39 @@ SET MEMBER_PW = '$2a$10$E0VpwcmhFEBL7gDX4R9LIOaZ83GiQVZuGPEs/aKo.vZSsliUfetXK'
 WHERE MEMBER_NO = 1;
 
 
+-- 회원 정보 수정
+-- "MEMBER" 테이블에서
+-- MEMBER_NO가 일치하는 회원의
+-- MEMBER_NICKNAME, MEMBER_TEL, MEMBER_ADDRESS 수정
+
+UPDATE "MEMBER"
+SET MEMBER_ADDRESS = '서울^^^ㅇㄹ^^^12'
+, MEMBER_NICKNAME = '전원우'
+, MEMBER_TEL ='012'
+WHERE MEMBER_NO = 2;
+
+ROLLBACK;
 
 
+-- BCrypt 암호화 시 비밀번호를 조회한 후
+-- matches() 메서드를 이용해서 비교
+
+--로그인 한 회원의 암호화된 비밀번호 조회
+SELECT MEMBER_PW 
+FROM "MEMBER"
+WHERE MEMBER_NO = '회원번호';
 
 
+-- 비밀번호 변경
+UPDATE "MEMBER"
+SET MEMBER_PW  = '변경 비번'
+WHERE MEMBER_NO = '회원번호';
+
+
+-- 회원 탈퇴
+UPDATE "MEMBER" 
+SET MEMBER_DEL_FL ='Y'
+WHERE MEMBER_NO =;
 
 
 

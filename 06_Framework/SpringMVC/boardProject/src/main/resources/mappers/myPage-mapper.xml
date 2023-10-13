@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="myPageMapper">
+
+	<!-- 회원 정보 수정 -->
+	<!-- parameterType="Member"에서 Member는 별칭이다!! -->
+	<update id="info" parameterType="Member">
+		UPDATE "MEMBER"
+		SET MEMBER_ADDRESS = #{memberAddress}
+		, MEMBER_NICKNAME = #{memberNickname}
+		, MEMBER_TEL =#{memberTel}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+
+	
+	<!-- Java 제공 자료형 Mybatis 별칭
+		(Java / Mybatis)
+		int / _int
+		String / string
+		
+		(다른 별칭 주소 참고)
+		https://mybatis.org/mybatis-3/ko/configuration.html#typealiases
+	-->
+	
+	<!-- 회원 비밀번호 조회 -->
+	<select id="selectMemberPw" parameterType="_int" resultType="string">
+		SELECT MEMBER_PW 
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+
+	<!--  
+		parameterType이 map인 경우
+		#{key}를 작성하면 알맞은 value가 출력된다
+	-->
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePw" parameterType="map">
+		UPDATE "MEMBER"
+		SET MEMBER_PW  = #{newPw}
+		WHERE MEMBER_NO = #{memberNo} 
+	</update>
+	
+	
+	<!-- 회원 탈퇴 -->
+	<update id="secession" parameterType="_int">
+		UPDATE "MEMBER" 
+		SET MEMBER_DEL_FL ='Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+
+</mapper>
