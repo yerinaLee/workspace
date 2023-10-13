@@ -5,7 +5,6 @@
   --footer-color : #d9d9d9;
 }
 
-
 * {
   font-family:'GmarketSansMedium';
   box-sizing: border-box;
@@ -22,12 +21,63 @@
 
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
-  border: 1px solid black;
 }
 
 main{
-  width: 130rem;
+  width: 144rem;
+}
+
+
+
+
+/*-------- footer --------*/
+
+footer{
+  width: 100%;
+  height: 4rem;
+  background-color: var(--footer-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+  font-weight: 1;
+  color: rgba(130, 130, 130, 1);
+}
+
+footer > article {
+  padding: 1.5rem;
+}
+
+footer a {
+  color: rgba(130, 130, 130, 1);
+  text-decoration: none;
+}
+
+
+
+/*-------- header --------*/
+header{
+  height: 8rem;
+  border-bottom: 2px solid var(--footer-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > section:last-child {
+  display: flex;
+  border: 1px solid black;
+}
+
+header a{
+  color: var(--main-color);
+  text-decoration: none;
+  padding: 1.5rem;
+  font-size: 1.6rem;
 }
