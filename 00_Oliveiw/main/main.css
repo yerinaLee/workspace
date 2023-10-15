@@ -44,7 +44,7 @@ header{
 
 header > #top-header{
   width: 100%;
-  height: 6rem;
+  height: 7rem;
 }
 
 header > #main-header{
@@ -55,6 +55,8 @@ header > #main-header{
 
 /* top 헤더 메뉴들 */
 #top-header > section{
+  height: 100%;
+
   display: flex;
   justify-content: end;
   padding-right: 10rem;
@@ -71,6 +73,10 @@ header > #main-header{
   color: var(--main-color);
   text-decoration: none;
   font-size: 1.6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -137,6 +143,253 @@ header > #main-header{
   color: white;
 
   font-size: 2rem;
+}
+
+
+
+/*-------- nav --------*/
+nav{
+  width: 100%;
+  height: 7rem;
+  background-color: white;
+}
+
+nav > ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  list-style: none;
+  height: 100%;
+}
+
+nav li{
+  flex: 0 1 15rem; /* ??? */
+}
+
+nav a{
+  text-decoration: none;
+  color: var(--main-color);
+  font-size: 2rem;
+  font-weight: normal;
+  padding: 1rem 0;
+  display: block;
+  text-align: center;
+}
+
+
+
+
+/*-------- content --------*/
+
+/*--- review content ---*/
+.review-container{
+  width: 100%;
+  height: 58rem;
+
+  display: flex;
+  align-items: center;
+
+}
+
+/* review content */
+.review-content{
+  width: 48rem;
+  height: 58rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* 첫번째 리뷰 */
+.review-container > section:first-child{
+  display: flex;
+  flex-direction: column;
+
+  align-items: end;
+}
+
+/* 두번째 리뷰 */
+.review-container > section:nth-child(2){
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+/* 리뷰 사진 */
+#review-img{
+  width: 36rem;
+  height: 45rem;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 리뷰 내용 */
+.review-article{
+  width: 36rem;
+  height: 13rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.review-article a{
+  text-decoration: none;
+  color: black;
+}
+
+
+/* 첫줄_타이틀, 작성자 */
+.review-article > section:first-child{
+  display: flex;
+  align-items: center;
+}
+
+#review-title{
+  font-size: 3rem;
+  margin: 0 1rem 0.5rem 0;
+}
+
+#reviewer{
+  font-size: 1.4rem;
+}
+
+#reviewer > a{
+  color: #7C7C7C;
+}
+
+.review-article a{
+  text-decoration: none;
+  color: black;
+}
+
+
+/* 두번째 줄_지역, 별 */
+.review-article > section:last-child{
+  display: flex;
+  align-items: center;
+}
+
+#review-place{
+  font-size: 2.2rem;
+}
+
+#review-place > a{
+  color: #7C7C7C;
+}
+
+.review-article span{
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  color: #7C7C7C;
+}
+
+
+
+/*--- eating container ---*/
+.eating-container{
+  width: 100%;
+  height: 16rem;
+  background-color: #66b97d21;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 3rem;
+}
+
+/* 같이먹어요 타이틀 */
+#eating-title{
+  width: 9%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#eating-title a{
+  text-decoration: none;
+}
+
+#eating-title > article{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#eating-title p:first-child{
+  font-size: 1.2rem;
+  color: #8C8888;
+}
+
+#eating-title p:last-child{
+  font-size: 2.4rem;
+  color : var(--main-color);
+  font-weight: bold;
+}
+
+/* 같이먹어요 내용 */
+.eating-content{
+  width: 25%;
+  height: 100%;
+
+  display: flex;
+}
+
+
+/* 같이먹어요 내용 이미지 */
+#eating-img{
+  width: 30%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#eating-img img{
+  border-radius: 10rem;
+  width: 7rem;
+}
+
+
+/* 같이먹어요 내용 아티클 */
+#eating-article{
+  width: 70%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+#eating-article > article:first-child{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#eating-article > article:nth-child(2){
+  font-size: 1.6rem;
+}
+
+#eating-article > article:last-child{
+  font-size: 1.8rem;
+  font-weight: light;
+
+  margin-top: 1rem;
+}
+
+#eating-article a{
+  text-decoration: none;
+  color: black;
 }
 
 
