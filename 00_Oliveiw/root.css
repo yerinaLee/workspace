@@ -70,14 +70,30 @@ header{
   align-items: center;
 }
 
-header > section:last-child {
+/* 로고 */
+header > section:first-child {
+  width: 55%;
   display: flex;
-  border: 1px solid black;
+  justify-content: end;
+}
+
+/* 헤더메뉴 섹션 */
+header > section:last-child {
+  width: 45%;
+  display: flex;
+  justify-content: end;
+}
+
+/* 헤더 메뉴들 */
+header article{
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header a{
   color: var(--main-color);
   text-decoration: none;
-  padding: 1.5rem;
   font-size: 1.6rem;
 }
