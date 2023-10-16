@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<!-- ============================================================================== -->
+<!-- thymeleaf 문법(th)을 사용한다고 선언! -->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!-- ============================================================================== -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="#{app.name}">app.name 출력</title>
+
+  <!-- common/common.html의 모든 내용을 읽어와 th:block 태그와 바꿈 -->
+  <!-- th:replace로 html 경로 지정 시
+    접두사: classpath:/templates/
+    접미사 : .html
+    생략해서 작성! (forward 구문이랑 똑같음)
+  -->
+  <th:block th:replace="~{common/common}"></th:block>
+</head>
+
+<body>
+
+  <main>
+
+    <!-- common/header.html의 모든 내용을 읽어와 th:block 태그와 바꿈 -->
+    <th:block th:replace="~{common/header}"></th:block>
+
+    <section class="content">
+      <section class="content-1">
+
+        <!-- th:block 태그
+          - 타임리프로 Java 데이터를 출력하고싶은데
+          감싸는 태그가 존재하지 않았으면 할 때 사용하는 태그
+
+          - HTML 랜더링 시 출력하려는 내용만 남고
+            th:block 태그는 사라진다
+        -->
+
+        <!-- th:text 속성 : 속성 값을 태그 내용으로 출력 -->
+        <th:block th:text="${testName}">여기에 작성하면 출력되지 않습니다</th:block>
+
+        <h1 th:text="${testName}">HTML 단독 수행 시 보여지게 됩니다(자바서버로 넘어온게 아니고 HTMl파일자체로 켜졌을때)</h1>
+
+        <!-- 타임리프 속성이 적용된 태그의 내용으로는
+          출력될 내용의 샘플 또는 예시 또는 설명을 많이 작성해놓음
+        -->
+        <th:block th:text="${testAge}">테스트 나이</th:block>
+
+        <hr>
+
+        <th:block th:text="${testMember}">테스트 회원</th:block>
+
+        <hr>
+        
+        <h3>객체의 필드를 하나씩 꺼내서 출력하기 - 1</h3>
+        <ul>
+          <li th:text="${testMember.memberNo}">회원 번호</li>
+          <li th:text="${testMember.memberEmail}">회원 이메일</li>
+          <li th:text="${testMember.memberNickname}">회원 닉네임</li>
+        </ul>
+
+        <hr>
+
+        <h3>객체의 필드를 하나씩 꺼내서 출력하기 - 2</h3>
+        <ul th:object="${testMember}">
+          <li th:text="*{memberNo}">회원 번호</li>
+          <li th:text="*{memberEmail}">회원 이메일</li>
+          <li th:text="*{memberNickname}">회원 닉네임</li>
+        </ul>
+
+        <hr>
+
+        <!-- messages.properties 값 써내와 사용하기 -->
+        <h1 th:text="#{app.name}">프로젝트 이름</h1>
+
+        <hr>
+        <h3>파라미터 출력하기(param.key)</h3>
+        <h3 th:text="${param.phone}">파라미터 출력</h3> <!-- 파라미터 중 phone이 있으면 가져와라 -->
+
+        <hr>
+        <h3>타임리프로 요청주소 가공하기</h3>
+
+        <!-- 타임리프 결과를 href 속성 값으로 대입 --> <!-- 쿼리스트링 포함 url / 링크가공 -->
+        <!-- http://localhost/?key=aaa&query=에이에이에이 -->
+        <a th:href="@{/(key='aaa', query='에이에이에이')}">테스트</a>
+
+        <h3 th:text="${param.key}">테스트 결과</h3> <!-- aaa -->
+        <h3 th:text="${param.query}">테스트 결과</h3> <!-- 에이에이에이 -->
+
+        <hr>
+
+        <h3>text와 utext 차이점</h3>
+
+        <p th:text="${address}">text</p> <!-- HTML적용 X -->
+        <p th:utext="${address}">utext</p> <!-- HTML 적용 -->
+        
+        <hr>
+
+        <p>[[${address}]]</p> <!-- ==th:text -->
+        <p>[(${address})]</p> <!-- ==th:utext -->
+
+        <hr>
+
+        <h3>타임리프 출력 시 리터럴 추가</h3>
+        <!-- 원하는 출려 결과 -->
+        <h1>testName : 홍길동</h1>
+
+        <!-- |문자열| : 리터럴 추가 -->
+        <h1 th:text="|testName : ${testName}|"></h1>
+
+        <h1>테스트 이름 : [[${testName}]] </h1>
+
+      </section>
+
+      <section class="content-2">
+
+        <!-- ============================================================================== -->
+        <!-- 로그인 되어있지 않을 때 -->
+
+        <!-- method="POST" : 제출 되는 값이 주소에 안보임 -->
+        <form action="/member/login" method="POST" id="loginFrm">
+          <fieldset class="id-pw-area">
+            <section>
+              <input type="text" name="memberEmail" placeholder="이메일" autocomplete="off" value="">
+
+              <input type="password" name="memberPw" placeholder="비밀번호">
+            </section>
+            <section>
+              <button>로그인</button>
+            </section>
+          </fieldset>
+
+          <label>
+            <input type="checkbox" name="saveId"> 아이디 저장
+          </label>
+
+          <article class="signup-find-area">
+            <a href="/member/signUp">회원가입</a>
+            <span>|</span>
+            <a href="#">ID/PW 찾기</a>
+          </article>
+        </form>
+
+
+        <!-- ============================================================================== -->
+
+        <!-- 로그인 되었을 때 -->
+        <article class="login-area">
+
+          <a href="/myPage/profile">
+
+            <!-- 프로필 이미지가 없으면 기본 이미지 -->
+            <!--
+              타임리프코드인 #{} 구문을 해석해서
+              현재 태그의 src 속성의 값으로 삽입
+            -->
+            <img th:src="#{user.default.image}" id="memberProfile">
+
+            <!-- 프로필 이미지가 있으면 프로필 이미지(작성 예정) -->
+
+          </a>
+
+          <div class="my-info">
+            <div>
+              <a href="/myPage/info" id="nickname">닉네임</a>
+
+              <a href="/member/logout" id="logoutBtn">로그아웃</a>
+            </div>
+
+            <p>이메일</p>
+
+          </div>
+        </article>
+
+
+        <!-- ============================================================================== -->
+
+
+      </section>
+    </section>
+  </main>
+
+  <!-- common/footer.html의 모든 내용을 읽어와 th:block 태그와 바꿈 -->
+  <th:block th:replace="~{common/footer}"></th:block>
+
+  <!-- main.js 추가 -->
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

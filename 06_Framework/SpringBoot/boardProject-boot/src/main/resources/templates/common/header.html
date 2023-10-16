@@ -1,0 +1,71 @@
+<header>
+    <section>
+        <!-- 클릭 시 메인 페이지로 이동하는 로고 -->
+        <a href="/">
+            <img src="/images/logo.jpg" alt="로고" id="homeLogo">
+        </a>
+    </section>
+
+    <section>
+        <!-- 검색어 입력할 수 있는 요소 배치 -->
+        <article class="search-area">
+
+            <form action="#" method="GET">
+
+                <fieldset> 
+
+                    <!--  autocomplete="off" : 브라우저 제공 자동완성 off -->
+                    <input type="search" name="query" id="query"
+                    placeholder="검색어를 입력해주세요."
+                    autocomplete="off" >
+
+                    <!-- 제목 검색 -->
+                    <input type="hidden" name="key" value="t">
+
+                    <!-- 검색 버튼 -->
+                    <button id="searchBtn" class="fa-solid fa-magnifying-glass"></button>
+
+                </fieldset>
+            </form>
+
+            <ul id="searchResult" class="close"></ul>
+        </article>
+
+    </section>
+
+
+    <section></section>
+
+
+    <!-- 우측 상단 드롭다운 메뉴 -->
+    <div class="header-top-menu">
+        <!-- 로그인 X -->
+        <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
+
+
+        <!-- 로그인 O -->
+        <label for="headerMenuToggle">
+           회원 닉네임 <i class="fa-solid fa-caret-down"></i>
+        </label>
+
+        <input type="checkbox" id="headerMenuToggle">
+
+        <div class="header-menu">
+            <a href="/myPage/info">내정보</a>
+            <a href="/member/logout">로그아웃</a>
+        </div>
+
+    </div>
+
+
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">자유 게시판</a></li>
+        <li><a href="#">질문 게시판</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">1:1문의</a></li> 
+    </ul>
+</nav>
