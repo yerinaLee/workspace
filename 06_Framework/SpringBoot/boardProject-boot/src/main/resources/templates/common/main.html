@@ -118,61 +118,66 @@
 
         <!-- ============================================================================== -->
         <!-- 로그인 되어있지 않을 때 -->
-
-        <!-- method="POST" : 제출 되는 값이 주소에 안보임 -->
-        <form action="/member/login" method="POST" id="loginFrm">
-          <fieldset class="id-pw-area">
-            <section>
-              <input type="text" name="memberEmail" placeholder="이메일" autocomplete="off" value="">
-
-              <input type="password" name="memberPw" placeholder="비밀번호">
-            </section>
-            <section>
-              <button>로그인</button>
-            </section>
-          </fieldset>
-
-          <label>
-            <input type="checkbox" name="saveId"> 아이디 저장
-          </label>
-
-          <article class="signup-find-area">
-            <a href="/member/signUp">회원가입</a>
-            <span>|</span>
-            <a href="#">ID/PW 찾기</a>
-          </article>
-        </form>
+        <th:block th:if="${session.loginMember == null}">
+          <!-- method="POST" : 제출 되는 값이 주소에 안보임 -->
+          <form action="/member/login" method="POST" id="loginFrm">
+            <fieldset class="id-pw-area">
+              <section>
+                <input type="text" name="memberEmail" placeholder="이메일" autocomplete="off" value="">
+  
+                <input type="password" name="memberPw" placeholder="비밀번호">
+              </section>
+              <section>
+                <button>로그인</button>
+              </section>
+            </fieldset>
+  
+            <label>
+              <input type="checkbox" name="saveId"> 아이디 저장
+            </label>
+  
+            <article class="signup-find-area">
+              <a href="/member/signUp">회원가입</a>
+              <span>|</span>
+              <a href="#">ID/PW 찾기</a>
+            </article>
+          </form>
+        </th:block>
 
 
         <!-- ============================================================================== -->
 
         <!-- 로그인 되었을 때 -->
-        <article class="login-area">
 
-          <a href="/myPage/profile">
-
-            <!-- 프로필 이미지가 없으면 기본 이미지 -->
-            <!--
-              타임리프코드인 #{} 구문을 해석해서
-              현재 태그의 src 속성의 값으로 삽입
-            -->
-            <img th:src="#{user.default.image}" id="memberProfile">
-
-            <!-- 프로필 이미지가 있으면 프로필 이미지(작성 예정) -->
-
-          </a>
-
-          <div class="my-info">
-            <div>
-              <a href="/myPage/info" id="nickname">닉네임</a>
-
-              <a href="/member/logout" id="logoutBtn">로그아웃</a>
+        <!-- th:unless : 조건식 결과가 false일 때 실행 -->
+        <th:block th:unless="${session.loginMember == null}">
+          <article class="login-area">
+  
+            <a href="/myPage/profile">
+  
+              <!-- 프로필 이미지가 없으면 기본 이미지 -->
+              <!--
+                타임리프코드인 #{} 구문을 해석해서
+                현재 태그의 src 속성의 값으로 삽입
+              -->
+              <img th:src="#{user.default.image}" id="memberProfile">
+  
+              <!-- 프로필 이미지가 있으면 프로필 이미지(작성 예정) -->
+  
+            </a>
+  
+            <div class="my-info" th:object="${session.loginMember}">
+              <div>
+                <a href="/myPage/info" id="nickname" th:text="*{memberNickname}">닉네임</a>
+  
+                <a href="/member/logout" id="logoutBtn">로그아웃</a>
+              </div>
+  
+              <p th:text="*{memberEmail}">이메일</p>
+  
             </div>
-
-            <p>이메일</p>
-
-          </div>
-        </article>
+          </article>
+        </th:block>
 
 
         <!-- ============================================================================== -->

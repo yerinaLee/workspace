@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--연결할 인터페이스의 패키지명.인터페이스명 작성-->
+<mapper namespace="edu.kh.project.member.model.mapper.MemberMapper">
+  
+   <!-- 로그인 -->
+   <select id="login" parameterType="Member"    resultType="Member">
+      SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME , MEMBER_PW,
+         MEMBER_TEL , MEMBER_ADDRESS , PROFILE_IMG , AUTHORITY ,
+         TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE 
+      FROM "MEMBER"
+      WHERE MEMBER_DEL_FL = 'N'
+      AND MEMBER_EMAIL = #{memberEmail}
+   </select>
+   
+   <!-- 회원 가입 -->
+   <insert id="signup"  parameterType="Member" >
+      INSERT INTO "MEMBER"
+      VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw},
+         #{memberNickname}, #{memberTel}, 
+         #{memberAddress},
+         NULL, DEFAULT, DEFAULT, DEFAULT
+      )
+   </insert>
+
+</mapper>
