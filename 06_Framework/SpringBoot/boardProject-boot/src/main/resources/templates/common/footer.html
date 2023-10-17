@@ -12,3 +12,32 @@
     </article>
 </footer>
 
+<!-- 화면에 message를 출력하는 경우 -->
+<!-- <th:block th:text="${message}"></th:block> -->
+
+<!-- 
+    th:inline="javascript"
+    - script 태그 내부에서 thymeleaf 문법을 작성 가능하도록 함
+    - thymeleaf 문법 해석 시 js에 맞는 타입으로 변환이 진행됨
+
+    Natural Template
+    - thymeleaf 문법은 js에서 컴파일 오류를 발생 시키는데 이를 해결
+        + html 단독 수행 시 /**/ 값이 아닌 오른쪽 설명이 출력되게함
+    ex)
+    const testMember = /*[[${testMember}]]*/ "테스트 멤버입니다."
+-->
+
+<script th:inline="javascript">
+    
+    // console.log([[${testMember}]]);
+    // const testMember = /*[[${testMember}]]*/ "테스트멤버입니다요";
+    // console.log(testMember);
+
+    // RedirectAttributes를 통해 전달된 message 출력
+
+    const message = /*[[${message}]]*/ "전달받은 message";
+                    // message가 없다면 null
+    
+    if(message != null) alert(message);
+    
+</script>
