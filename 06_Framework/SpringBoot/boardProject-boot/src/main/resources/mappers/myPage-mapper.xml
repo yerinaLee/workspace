@@ -4,6 +4,36 @@
 <!--연결할 인터페이스의 패키지명.인터페이스명 작성-->
 <mapper namespace="edu.kh.project.myPage.model.mapper.MyPageMapper">
   
+	<!-- 회원 정보 수정 -->
+	<update id="info">
+		UPDATE "MEMBER"
+		SET MEMBER_ADDRESS = #{memberAddress}
+		, MEMBER_NICKNAME = #{memberNickname}
+		, MEMBER_TEL = #{memberTel}
+		WHERE MEMBER_NO = #{memberNo}
+ 	</update>
  
+ 	<!-- 로그인한 회원의 비밀번호 조회 -->
+ 	<select id="findPw" resultType="string">
+		SELECT MEMBER_PW 
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo}	 
+	</select>
+
+	<!-- 비밀번호 변경 -->
+	<update id="changePw">
+		UPDATE "MEMBER"
+		SET MEMBER_PW  = #{encPw}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="secession">
+		UPDATE "MEMBER" 
+		SET MEMBER_DEL_FL ='Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+
 
 </mapper>

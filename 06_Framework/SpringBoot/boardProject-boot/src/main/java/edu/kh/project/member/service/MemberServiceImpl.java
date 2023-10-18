@@ -23,6 +23,9 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private MemberMapper mapper;
 	
+	/** 로그인 기능
+	 *
+	 */
 	@Override
 	public Member login(Member inputMember) {
 		
@@ -67,6 +70,16 @@ public class MemberServiceImpl implements MemberService{
 		
 		// DAO가 아닌 Mapper 메서드 호출
 		return mapper.signup(inputMember);
+	}
+	
+	
+	
+	/** 빠른로그인 서비스
+	 *
+	 */
+	@Override
+	public Member login(String memberEmail) {
+		return mapper.login(memberEmail);
 	}
 	
 	

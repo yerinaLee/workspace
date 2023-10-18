@@ -112,5 +112,22 @@ SET MEMBER_DEL_FL ='Y'
 WHERE MEMBER_NO =;
 
 
+-- 전체 회원 탈퇴 복구
+UPDATE "MEMBER"
+SET MEMBER_DEL_FL = 'N';
+COMMIT;
+
+-- 관리자 권한으로 변경
+SELECT * FROM "MEMBER";
+
+UPDATE "MEMBER" SET
+AUTHORITY = 2
+WHERE MEMBER_NO = 5;
+
+
+
+
+
+
 
 

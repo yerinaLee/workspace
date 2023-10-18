@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비밀번호 변경</title>
+  <link rel="stylesheet" href="pwFind_confirm.css">
+  <script src="https://kit.fontawesome.com/39f6050202.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <main>
+    <!-- 로그인 전 header -->
+    <header>
+      <section>
+        <img src="/images/original_16.png" alt="로고이미지" width="80rem">
+      </section>
+
+      <section>
+        <article>
+          <a href="#">로그인</a>
+        </article>
+
+        <article>
+          <a href="#">회원가입</a>
+        </article>
+      </section>
+
+    </header> 
+
+
+    <!-- 정보 입력 박스 -->
+    <section class="container">
+
+      <p id="idText">
+        <span class="idText">귀하의 아이디는</span>
+        <span id="memberId">member01</span>
+        <span class="idText">입니다</span>
+      </p>
+
+      <artcle id="explainText">
+        <p>
+          비밀번호를 변경해 주세요. <br>
+          다른 아이디나 사이트에서 사용한 적 없는 안전한 비밀번호로 변경해 주세요.
+        </p>
+      </artcle>
+
+      <form action="#" method="" id="changePwForm">
+
+        <section class="input-box">
+          <i class="fa-solid fa-lock fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberId" placeholder="새 비밀번호" required>
+        </section>
+
+        <section class="input-box">
+          <i class="fa-solid fa-lock fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberName" placeholder="새 비밀번호 확인" required>
+        </section>
+
+        <article id="pw-explain">
+          <p>· 영문, 특수문자 포함(8자 이상 16자 이하)로 작성해주세요.</p>
+        </article>
+
+        <button class="confirm-btn">확인</button>
+      </form>
+
+    </section>
+
+
+  </main>
+
+  <footer>
+    <article>
+      <a href="#">고객센터</a>
+      <span>|</span>
+      <a href="#">라이센스</a>
+    </article>
+    <article>
+      &copy Oliview Corp.
+    </article>
+  </footer>
+
+
+</body>
+</html>

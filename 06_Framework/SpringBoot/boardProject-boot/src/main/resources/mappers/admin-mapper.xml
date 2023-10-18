@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--연결할 인터페이스의 패키지명.인터페이스명 작성-->
+<mapper namespace="edu.kh.project.admin.model.mapper.AdminMapper">
+
+  <!-- select태그에서 resultType | resultMap 은 필수! -->  
+  
+  <!-- 이메일이 일치하는 회원 정보 조회 -->
+  <select id="selectMember" resultType="Member">
+	SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME , 
+	MEMBER_TEL , MEMBER_ADDRESS , TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE, AUTHORITY ,
+	MEMBER_DEL_FL
+	FROM "MEMBER"
+	WHERE MEMBER_EMAIL = #{inputEmail}
+  </select> 
+  
+   
+</mapper>

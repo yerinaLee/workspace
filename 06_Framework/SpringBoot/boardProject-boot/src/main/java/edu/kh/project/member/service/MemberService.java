@@ -18,4 +18,11 @@ public interface MemberService {
 	 */
 	int signup(Member inputMember, String[] memberAddress);
 
+
+	/** 빠른 로그인 서비스
+	 * @param memberEmail
+	 * @return loginMember
+	 */
+	Member login(String memberEmail);
+
 }
