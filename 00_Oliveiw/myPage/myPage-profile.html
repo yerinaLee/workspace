@@ -34,19 +34,117 @@
 
     <section class="container">
 
-      <!-- 사이드메뉴 -->
+      <!---------- 사이드메뉴 ---------->
       <section id="side-menu-container">
-        <!-- 프로필정보 -->
-        <section></section>
+
+        <!-- 사이드메뉴 윗칸 -->
+        <section>
+
+          <!-- 프로필 정보 -->
+          <section id="profileInfo-container">
+
+            <section id="profile-img">
+              <a href=""><img src="/images/profileImgEx.png" alt="프로필 이미지" width="70rem"></a>
+            </section>
+            
+            <section id="member-id">
+              <p>미쉘가잇..</p> <!-- 멤버 아이디, 4글자 넘어가는건 ... 으로! -->
+            </section>
+
+            <section id="edit-btn">
+              <button>EDIT</button>
+            </section>
+
+          </section>
+
+          <!-- 채팅, 로그아웃 버튼 -->
+          <section id="btns-container">
+            <button id="chatting-btn">채팅</button>
+            <button id="logout-btn">로그아웃</button>
+          </section>
+
+          <!-- 마이페이지 타이틀 -->
+          <article id="myPage-title">
+            <p>마이페이지</p>
+          </article>
+
+        </section>
+
 
         <!-- 목차 -->
-        <section></section>
+        <section>
+          <section id="mypage-index-container">
+            <!-- 클릭시 bold처리 넣기! -->
+            <article><a href="#"><p>내 프로필</p></a></article>
+            <article><a href="#"><p>내가 쓴 글</p></a></article>
+            <article><a href="#"><p>내가 쓴 댓글</p></a></article>
+            <article><a href="#"><p>찜한 글</p></a></article>
+            <article><a href="#"><p>회원 탈퇴</p></a></article>
+
+          </section>
+        </section>
 
       </section>
 
 
-      <!-- 내 프로필 -->
-      <section id="my-profile-container"></section>
+      <!---------- 내 프로필 내용 ---------->
+      <section class="my-profile-container">
+        <section id="my-profile-container">
+
+          <!-- 헤드 -->
+          <section id="my-profile-title-container">
+            <article>내 프로필</article>
+            <article>대표 프로필과 별명, 개인정보를 수정할 수 있습니다.</article>
+          </section>
+
+          <!-- 프로필 정보 -->
+          <section id="my-profile-info-container">
+            <!-- 헤드라인 -->
+            <article class="my-profile-headline">프로필 정보</article>
+            
+            <!-- 프로필정보, 버튼 -->
+            <section id="my-profile-info-container-2">
+
+              <!-- 프로필정보 -->
+              <section>
+                <section class="myPage-row">
+                  <article><p>닉네임</p></article>
+                  <section><input type="text" value="미쉘가잇"></section>
+                </section>
+
+                <section class="myPage-row">
+                  <article><p>프로필 사진</p></article>
+                  <section id="profile-img-change">
+                    <img src="/images/profileImgEx.png" alt="프로필 이미지" width="60rem">
+                    <button>사진 변경</button>
+                    <button>삭제</button>
+                  </section>
+                </section>
+              </section>
+
+              <!-- 적용/취소버튼  -->
+              <section></section>
+              
+            </section>
+
+
+          </section>
+
+          <!-- 필수 회원 정보 -->
+          <section id="my-profile-essential-info-container">
+            <!-- 헤드라인 -->
+            <section class="my-profile-headline">필수 회원 정보</section>
+
+            <section>
+            </section>
+
+
+
+          </section>
+
+
+        </section>
+      </section>
 
 
 
