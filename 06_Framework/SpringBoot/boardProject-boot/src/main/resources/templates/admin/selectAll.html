@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전체 회원 조회</title>
+</head>
+<body>
+  
+  <h1>회원 전체 조회</h1>
+
+  <!-- <th:block th:text="${memberList[0].memberNo}"></th:block>
+  <th:block th:text="${memberList[0].memberEmail}"></th:block>
+  <th:block th:text="${memberList[0].memberDelFl}"></th:block> -->
+
+  <table border="1">
+    <!--
+      - 타임리프 향상된 for문 
+      - 반복되는 횟수 만큼 th:each가 지정된 태그가 출력됨
+    -->
+    <!-- <tr th:each="변수명 : ${리스트명}"></tr> -->
+
+    <tr>
+      <th>회원번호</th>
+      <th>이메일</th>
+      <th>탈퇴여부</th>
+    </tr>
+    <tr th:each="member : ${memberList}" th:object="${member}" >
+      <td th:text="*{memberNo}"></td>
+
+      <td>
+        <a th:href="@{/admin/selectMember(inputEmail=*{memberEmail})}" th:text="*{memberEmail}"></a>
+      </td>
+
+      <td th:text="*{memberDelFl}"></td>
+    </tr>
+  </table>
+
+  <button onclick="location.href='main'">돌아가기</button>
+
+
+  
+</body>
+</html>

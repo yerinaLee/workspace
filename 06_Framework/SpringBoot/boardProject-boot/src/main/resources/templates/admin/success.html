@@ -5,18 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>성공</title>
 
-  <style>
-    table * {
-      border: 1px solid black;
-    }
-  </style>
 </head>
 <body>
   
   <h3 th:text="|${param.inputEmail} 회원 정보|">조회한 이메일</h3>
   <!-- <h1>[[${session.searchMember.memberEmail}]] 회원 정보</h1> -->
 
-  <table th:object="${searchMember}">
+  <table th:object="${searchMember}" border="1">
     <tr>
       <th>회원 번호</th>
       <td th:text="*{memberNo}"></td>
@@ -46,18 +41,95 @@
     </tr>
     <tr>
       <th>권한</th>
+
+      <!-- <td>
+        <th:block th:if="*{authority == 1}">일반 사용자</th:block>
+        <th:block th:if="*{authority == 2}">관리자</th:block>
+
+        <form action="changeAuthority" method="POST" style="display: inline;">
+          <input type="hidden" name="memberNo" th:value="*{memberNo}">
+          <input type="hidden" name="memberEmail" th:value="*{memberEmail}">
+          
+          <button th:if="*{authority == 1}">관리자로 변경</button>
+          <button th:if="*{authority == 2}">일반 사용자로 변경</button>
+        </form>
+      </td> -->
+
+
       <th:block th:switch="*{authority}">
-        <td th:case="1">일반 사용자</td>
-        <td th:case="2">관리자</td>
+        <td th:case="1">
+          일반 사용자
+          <form action="changeAuthority" method="POST" style="display: inline;">
+            <input type="hidden" th:value="*{memberNo}" name="memberNo">
+            <input type="hidden" th:value="*{memberEmail}" name="memberEmail">
+            <input type="hidden" th:value="*{authority}" name="authority">
+            <button>관리자로 변경</button>
+          </form>
+        </td>
+        
+        <td th:case="2">
+          관리자
+          <form action="changeAuthority" method="POST" style="display: inline;">
+            <input type="hidden" th:value="*{memberNo}" name="memberNo">
+            <input type="hidden" th:value="*{memberEmail}" name="memberEmail">
+            <input type="hidden" th:value="*{authority}" name="authority">
+            <button>일반 사용자로 변경</button>
+          </form>
+        </td>
       </th:block>
+
+
     </tr>
     <tr>
       <th>탈퇴여부</th>
-      <td th:text="*{memberDelFl}"></td>
+      <td>
+        <th:block th:text="*{memberDelFl}"></th:block>
+
+        <!-- memberDelFl 값이 'Y'일 때만 복구 버튼 노출 -->
+        <th:block th:if="*{memberDelFl == 'Y'}">
+
+          <!-- 왜 form태그에 POST로 하는가?
+            INSERT/UPDATE/DELETE 수행하는 구문(DB 데이터에 영향)을
+            주소에서 파라미터를 마음대로 수정 가능한
+            GET 방식으로 구현하게되면
+            DB 데이터가 임의로 변하는 문제가 발생할 수 있기에
+            주소로 수정할 수 없는 POST를 사용
+          -->
+          <form action="restoration" method="POST" style="display: inline;">
+            <input type="hidden" th:value="*{memberNo}" name="memberNo">
+            <input type="hidden" th:value="*{memberEmail}" name="memberEmail">
+            <button>복구</button>
+          </form>
+        </th:block>
+      </td>
     </tr>
 
   </table>
 
-  <button onclick="location.href='main'">돌아가기</button>
+  <button onclick="location.href='main'">메인페이지</button>
+  <button onclick="history.back()">돌아가기</button>
+
+  <!-- 비밀번호 초기화 -->
+  <form action="initPw" method="POST" th:object="${searchMember}">
+    <input type="hidden" th:value="*{memberNo}" name="memberNo">
+    <input type="hidden" th:value="*{memberEmail}" name="memberEmail">
+
+    <button style="color: red; background-color: antiquewhite;">비밀번호 초기화</button>
+  </form>
+
+
+  <script th:inline="javascript">
+
+    // thymeleaf natural template
+    // - JS 구문에서 타임리프 코드 작성 시
+    //   JS 문법 오류가 발생하는 것을 방지
+
+    const message = /*[[${message}]]*/ "메시지";
+
+    if(message != null){
+      alert(message);
+    }
+
+  </script>
 </body>
 </html>
