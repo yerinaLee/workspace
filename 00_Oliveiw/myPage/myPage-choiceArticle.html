@@ -5,9 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="myPage-style.css">
   <script src="https://kit.fontawesome.com/39f6050202.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>내가 찜한 글</title>
 </head>
 <body>
+  <main>
+    <!-- 로그인 후 header -->
+    <header>
+      <section>
+        <img src="/images/original_16.png" alt="로고이미지" width="80rem">
+      </section>
+
+      <section>
+        <article>
+          <a href="#">로그아웃</a>
+        </article>
+
+        <article>
+          <a href="#">마이페이지</a>
+        </article>
+
+        <article>
+          <a href=""><img src="/images/profileImgEx.png" alt="프로필 이미지" width="50rem"></a>
+        </article>
+      </section>
+
+    </header>
+
+    <section class="container">
+
+      <!---------- 사이드메뉴 ---------->
+      <section id="side-menu-container">
+
+        <!-- 사이드메뉴 윗칸 -->
+        <section>
+
+          <!-- 프로필 정보 -->
+          <section id="profileInfo-container">
+
+            <section id="profile-img">
+              <a href=""><img src="/images/profileImgEx.png" alt="프로필 이미지" width="70rem"></a>
+            </section>
+            
+            <section id="member-id">
+              <p>미쉘가잇..</p> <!-- 멤버 아이디, 4글자 넘어가는건 ... 으로! -->
+            </section>
+
+            <section id="edit-btn">
+              <button>EDIT</button>
+            </section>
+
+          </section>
+
+          <!-- 채팅, 로그아웃 버튼 -->
+          <section id="btns-container">
+            <button id="chatting-btn">채팅</button>
+            <button id="logout-btn">로그아웃</button>
+          </section>
+
+          <!-- 마이페이지 타이틀 -->
+          <article id="myPage-title">
+            <p>마이페이지</p>
+          </article>
+
+        </section>
+
+
+        <!-- 목차 -->
+        <section>
+          <section id="mypage-index-container">
+            <!-- 클릭시 bold처리 넣기! -->
+            <article><a href="#"><p>내 프로필</p></a></article>
+            <article><a href="#"><p>내가 쓴 글</p></a></article>
+            <article><a href="#"><p>내가 쓴 댓글</p></a></article>
+            <article><a href="#"><p>찜한 글</p></a></article>
+            <article><a href="#"><p>회원 탈퇴</p></a></article>
+
+          </section>
+        </section>
+
+      </section>
+
+
+      <!---------- 내가 쓴 글 영역 ---------->
+      <section class="my-article-container">
+        <section id="my-article-container">
+
+          <!-- 헤드 -->
+          <section id="my-article-title-container">
+            <article>찜한 글</article>
+            <article>내가 찜한 게시글을 확인할 수 있습니다</article>
+          </section>
+
+          <!-- 게시글 목록 -->
+          <section id="my-article-index-container">
+
+            <table class="myPage-table">
+              <tr id="myPage-table-title-row">
+                <td class="myPage-table-title">게시판</td>
+                <td class="myPage-table-title">제목</td>
+                <td class="myPage-table-title">작성일</td>
+              </tr>
+              <tr>
+                <td class="myPage-table-td"><a href="">REVIEW</a></td><!-- 게시판 -->
+                <td class="myPage-table-td-highlight"><a href="">스윗레시피</a></td><!-- 제목 -->
+                <td class="myPage-table-td">2023-10-23 19:23</td><!-- 작성일 -->
+              </tr>
+              <tr>
+                <td class="myPage-table-td"><a href="">REVIEW</a></td><!-- 게시판 -->
+                <td class="myPage-table-td-highlight"><a href="">파파브레드</a></td><!-- 제목 -->
+                <td class="myPage-table-td">2023-07-04 12:21</td><!-- 작성일 -->
+              </tr>
+              <tr>
+                <td class="myPage-table-td"><a href="">같이 먹어요</a></td><!-- 게시판 -->
+                <td class="myPage-table-td-highlight"><a href="">동네 밥친구 구해요</a></td><!-- 제목 -->
+                <td class="myPage-table-td">2023-06-28 14:16</td><!-- 작성일 -->
+              </tr>
+              <tr>
+                <td class="myPage-table-td"><a href="">REVIEW</a></td><!-- 게시판 -->
+                <td class="myPage-table-td-highlight"><a href="">호남집</a></td><!-- 제목 -->
+                <td class="myPage-table-td">2022-11-14 08:56</td><!-- 작성일 -->
+              </tr>
+            </table>
+
+          </section>
+        </section>
+      </section>
+    </section>
+  </main>
+
+
+
+
   
+  <footer>
+    <article>
+      <a href="#">고객센터</a>
+      <span>|</span>
+      <a href="#">라이센스</a>
+    </article>
+    <article>
+      &copy Oliview Corp.
+    </article>
+  </footer>
 </body>
 </html>

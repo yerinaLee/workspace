@@ -1,3 +1,8 @@
+.container *{
+  /* border: 1px solid black; */
+}
+
+
 :root{
   font-size: 62.5%;
   
@@ -109,9 +114,6 @@ footer a {
   text-decoration: none;
 }
 
-.container *{
-  /* border: 1px solid black; */
-}
 
 /*----- 내 프로필 -----*/
 .container{
@@ -283,7 +285,7 @@ footer a {
 
 /* 프로필 정보 */
 #my-profile-info-container{
-  height: 24rem;
+  height: 5rem;
   margin-bottom: 2rem;
 }
 
@@ -419,7 +421,6 @@ footer a {
 }
 
 
-
 .myPage-row > section > p{
   font-size: 1.8rem;
 }
@@ -434,4 +435,253 @@ footer a {
 
 #modify-pw-btn:hover{
   cursor: pointer;
+}
+
+
+/* 비밀번호 찾기 컨테이너 */
+.myPage-changePw-container{
+
+  display: flex;
+  justify-content: center;
+}
+
+
+#myPage-changePw-container2{
+  display: flex;
+  justify-content: center;
+
+  width: 60rem;
+  height: 60rem;
+
+  padding-top: 5rem;
+}
+
+
+/* 인풋박스 */
+#changePwForm{
+  width: 60rem;
+  height: 50rem;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-box{
+  border: 0.1rem solid #CBCBCB;
+  display: block;
+  width: 50rem;
+  height: 7rem;
+  padding: 1.5rem 1.5rem;
+
+  font-size: 2.4rem;
+  color: black;
+  box-shadow: 0 2px 6px 0 rgba(68,68,68,.08);
+}
+
+.input-box input{
+  width: 90%;
+  border: none;
+  outline: 0;
+  font-size: 1.8rem;
+  color: black;
+}
+
+.input-box > i{
+  width: 8%;
+}
+
+.input-box input::placeholder{
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: #CBCBCB;
+}
+
+/* 비밀번호 작성 안내문 */
+#pw-explain{
+  width: 50rem;
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  color: #818181;
+}
+
+#pw-explain > p{
+  font-family: 'GmarketSans';
+  font-weight: 300;
+}
+
+
+/* 인풋박스에 포커스 맞춰질때 */
+.input-box:focus-within{
+  border: 0.1rem solid #66B97E;
+}
+
+
+/* 확인 btn */
+.confirm-btn{
+  cursor: pointer;
+  display: inline-block;
+
+  width: 50rem;
+  height: 7rem;
+  background-color: #66B97E;
+  color: white;
+  
+  font-size: 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 5rem;
+}
+
+.confirm-btn:focus{
+  outline: 0;
+}
+
+.confirm-btn:focus{
+  transform: scale(0.99);
+}
+
+/* 취소 btn */
+.reset-btn{
+  cursor: pointer;
+  display: inline-block;
+
+  width: 50rem;
+  height: 7rem;
+  color: var(--main-color);
+  background-color: white;
+  
+  font-size: 2.5rem;
+  border: 1px solid #A6A6A6;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.confirm-btn:focus{
+  outline: 0;
+}
+
+.confirm-btn:focus{
+  transform: scale(0.99);
+}
+
+
+/* --------- 내가 쓴 글 ------------ */
+
+.my-article-container{
+  width: 80%;
+  min-height: 84rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+#my-article-container{
+  width: 100rem;
+}
+
+/* 내가 쓴 글 헤드 */
+#my-article-title-container{
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+#my-article-title-container > article:first-child{
+  font-size: 2.4rem;
+  color: var(--main-color);
+}
+
+#my-article-title-container > article:last-child{
+  font-size: 1.2rem;
+}
+
+/* 내가 쓴 글 목록 컨테이너 */
+#my-article-index-container{
+  width: 100%;
+  height: 68rem;
+}
+
+/* 글목록 테이블 */
+.myPage-table{
+  width: 100%;
+  border: none;
+}
+
+/* 칸 너비 정렬 */
+#myPage-table-title-row > td:first-child {
+  width: 20%;
+}
+
+#myPage-table-title-row > td:nth-child(2) {
+  width: 50%;
+}
+
+#myPage-table-title-row > td:last-child {
+  width: 30%;
+}
+
+/* 테이블 타이틀 설정 */
+.myPage-table-title{
+  height: 5.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  border-top: 0.1rem solid var(--main-color);
+  border-bottom: 0.1rem solid var(--main-color);
+}
+
+
+/* 일반 td 설정 */
+.myPage-table-td > a{
+  text-decoration: none;
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: black;
+}
+
+.myPage-table-td{
+  text-align: center;
+  height: 5.5rem;
+
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  font-size: 1.8rem;
+
+  border-bottom: 0.1rem solid var(--footer-color);
+}
+
+/* 강조 td 설정 */
+.myPage-table-td-highlight > a{
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.myPage-table-td-highlight{
+  text-align: center;
+  height: 5.5rem;
+  font-size: 2rem;
+  border-bottom: 0.1rem solid var(--footer-color);
+}
+
+
+/* --------- 내가 쓴 댓글 ------------ */
+
+/* 칸 너비 정렬 */
+#myPage-comment-table-title-row > td:nth-child(1) {
+  width: 75%;
+}
+
+#myPage-table-title-row > td:last-child {
+  width: 25%;
+}
+
+/* 테이블 타이틀 설정 */
+.myPage-table-title{
+  height: 5.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  border-top: 0.1rem solid var(--main-color);
+  border-bottom: 0.1rem solid var(--main-color);
 }
