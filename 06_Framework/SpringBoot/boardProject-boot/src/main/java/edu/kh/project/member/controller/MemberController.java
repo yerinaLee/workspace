@@ -25,11 +25,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("member") // 공통주소 (/member로 시작하는 주소)
 @SessionAttributes({"loginMember"}) // Model 중 key값이 "loginMember"를 Session으로 올리기
 public class MemberController {
-	
+
 	//MemberService 의존성 주입
 	@Autowired
 	private MemberService service;
-	
+
 	
 	/** 로그인
 	 * @param inputMember : 아이디, 비밀번호 파라미터

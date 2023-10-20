@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.kh.test.user.model.mapper.UserMapper">
+	
+	<!-- 회원 찾기(아이디로) -->
+	<select id="selectOne" resultType="User">
+		
+		SELECT * FROM TB_USER
+		WHERE USER_ID = #{userId} 
+
+	</select>
+	
+</mapper>

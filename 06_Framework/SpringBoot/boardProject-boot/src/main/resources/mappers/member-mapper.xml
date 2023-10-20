@@ -28,5 +28,6 @@
          NULL, DEFAULT, DEFAULT, DEFAULT
       )
    </insert>
+      
    
 </mapper>

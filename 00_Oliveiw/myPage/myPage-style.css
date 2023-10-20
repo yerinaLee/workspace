@@ -252,7 +252,7 @@ footer a {
 /* --- 내 프로필 내용 화면 --- */
 .my-profile-container{
   width: 80%;
-  min-height: 74rem;
+  min-height: 84rem;
 
   display: flex;
   justify-content: center;
@@ -294,7 +294,7 @@ footer a {
 }
 
 #my-profile-info-container-2{
-  height: 26rem;
+  height: 20rem;
   width: 100%;
 
   display: flex;
@@ -345,7 +345,7 @@ footer a {
   border: 0.1rem solid #afafaf
 }
 
-/* 프로필 사진 */
+/* 프로필 사진 변경/삭제버튼*/
 #profile-img-change > button{
   width: 6.5rem;
   height: 3rem;
@@ -369,12 +369,43 @@ footer a {
 }
 
 
-
-
-/* 적용/취소버튼 */
+/* 적용/취소버튼 영역*/
 #my-profile-info-container-2 > section:last-child{
   height: 100%;
   width: 20%;
+}
+
+/* 적용/취소버튼 */
+.btns{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.btns > button{
+  width: 6.5rem;
+  height: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  border: 0.1rem solid #afafaf;
+
+  font-size: 1.2rem;
+}
+
+.btns > button:hover{
+  cursor: pointer;
+}
+
+/* 적용버튼 */
+.btns > button:nth-child(1){
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  margin-right: 1rem;
 }
 
 
@@ -383,3 +414,24 @@ footer a {
   height: 42rem;
 }
 
+#my-profile-essential-info-container-2{
+  width: 80%;
+}
+
+
+
+.myPage-row > section > p{
+  font-size: 1.8rem;
+}
+
+#modify-pw-btn{
+  height: 3rem;
+  width: 10rem;
+
+  background-color: white;
+  border: 0.1rem solid #afafaf
+}
+
+#modify-pw-btn:hover{
+  cursor: pointer;
+}

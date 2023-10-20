@@ -14,11 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j // 로그
 @Service // Service 역할(비즈니스 로직 처리) + bean 등록
 public class MemberServiceImpl implements MemberService{
-	
+
 	// 암호화 객체 의존성 주입(DI)
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
-	
+
 	// DB 관련 역할 수행 객체 DI
 	@Autowired
 	private MemberMapper mapper;
@@ -47,7 +47,6 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	
-	
 	/** 회원가입 서비스
 	 *
 	 */
@@ -70,6 +69,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		// DAO가 아닌 Mapper 메서드 호출
 		return mapper.signup(inputMember);
+		
 	}
 	
 	
