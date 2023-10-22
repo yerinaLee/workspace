@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 상세 조회</title>
+
+  <link rel="stylesheet" href="/css/common-style.css">
+</head>
+
+<body th:object="${board}">
+
+  <main class="container" th:object="${board}">
+    <h4 th:text="|게시글 번호 - *{boardNo}|">게시글 번호 - 22</h4>
+    <h2 th:text="*{boardTitle}">제목</h2>
+
+    <hr>
+    <label>[작성자] </label>
+    <th:block th:text="*{boardWriter}"></th:block>
+    /
+    <label>[작성일] </label>
+    <th:block th:text="*{writeDate}"></th:block>
+
+    <hr>
+
+    <div class="board-content" th:text="*{boardContent}">내용</div>
+  </main>
+
+  <form action="deleteBoard" method="post">
+    <label>삭제하기</label>
+    <input type="password" name="boardPw">
+    <input type="hidden" name="boardNo" th:value="*{boardNo}">
+    <button>삭제</button>
+    <br>
+    (비밀번호 일치 시 삭제됩니다)
+  </form>
+
+  <hr style="width: 500px; margin-left: 0;">
+
+  <form action="moveUpdate" method="post">
+    <label>수정하기</label>
+    <input type="password" name="boardPw">
+    <input type="hidden" name="boardNo" th:value="*{boardNo}">
+    <button>수정</button>
+    <br>
+    (비밀번호 일치 시 수정 화면으로 넘어갑니다)
+  </form>
+
+  <script th:inline="javascript">
+    const message =  /*[[${message}]]*/ "전달 받은 message";
+    if(message != null) alert(message);
+  </script>
+
+  <button onclick="location.href='/'">목록으로</button>
+</body>
+</html>

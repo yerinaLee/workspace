@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제!!</title>
+</head>
+<body>
+    <h1>게시글 목록 조회</h1>
+    
+    <button style="margin-left: 480px;" onclick="location.href='/board/insert'">글쓰기</button>
+    <table border="1">
+        <tr>
+            <th>게시글 번호</th>
+            <th>제목(제목 클릭 시 상세 조회)</th>
+            <th>작성자</th>
+            <th>작성일</th>
+        </tr>
+        
+        <tr th:each="board : ${boardList}" th:object="${board}">
+            <th th:text="*{boardNo}">게시글 번호</th>
+            <td>
+                <a th:href="@{/board/selectOne (no=*{boardNo})}" th:text="*{boardTitle}">제목</a>
+            </td>
+            <td th:text="*{boardWriter}">작성자</td>
+            <td th:text="*{writeDate}">작성일</td>
+        </tr>
+
+    </table>
+
+    <script th:inline="javascript">
+        const message =  /*[[${message}]]*/ "전달 받은 message";
+        if(message != null) alert(message);
+    </script>
+</body>
+</html>

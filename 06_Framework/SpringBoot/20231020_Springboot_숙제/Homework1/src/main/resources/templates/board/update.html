@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 수정</title>
+
+  <link rel="stylesheet" href="/css/common-style.css">
+</head>
+
+<body th:object="${board}">
+
+  <h1>글 수정하기</h1>
+
+  <form class="container" action="updateBoard" method="POST" th:object="${board}">
+    <h4 th:text="|게시글 번호 - *{boardNo}|">게시글 번호 - 22</h4>
+    <input type="hidden" name="boardNo" th:value="*{boardNo}">
+
+    <label>[제목] </label>
+    <input type="text" name="boardTitle" th:value="*{boardTitle}"></input>
+    <hr>
+    <label>[비밀번호] </label>
+    <input type="password" name="boardPw"></input>
+    <hr>
+
+    <label>[작성자] </label>
+    <input type="text" name="boardWriter" th:value="*{boardWriter}"></input>
+    /
+    <label>[작성일] </label>
+    <th:block th:text="*{writeDate}"></th:block>
+    <hr>
+
+    <!-- textarea는 th:value가 아닌 th:text를 이용!!  -->
+    <textarea name="boardContent" th:text="*{boardContent}">내용</textarea>
+
+    <div class="btn-area">
+      <button>수정</button>
+    </div>
+
+  </form>
+
+
+
+</body>
+</html>
