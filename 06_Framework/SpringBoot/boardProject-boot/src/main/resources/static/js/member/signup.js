@@ -22,3 +22,301 @@ function sample6_execDaumPostcode() {
       }
   }).open();
 }
+
+
+// -------------------------------------------------------------------------------------
+
+/****** 회원가입 유효성 검사 ******/
+// .confirm : 초록색 / .error : 빨간색 / 아무것도 없음 : 검은색
+
+/* 모든 입력이 유효성 검사가 진행되었는지 체크할 객체를 생성 */
+const checkObj = {
+    "memberEmail" : false,
+    "authKey" : false,
+    "memberPw" : false,
+    "memberPwConfirm" : false,
+    "memberNickname" : false,
+    "memberTel" : false
+};
+
+/* 이메일 유효성 검사 */
+
+// 1) 이메일 유효성 검사에 사용할 요소 모두 얻어오기
+const memberEmail = document.getElementById("memberEmail");
+const emailMessage = document.getElementById("emailMessage");
+
+// 2) 이메일이 입력(input) 될 때 마다 유효성 검사 실행
+memberEmail.addEventListener("input", ()=>{
+    
+    // 3) 입력된 이메일이 없을 경우
+    if(memberEmail.value.trim().length == 0){
+        memberEmail.value = '';
+        emailMessage.innerText = "메일을 받을 수 있는 이메일을 입력해주세요";
+
+        // emailMessage의 클래스를 제거해서 글자색을 검은색으로 만들기
+        emailMessage.classList.remove("confirm", "error");
+
+        // checkObj의 memberEmail 값을 false로 변경
+        // == 이메일이 유효하지 않음을 의미
+        checkObj.memberEmail = false;
+        return;
+    }
+
+    // 4) 이메일 정규식 검사
+    const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
+
+    // 입력 받은 이메일이 정규식과 일치하는 경우
+    if( regEx.test(memberEmail.value) ){
+        emailMessage.innerText = "유효한 이메일 형식입니다.";
+        emailMessage.classList.add("confirm"); // 초록색 글씨
+        emailMessage.classList.remove("error"); // 빨간글씨 제거
+        checkObj.memberEmail = true; // 유효한 상태임을 기록
+    }
+
+    // 입력 받은 이메일이 정규식과 일치하지 않은 경우
+    else {
+        emailMessage.innerText = "알맞은 이메일 형식으로 작성해주세요.";
+        emailMessage.classList.add("error"); // 빨간글씨 글씨
+        emailMessage.classList.remove("confirm"); // 초록색 제거
+        checkObj.memberEmail = false; // 유효하지 않은 상태임을 기록
+    }
+})
+
+
+/* 인증 번호 유효성 검사 */
+const authKey = document.getElementById("authKey");
+const authKeyMessage = document.getElementById("authKeyMessage");
+
+authKey.addEventListener("input", ()=>{
+
+    // 미입력 시
+    if(authKey.value.trim().length == 0){
+        authKey.value = '';
+        authKeyMessage.innerText = '';
+        checkObj.authKey = false;
+        authKeyMessage.classList.remove("confirm", "error");
+        return;
+    }
+
+    const regEx = /^[\d]{6,6}$/;
+
+    // 입력한 인증번호가 6글자인 경우(유효 O)
+    // -> 유효한 인증번호 형식입니다(초록색)
+    // -> checkObj.authKey = true;
+    if( regEx.test(authKey.value) ){
+        authKeyMessage.innerText = "유효한 인증번호 형식입니다";
+        authKeyMessage.classList.add("confirm"); // 초록색 글씨
+        authKeyMessage.classList.remove("error"); // 빨간글씨 제거
+        checkObj.authKey = true; // 유효한 상태임을 기록
+    }
+    
+    // 입력한 인증번호가 6글자 미만인 경우(유효 X)
+    // -> 유효하지 않은 인증번호 형식입니다(빨간색)
+    // -> checkObj.authKey = false;
+    else{
+        authKeyMessage.innerText = "유효하지 않은 인증번호 형식입니다";
+        authKeyMessage.classList.add("error"); // 초록색 글씨
+        authKeyMessage.classList.remove("confirm"); // 빨간글씨 제거
+        checkObj.authKey = false;
+    }
+})
+
+
+/* 비밀번호 유효성 검사 */
+/*  비밀번호/비밀번호 확인 유효성 검사 */
+const memberPw = document.getElementById("memberPw");
+const memberPwConfirm = document.getElementById("memberPwConfirm");
+const pwMessage = document.getElementById("pwMessage");
+
+// 비밀번호 입력 시 유효성 검사
+memberPw.addEventListener("input", () => {
+
+    // 비밀번호가 입력되지 않은 경우
+    if(memberPw.value.trim().length == 0){
+        memberPw.value = ""; // 띄어쓰지 못넣게 하기
+
+        pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.";
+        pwMessage.classList.remove("confirm", "error"); // 검정 글씨
+
+        checkObj.memberPw = false; // 빈칸 == 유효 X
+        return;
+    }
+
+
+    // 정규 표현식을 이용한 비밀번호 유효성 검사
+
+    // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
+    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
+
+    // 입력한 비밀번호가 유효한 경우
+    if(regEx.test(memberPw.value)){
+        checkObj.memberPw = true; 
+        
+        // 비밀번호가 유효하게 작성된 상태에서
+        // 비밀번호 확인이 입력되지 않았을 때
+        if(memberPwConfirm.value.trim().length == 0){
+
+            pwMessage.innerText = "유효한 비밀번호 형식입니다";
+            pwMessage.classList.add("confirm");
+            pwMessage.classList.remove("error");
+        }
+        
+        // 비밀번호가 유효하게 작성된 상태에서
+        // 비밀번호 확인이 입력되어 있을 때
+        else{
+            // 비밀번호 == 비밀번호 확인  (같을 경우)
+            if(memberPw.value == memberPwConfirm.value){
+                pwMessage.innerText = "비밀번호가 일치합니다";
+                pwMessage.classList.add("confirm");
+                pwMessage.classList.remove("error");
+                checkObj.memberPwConfirm = true;
+                
+            } else{ // 다를 경우
+                pwMessage.innerText = "비밀번호가 일치하지 않습니다";
+                pwMessage.classList.add("error");
+                pwMessage.classList.remove("confirm");
+                checkObj.memberPwConfirm = false;
+            }
+        }
+
+        
+    } else{ // 유효하지 않은 경우
+        
+        pwMessage.innerText = "비밀번호 형식이 유효하지 않습니다";
+        pwMessage.classList.add("error");
+        pwMessage.classList.remove("confirm");
+        checkObj.memberPw = false; 
+    }
+});
+
+
+// 비밀번호 확인 유효성 검사
+memberPwConfirm.addEventListener('input', ()=>{
+
+    if(checkObj.memberPw){ // 비밀번호가 유효하게 작성된 경우에
+
+        // 비밀번호 == 비밀번호 확인  (같을 경우)
+        if(memberPw.value == memberPwConfirm.value){
+            pwMessage.innerText = "비밀번호가 일치합니다";
+            pwMessage.classList.add("confirm");
+            pwMessage.classList.remove("error");
+            checkObj.memberPwConfirm = true;
+            
+        } else{ // 다를 경우
+            pwMessage.innerText = "비밀번호가 일치하지 않습니다";
+            pwMessage.classList.add("error");
+            pwMessage.classList.remove("confirm");
+            checkObj.memberPwConfirm = false;
+        }
+
+    } else { // 비밀번호가 유효하지 않은 경우
+        checkObj.memberPwConfirm = false;
+    }
+});
+
+
+
+
+
+
+/* 닉네임 유효성 검사 */
+const memberNickname = document.getElementById("memberNickname");
+const nickMessage = document.getElementById("nickMessage");
+
+memberNickname.addEventListener("input", ()=>{
+
+    // 미입력 시
+    if(memberNickname.value.trim().length == 0){
+        memberNickname.value = '';
+        nickMessage.innerText = "한글,영어,숫자로만 2~10글자";
+        checkObj.memberNickname = false;
+        nickMessage.classList.remove("confirm", "error");
+        return;
+    }
+
+    const regEx = /^[가-힣\w\d]{2,10}$/;
+
+    if( regEx.test(memberNickname.value) ){
+        nickMessage.innerText = "유효한 닉네임 형식입니다";
+        nickMessage.classList.add("confirm"); 
+        nickMessage.classList.remove("error");
+        checkObj.memberNickname = true;
+    }
+    
+    else{
+        nickMessage.innerText = "유효하지 않은 닉네임 형식입니다";
+        nickMessage.classList.add("error");
+        nickMessage.classList.remove("confirm");
+        checkObj.memberNickname = false;
+    }
+})
+
+
+/* 전화번호 유효성 검사 */
+const memberTel = document.getElementById("memberTel");
+const telMessage = document.getElementById("telMessage");
+
+memberTel.addEventListener("input", ()=>{
+
+    // 미입력 시
+    if(memberTel.value.trim().length == 0){
+        memberTel.value = '';
+        telMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
+        checkObj.memberTel = false;
+        telMessage.classList.remove("confirm", "error");
+        return;
+    }
+
+    const regEx = /^0(1[01679]|2|[3-6][1-5]|70)[1-9]\d{2,3}\d{4}$/;
+
+    if( regEx.test(memberTel.value) ){
+        telMessage.innerText = "유효한 전화번호 형식입니다";
+        telMessage.classList.add("confirm"); 
+        telMessage.classList.remove("error");
+        checkObj.memberTel = true;
+    }
+    
+    else{
+        telMessage.innerText = "유효하지 않은 전화번호 형식입니다";
+        telMessage.classList.add("error");
+        telMessage.classList.remove("confirm");
+        checkObj.memberTel = false;
+    }
+})
+
+
+/* 회원 가입 버튼이 클릭 되었을 때 */
+document.getElementById("signUpFrm").addEventListener("submit", e => {
+
+    /* checkObj의 모든 값을 검사해서
+       하나라도 false이면 가입 시도 X */
+
+    // 객체 전용 향상된 for문 (for .... in)
+
+    for(let key in checkObj){
+
+        // 객체에서 얻어온 값이 false인 경우
+        // (유효하지 않은 것이 있을 경우)
+        if( !checkObj[key] ){
+
+            let str;
+            switch(key){
+            case "memberEmail"     : str = "이메일이 유효하지 않습니다"; break;
+            case "memberPw"        : str = "비밀번호가 유효하지 않습니다"; break;
+            case "memberPwConfirm" : str = "비밀번호가 일치하지 않습니다"; break;
+            case "memberNickname"  : str = "닉네임이 유효하지 않습니다"; break;
+            case "memberTel"       : str = "전화번호가 유효하지 않습니다"; break;
+            case "authKey"         : str = "인증번호가 유효하지 않습니다"; break;
+            }
+
+            alert(str);
+
+            // key == input id 속성 값
+            // 유효하지 않은 input 태그로 focus 맞춤
+            document.getElementById(key).focus();
+
+            e.preventDefault(); // form 제출 X
+            return;
+        }
+    }
+})
