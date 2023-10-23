@@ -673,7 +673,7 @@ footer a {
   width: 75%;
 }
 
-#myPage-table-title-row > td:last-child {
+#myPage-comment-table-title-roww > td:last-child {
   width: 25%;
 }
 
@@ -684,4 +684,59 @@ footer a {
   font-size: 1.8rem;
   border-top: 0.1rem solid var(--main-color);
   border-bottom: 0.1rem solid var(--main-color);
+}
+
+
+
+/* 댓글 일반 td 설정 */
+.myPage-table-td-comment a{
+  text-decoration: none;
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: black;
+}
+
+.myPage-table-td-comment{
+  
+  display: flex;
+  align-items: center;
+
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  font-size: 1.8rem;
+
+  border-bottom: 0.1rem solid var(--footer-color);
+}
+
+
+/* 댓글창 섹션 정리 */
+/* 체크박스 섹션 */
+.myPage-table-td-comment > section:first-child{
+  margin-right: 3rem;
+
+}
+
+/* 댓글박스 섹션 */
+.myPage-table-td-comment > section:nth-child(2){
+  display: flex;
+  flex-direction: column;
+}
+
+/* 댓글 내용 */
+#comment-contents{
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+/* 가게 이름 */
+#comment-placeName{
+  color: #A6A6A6;
+  margin-bottom: 1rem;
+}
+
+
+/* 강조 td 설정 _ 댓글수 */
+.myPage-table-td-comment-highlight{
+  text-decoration: none;
+  color: var(--main-color);
 }
