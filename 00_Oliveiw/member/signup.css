@@ -1,0 +1,292 @@
+:root{
+  font-size: 62.5%;
+  
+  --main-color : #66B97E;
+  --footer-color : #d9d9d9;
+}
+
+* {
+  font-family:'GmarketSansMedium';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix') format('embedded-opentype'),
+       url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf') format("truetype");
+  font-display: swap;
+} 
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+main{
+  width: 144rem;
+}
+
+
+
+/*-------- header --------*/
+header{
+  height: 8rem;
+  border-bottom: 2px solid var(--footer-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 로고 */
+header > section:first-child {
+  width: 55%;
+  display: flex;
+  justify-content: end;
+}
+
+/* 헤더메뉴 섹션 */
+header > section:last-child {
+  width: 45%;
+  display: flex;
+  justify-content: end;
+}
+
+/* 헤더 메뉴들 */
+header article{
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header a{
+  color: var(--main-color);
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+
+
+/*-------- footer --------*/
+
+footer{
+  width: 100%;
+  height: 4rem;
+  background-color: var(--footer-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+  font-weight: 1;
+  color: rgba(130, 130, 130, 1);
+}
+
+footer > article {
+  padding: 1.5rem;
+}
+
+footer a {
+  color: rgba(130, 130, 130, 1);
+  text-decoration: none;
+}
+
+
+
+/*-------- login container --------*/
+
+.container{
+  width: 100%;
+  height: 74rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 10rem;
+}
+
+#signupForm{
+  width: 60rem;
+  border-radius: 1rem;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.input-box{
+  border: 0.1rem solid #CBCBCB;
+  display: block;
+  width: 50rem;
+  height: 7rem;
+  padding: 1.5rem 1.5rem;
+
+  font-size: 2.4rem;
+  color: black;
+  box-shadow: 0 2px 6px 0 rgba(68,68,68,.08);
+}
+
+.input-box input{
+  width: 90%;
+  border: none;
+  outline: 0;
+  font-size: 1.8rem;
+  color: black;
+}
+
+.input-box > i{
+  width: 7%
+}
+
+/* 두번째 인풋 섹션 */
+#name-input-box{
+  margin-top: 5rem;
+}
+
+/* 성별구별 */
+.gender-input-box{
+  width: 50rem;
+  height: 7rem;
+
+  font-size: 2.4rem;
+  box-shadow: 0 2px 6px 0 rgba(68,68,68,.08);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gender-input-box section{
+  display: flex;
+  padding-top: 2rem;
+  padding-left: 10rem;
+  
+  width: 50%;
+  height: 100%;
+
+  border: 0.1rem solid #CBCBCB;
+}
+
+#gender-input-box label{
+  width: 50%;
+  height: 100%;
+
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: #CBCBCB;
+}
+
+.input-box input{
+  width: 90%;
+  border: none;
+  outline: 0;
+  font-size: 1.8rem;
+  color: black;
+}
+
+
+.input-box input::placeholder{
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: #CBCBCB;
+}
+
+/* 인풋박스에 포커스 맞춰질때 */
+.input-box:focus-within{
+  border: 0.1rem solid #66B97E;
+}
+
+
+/* 로그인btn */
+.complete-btn{
+  cursor: pointer;
+  display: inline-block;
+
+  width: 50rem;
+  height: 7rem;
+  background-color: #66B97E;
+  color: white;
+  
+  font-size: 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.complete-btn:focus{
+  outline: 0;
+}
+
+.complete-btn:focus{
+  transform: scale(0.99);
+}
+
+
+
+
+
+
+/* 아이디 저장 */
+.saved-area{
+  margin: 0.5rem 0 5rem;
+  padding: 1rem 0;
+  display: flex;
+
+  color: #838383;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.saved-area{
+  display: flex;
+  width: 50rem;
+  align-items: start;
+}
+
+.saved-area > input{
+  display: none;
+}
+
+#saveId+label{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#saveId+label > i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.saved-area > input:checked + label > i{
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white !important;
+}
+

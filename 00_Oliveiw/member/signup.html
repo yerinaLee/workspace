@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" href="signup.css">
+  <script src="https://kit.fontawesome.com/39f6050202.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <main>
+    <!-- 로그인 전 header -->
+    <header>
+      <section>
+        <img src="/images/original_16.png" alt="로고이미지" width="80rem">
+      </section>
+
+      <section>
+        <article>
+          <a href="#">로그인</a>
+        </article>
+
+        <article>
+          <a href="#">회원가입</a>
+        </article>
+      </section>
+
+    </header> 
+
+
+    <!-- 회원가입박스 -->
+    <section class="container">
+
+      <form action="#" method="" id="signupForm">
+
+        <section class="input-box" id="id-input-box">
+          <i class="fa-regular fa-user fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberId" placeholder="아이디" required>
+        </section>
+
+        <section class="input-box" id="pw-input-box">
+          <i class="fa-solid fa-lock fa-lg" style="color: #cbcbcb;"></i>
+          <input type="password" name="memberPw" placeholder="비밀번호" required>
+        </section>
+
+        <section class="input-box" id="pw-input-box">
+          <i class="fa-regular fa-envelope fa-lg" style="color: #cbcbcb;"></i>
+          <input type="email" name="memberEmail" placeholder="이메일" required>
+        </section>
+
+        <article id="alert1"></article>
+
+        <section class="input-box" id="name-input-box">
+          <i class="fa-regular fa-user fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberName" placeholder="이름" required>
+        </section>
+
+        <section class="input-box" id="tel-input-box">
+          <i class="fa-solid fa-phone fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberTel" placeholder="전화번호" required>
+        </section>
+
+        <section class="input-box" id="nickname-input-box">
+          <i class="fa-regular fa-user fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberNickname" placeholder="닉네임" required>
+        </section>
+
+        <section class="input-box" id="address-input-box">
+          <i class="fa-solid fa-map-pin fa-lg" style="color: #cbcbcb;"></i>
+          <input type="text" name="memberAddress" placeholder="주소" required>
+        </section>
+
+        <section class="gender-input-box" id="gender-input-box">
+            <section>
+              <label><input type="radio" name="gender" id="genderMale" value="M">남</label>
+            </section>
+
+            <section>
+              <label><input type="radio" name="gender" id="genderFemail" value="F">여</label>
+            </section>
+        </section>
+        
+
+
+
+        <!-- <div class="saved-area">
+          <input type="checkbox" name="saveId" id="saveId">
+          <label for="saveId"><i class="fa-regular fa-circle-check fa-lg" style="color: #cbcbcb;"></i>아이디 저장</label>
+        </div> -->
+        
+        <button class="complete-btn">완료</button>
+      </form>
+
+    </section>
+
+
+  </main>
+
+  <footer>
+    <article>
+      <a href="#">고객센터</a>
+      <span>|</span>
+      <a href="#">라이센스</a>
+    </article>
+    <article>
+      &copy Oliview Corp.
+    </article>
+  </footer>
+
+
+ 
+</body>
+</html>

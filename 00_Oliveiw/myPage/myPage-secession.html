@@ -5,9 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="myPage-style.css">
   <script src="https://kit.fontawesome.com/39f6050202.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>회원 탈퇴</title>
 </head>
 <body>
+  <main>
+    <!-- 로그인 후 header -->
+    <header>
+      <section>
+        <img src="/images/original_16.png" alt="로고이미지" width="80rem">
+      </section>
+
+      <section>
+        <article>
+          <a href="#">로그아웃</a>
+        </article>
+
+        <article>
+          <a href="#">마이페이지</a>
+        </article>
+
+        <article>
+          <a href=""><img src="/images/profileImgEx.png" alt="프로필 이미지" width="50rem"></a>
+        </article>
+      </section>
+
+    </header>
+
+    <section class="container">
+
+      <!---------- 사이드메뉴 ---------->
+      <section id="side-menu-container">
+
+        <!-- 사이드메뉴 윗칸 -->
+        <section>
+
+          <!-- 프로필 정보 -->
+          <section id="profileInfo-container">
+
+            <section id="profile-img">
+              <a href=""><img src="/images/profileImgEx.png" alt="프로필 이미지" width="70rem"></a>
+            </section>
+            
+            <section id="member-id">
+              <p>미쉘가잇..</p> <!-- 멤버 아이디, 4글자 넘어가는건 ... 으로! -->
+            </section>
+
+            <section id="edit-btn">
+              <button>EDIT</button>
+            </section>
+
+          </section>
+
+          <!-- 채팅, 로그아웃 버튼 -->
+          <section id="btns-container">
+            <button id="chatting-btn">채팅</button>
+            <button id="logout-btn">로그아웃</button>
+          </section>
+
+          <!-- 마이페이지 타이틀 -->
+          <article id="myPage-title">
+            <p>마이페이지</p>
+          </article>
+
+        </section>
+
+
+        <!-- 목차 -->
+        <section>
+          <section id="mypage-index-container">
+            <!-- 클릭시 bold처리 넣기! -->
+            <article><a href="#"><p>내 프로필</p></a></article>
+            <article><a href="#"><p>내가 쓴 글</p></a></article>
+            <article><a href="#"><p>내가 쓴 댓글</p></a></article>
+            <article><a href="#"><p>찜한 글</p></a></article>
+            <article><a href="#"><p>회원 탈퇴</p></a></article>
+
+          </section>
+        </section>
+
+      </section>
+
+
+      <!---------- 탈퇴안내 영역 ---------->
+      <section class="my-article-container">
+        <section id="my-article-container">
+
+          <!-- 헤드 -->
+          <section id="my-article-title-container">
+            <article>탈퇴 안내</article>
+            <article>회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.</article>
+          </section>
+
+          <!-- 글 내용 -->
+          <section id="my-article-index-container">
+            
+            <article class="myPage-secession-contents">
+              <p class="myPage-secession-contents-head">
+                · 사용하고 계신 아이디(member01)는 탈퇴할 경우 재사용 및 복구가 불가능합니다.
+              </p>
+              <p class="myPage-secession-contents-body">
+                탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다
+              </p>
+
+              <p class="myPage-secession-contents-head">
+                · 탈퇴 후 회원정보 서비스 이용기록은 모두 삭제됩니다.
+              </p>
+              <p class="myPage-secession-contents-body">
+                회원정보 및 서비스 이용기록은 모두 삭제되며, 삭제된 데이터는 복구되지 않습니다.
+              </p>
+              <p class="myPage-secession-contents-body">
+                삭제되는 내용을 확인하시고 필요한 데이터는 미리 백업을 해주세요.
+              </p>
+
+
+              <p class="myPage-secession-contents-head">
+                · 탈퇴 후에도 게시판형 서비스에 등록한 게시물은 그대로 남아 있습니다.
+              </p>
+              <p class="myPage-secession-contents-body">
+                등록한 게시글 및 댓글은 탈퇴 시 자동 삭제되지 않고 그대로 남아 있습니다.
+              </p>
+              <p class="myPage-secession-contents-body">
+                삭제를 원하는 게시글이 있다면 반드시 탈퇴 전 비공개 처리하거나 삭제하시기 바랍니다.
+              </p>
+              <p class="myPage-secession-contents-body">
+                탈퇴 후에는 회원정보가 삭제되어 본인 여부를 확인할 수 있는 방법이 없어, 게시글을 임의로 삭제해드릴 수 없습니다.
+              </p>
+
+              <br><br>
+              <hr>
   
+              <p class="myPage-secession-contents-footer">
+                탈퇴 후에는 아이디 <span>member01</span> 로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다. <br>
+                게시판형 서비스에 남아 있는 게시글은 탈퇴 후 삭제할 수 없습니다.
+              </p>
+
+              <label><input type="checkbox" name="" id=""> 안내 사항을 모두 확인하였으며, 이에 동의합니다. </label>
+
+              <form action="" class="secession-btn">
+                <button>확인</button>
+              </form>
+              
+            </article>
+
+          </section>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  
+  <footer>
+    <article>
+      <a href="#">고객센터</a>
+      <span>|</span>
+      <a href="#">라이센스</a>
+    </article>
+    <article>
+      &copy Oliview Corp.
+    </article>
+  </footer>
 </body>
 </html>
