@@ -138,5 +138,27 @@ WHERE MEMBER_NO = 4;
 COMMIT;
 
 
+-- 회원 이메일 찾기
+SELECT MEMBER_EMAIL 
+FROM "MEMBER"
+WHERE MEMBER_NO = 3
+;
+
+
+-- 이메일 중복 검사(중복 O -> 1, 중복 X -> 0)
+SELECT COUNT(*)  
+FROM "MEMBER"
+WHERE MEMBER_DEL_FL = 'N'
+AND MEMBER_EMAIL = 'member01@naver.com'
+;
+
+
+--입력된 문자열을 포함하는 모든 이메일 조회
+SELECT MEMBER_EMAIL
+FROM "MEMBER"
+WHERE MEMBER_EMAIL LIKE '%com%'
+;
+
+
 
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--연결할 인터페이스의 패키지명.인터페이스명 작성-->
+<mapper namespace="edu.kh.project.admin.model.mapper.AjaxMapper">
+	
+	
+	<!-- 회원 번호가 일치하는 회원 이메일 조회 -->
+	<select id="selectMemberNo" resultType="string">
+		SELECT MEMBER_EMAIL 
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	
+	<!-- 이메일이 일치하는 회원의 전화번호 조회 -->
+	<select id="selectEmail" resultType="string">
+		SELECT MEMBER_TEL 
+		FROM "MEMBER"
+		WHERE MEMBER_EMAIL = #{inputEmail}
+	</select>
+
+
+	<!--회원 번호로 회원 정보 조회-->
+	<select id="selectMember" resultType="Member">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME , 
+			MEMBER_TEL , MEMBER_ADDRESS , TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE, AUTHORITY ,
+			MEMBER_DEL_FL
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{no}
+	</select>
+
+
+
+	<!--입력된 문자열을 포함하는 모든 이메일 조회-->
+	
+	<!--Mapper의 반환형이 List일 경우
+		조회 결과가 1행씩 List에 자동 추가된다!
+		-> resultType을 List가 아닌 List에 추가되는 요소의 타입을 작성
+	-->
+	
+	<!-- ${keyword} 사용 이유 ($ 사용 이유) : # 사용 시 따옴표가 추가로 작성돼 SQL 문법 오류 발생-->
+	<select id="selectEmailList" resultType="string">
+		SELECT MEMBER_EMAIL
+		FROM "MEMBER"
+		WHERE MEMBER_EMAIL LIKE '%${keyword}%'
+	</select>
+
+   
+</mapper>
