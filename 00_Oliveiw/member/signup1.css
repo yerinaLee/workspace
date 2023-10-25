@@ -111,28 +111,26 @@ footer a {
 
 
 
-/*-------- login container --------*/
+/*-------- signup container --------*/
 
 .container{
   width: 100%;
-  height: 74rem;
+  height: 78rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  margin-top: 10rem;
+  margin-top: 6rem;
 }
 
 #signupForm{
   width: 60rem;
-  border-radius: 1rem;
   
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .input-box{
@@ -164,39 +162,6 @@ footer a {
   margin-top: 5rem;
 }
 
-/* 성별구별 */
-.gender-input-box{
-  width: 50rem;
-  height: 7rem;
-
-  font-size: 2.4rem;
-  box-shadow: 0 2px 6px 0 rgba(68,68,68,.08);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#gender-input-box section{
-  display: flex;
-  padding-top: 2rem;
-  padding-left: 10rem;
-  
-  width: 50%;
-  height: 100%;
-
-  border: 0.1rem solid #CBCBCB;
-}
-
-#gender-input-box label{
-  width: 50%;
-  height: 100%;
-
-  font-family: 'GmarketSans';
-  font-weight: 300;
-  color: #CBCBCB;
-}
-
 .input-box input{
   width: 90%;
   border: none;
@@ -218,7 +183,88 @@ footer a {
 }
 
 
-/* 로그인btn */
+/* 성별구별 */
+.gender-input-box{
+  width: 50rem;
+  height: 7rem;
+
+  font-size: 2.4rem;
+  box-shadow: 0 2px 6px 0 rgba(68,68,68,.08);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 남녀 박스 개별적용 */
+#gender-input-box section{
+  width: 50%;
+  height: 100%;
+
+  border: 0.1rem solid #CBCBCB;
+}
+
+#gender-input-box label{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: #CBCBCB;
+}
+
+
+/* 인풋박스 사라지게 */
+.gender-check-area > input{
+  display: none;
+}
+
+#genderM+label{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#genderM+label > i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+#genderF+label{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#genderF+label > i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.gender-check-area > input:checked + label > i{
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white !important;
+}
+
+
+/* 완료 btn */
 .complete-btn{
   cursor: pointer;
   display: inline-block;
@@ -231,6 +277,8 @@ footer a {
   font-size: 2.5rem;
   border: none;
   border-radius: 0.5rem;
+
+  margin-top: 8rem;
 }
 
 .complete-btn:focus{
@@ -242,51 +290,152 @@ footer a {
 }
 
 
+/* ---------회원가입1. 약관동의--------- */
 
-
-
-
-/* 아이디 저장 */
-.saved-area{
-  margin: 0.5rem 0 5rem;
-  padding: 1rem 0;
+#agreeForm{
+  width: 60rem;
+  
   display: flex;
-
-  color: #838383;
-  font-size: 1.5rem;
-  user-select: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.saved-area{
-  display: flex;
+#agreeForm * {
+  /* border: 1px solid black; */
+}
+
+/* 동의하기 섹션 */
+.agree-signup-box{
   width: 50rem;
-  align-items: start;
+  font-size: 1.8rem;
+  
+  margin-bottom: 5rem;
 }
 
-.saved-area > input{
+.agree-check-area{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+#agree-signup-box label{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  color: #818181;
+}
+
+.agree-signup-box article{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  font-family: 'GmarketSans';
+  font-weight: 300;
+  color: #a7a7a7;
+
+  font-size: 1.2rem;
+  padding-left: 2.7rem;
+}
+
+/* 인풋박스 사라지게 */
+.agree-check-area > input{
   display: none;
 }
 
-#saveId+label{
+#agreeAll+label{
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-#saveId+label > i{
+#agreeAll+label > i{
   display: flex;
   justify-content: center;
   align-items: center;
 
   border-radius: 50%;
-  margin-right: 0.5rem;
-  width: 1.6rem;
-  height: 1.6rem;
+  margin-right: 1rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
-.saved-area > input:checked + label > i{
+.agree-check-area > input:checked + label > i{
   background-color: var(--main-color);
   border-color: var(--main-color);
   color: white !important;
 }
 
+
+/* --- 필수 약관 --- */
+.agree-check-area p{
+  color: var(--main-color);
+  margin-right: 0.5rem;
+}
+
+#agreeSite+label{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#agreeSite+label > i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  margin-right: 1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.agree-check-area > input:checked + label > i{
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white !important;
+}
+
+.agree-signup-box *{
+  border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+/* 다음 btn */
+.next-btn{
+  cursor: pointer;
+  display: inline-block;
+
+  width: 50rem;
+  height: 7rem;
+  background-color: #66B97E;
+  color: white;
+  
+  font-size: 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+
+  margin-top: 8rem;
+}
+
+.next-btn:focus{
+  outline: 0;
+}
+
+.next-btn:focus{
+  transform: scale(0.99);
+}

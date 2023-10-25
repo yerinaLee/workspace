@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>login</title>
-  <link rel="stylesheet" href="signup.css">
+  <title>signup-2</title>
+  <link rel="stylesheet" href="signup2.css">
   <script src="https://kit.fontawesome.com/39f6050202.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -72,23 +72,23 @@
         </section>
 
         <section class="gender-input-box" id="gender-input-box">
-            <section>
-              <label><input type="radio" name="gender" id="genderMale" value="M">남</label>
-            </section>
 
-            <section>
-              <label><input type="radio" name="gender" id="genderFemail" value="F">여</label>
-            </section>
+          <section class="gender-check-area">
+            <input type="radio" name="gender" id="genderM" value="M" class="gender">
+            <label for="genderM">
+              <i class="fa-regular fa-circle-check fa-lg" style="color: #cbcbcb;"></i>남
+            </label>
+          </section>
+
+          <section class="gender-check-area">
+            <input type="radio" name="gender" id="genderF" value="M" class="gender">
+            <label for="genderF">
+              <i class="fa-regular fa-circle-check fa-lg" style="color: #cbcbcb;"></i>여
+            </label>
+          </section>
+
         </section>
-        
-
-
-
-        <!-- <div class="saved-area">
-          <input type="checkbox" name="saveId" id="saveId">
-          <label for="saveId"><i class="fa-regular fa-circle-check fa-lg" style="color: #cbcbcb;"></i>아이디 저장</label>
-        </div> -->
-        
+    
         <button class="complete-btn">완료</button>
       </form>
 
