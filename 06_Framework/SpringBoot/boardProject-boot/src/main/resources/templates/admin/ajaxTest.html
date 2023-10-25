@@ -64,6 +64,40 @@
   </table>
 
 
+  <hr><hr>
+
+  <h3>회원 조회 버튼 클릭 시 모든 회원 정보 조회</h3>
+
+  <button id="btn5">조회</button>
+  <table border="1" style="border-collapse: collapse ;">
+    <thead>
+      <tr>
+        <th>회원번호</th>
+        <th>이메일</th>
+        <th>닉네임</th>
+        <th>전화번호</th>
+        <th>탈퇴여부</th>
+      </tr>
+    </thead>
+
+    <tbody id="result5"></tbody>
+  </table>
+
+  <hr>
+
+  <h3>샘플 계정 생성</h3>
+  <!-- 
+    이메일, 닉네임, 전화번호를 입력받아 회원 가입
+    (비밀번호는 1234 암호화된 형태로 저장)
+  -->
+  <div id="sample-container">
+    이메일 : <input type="text"> <br>
+    닉네임 : <input type="text"> <br>
+    전화번호 : <input type="text">
+  </div>
+  <button id="btn6">가입하기</button>
+  
+
 
   <script src="/js/admin/ajaxTest.js"></script>
 </body>

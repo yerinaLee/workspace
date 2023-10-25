@@ -158,3 +158,174 @@ btn4.addEventListener("click", ()=>{
   .catch( e=> console.log(e))
 })
 
+
+//---------------------------------------------------------------
+
+
+/* 회원 조회 버튼 클릭 시 모든 회원 정보 조회 */
+const btn5 = document.getElementById("btn5");
+const result5 = document.getElementById("result5");
+
+btn5.addEventListener("click", ()=>{
+
+  // 파라미터(쿼리스트링)이 없는 GET 방식 비동기 요청
+  fetch("/ajax/selectAll")
+  .then( response => {
+    // response == 응답 정보가 담긴 객체(상태코드, 데이터 등)
+
+    console.log(response);
+    console.log(response.status);
+    console.log(response.body);
+    if(response.ok){console.log("비동기통신 성공! 에브리띵퐈인");}
+
+    // console.log(response.json()); // promise 객체
+
+    // json 형태의 응답 데이터를(memberList)
+    // JS 객체 형태로 변환해서 반환
+    // (첫번째 then에서 리턴 시 promise객체에 데이터만 반환됨)
+    return response.json(); 
+  } )
+
+  .then(memberList => {
+    // memberList : 첫 번째 then에서 반환된 JS 객체(변환까지 완료)
+    console.log(memberList);
+
+    result5.innerHTML = ""; // tbody 내용 제거
+    
+    for(let member of memberList){ // 향상된 for문
+      const tr = document.createElement("tr");
+      
+      const td1 = document.createElement("td");
+      const td2 = document.createElement("td");
+      const td3 = document.createElement("td");
+      const td4 = document.createElement("td");
+      const td5 = document.createElement("td");
+
+      td1.innerText = member.memberNo; // 회원번호
+      td2.innerText = member.memberEmail; // 회원이메일
+      td3.innerText = member.memberNickname; // 닉네임
+      td4.innerText = member.memberTel; // 전화번호
+
+      // td5(탈퇴여부) 컬럼에는 버튼을 만들어서 집어넣기
+      const btn = document.createElement("button");
+
+      if(member.memberDelFl == 'Y'){ // 탈퇴 상태인 경우
+        btn.innerText = "복구"
+        btn.style.backgroundColor = "greenyellow";
+      } else { // 'N'
+        btn.innerText = "탈퇴"
+        btn.style.backgroundColor = "pink";
+      }
+      
+      // 탈퇴 여부(Y, N)을 속성으로 추가
+      btn.setAttribute("data-flag", member.memberDelFl);
+
+      // ======================================================
+      // 버튼 클릭 시 회원 탈퇴/복구 ajax
+
+        btn.addEventListener("click", e =>{
+          // 버튼의 속성 중 "data-flag" 값이 'N'이면 'Y', 'Y'면 'N' 저장
+          // -> DB UPDATE 시 MEMBER_DEL_FL에 대입할 값으로 이용
+          const flag = e.target.getAttribute("data-flag") == 'N' ? 'Y' : 'N';
+
+          // 회원번호
+          // -  클릭된 버튼의 부모(td)의 부모(tr)의 자식들 중 0번째(td1)
+          const temp = e.target.parentElement.parentElement.children[0];
+          const targetNo = temp.innerText;
+
+          // 필요한 데이터를 한 번에 저장한 JS 객체 생성
+          const obj = {};
+          obj.flag = flag;
+          obj.targetNo = targetNo;
+
+          // AJAX 코드 작성
+          fetch("/ajax/updateFlag", {
+
+            method : "PUT", // PUT 방식 요청
+            headers : {"Content-Type": "application/json"},
+            body : JSON.stringify(obj)
+          })
+
+          .then(resp => resp.text())
+          .then (result => { 
+            if(result > 0){ // 성공시
+              if(flag == 'Y') {
+                btn.innerText = "복구";
+                btn.style.backgroundColor = "greenyellow";
+              } else{
+                btn.innerText = "탈퇴";
+                btn.style.backgroundColor = "pink";
+              }
+
+              btn.setAttribute("data-falg", flag);
+            } 
+
+            else{ // 실패시
+              alert("탈퇴여부 변경 실패~~~");
+            }
+           })
+          .catch(e => console.log(e))
+        })
+
+      // ======================================================
+
+      td5.append(btn); // td5에 추가
+
+      // tr에 생성한 td 모두 추가
+      tr.append(td1, td2, td3, td4, td5);
+
+      // tbody(result5)에 td 추가
+      result5.append(tr);
+    }
+  })
+
+})
+
+
+
+/* 샘플 계정 생성 */
+const sampleInputList = document.querySelectorAll("#sample-container > input");
+const btn6 = document.querySelector("#btn6");
+
+btn6.addEventListener("click", ()=>{
+
+  // 입력된 값들을 한 번에 저장할 JS 객체 생성
+  const member = {};
+
+  // JS 객체에 key, value 추가
+  // (JS 객체는 key가 존재하지 않으면 자동으로 추가되는 특징이 있음)
+  member.memberEmail = sampleInputList[0].value;
+  member.memberNickname = sampleInputList[1].value;
+  member.memberTel = sampleInputList[2].value;
+
+  console.log(member); // JS 객체에 key/value 추가 확인
+
+  // 비동기로 샘플 회원 가입
+
+  /* 
+    요청 방식에 따른 용도 (REST API 참고)
+    GET    == SELECT
+    POST   == INSERT
+    PUT    == UPDATE
+    DELETE == DELETE 
+  */
+
+  fetch("/ajax/insertMember", {
+    method : "POST", // 요청 방식
+    headers : {"Content-Type" : "application/json"}, // 요청 관련 정보 작성(요청 데이터의 형식 등)
+    body : JSON.stringify(member) // POST, PUT, DELET는 body에 데이터를 담아서 전달
+    // JSON.stringify(member) : member 객체를 JSON으로 변환(문자열화)
+  })
+  .then( resp => resp.text() )
+  .then( result => {
+    if(result > 0){
+      alert("가입 성공~");
+
+      // input 태그 작성 값 모두 삭제
+      sampleInputList.forEach( input => input.value = "");
+    } 
+
+    else{ alert("가입 실패...");}
+  } )
+  .catch(e=>console.log(e));
+});

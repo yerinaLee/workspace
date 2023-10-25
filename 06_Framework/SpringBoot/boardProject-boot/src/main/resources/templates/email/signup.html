@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        
+        <img src="cid:logo" width="200px">
+        <h1>KH - A Class 입니다</h1>
+        <h3>아래 발급된 인증 번호를 제한 시간 내에 <br>
+       회원 가입 화면에 입력 후 인증 버튼을 눌러주세요.</h3>
+        
+        <h3 style="text-align: center; border: 3px solid black; color:blue; width: 400px; padding:10px;" >
+            <th:block th:text="${authKey}"></th:block>
+        </h3>
+    </div>
+</body>
+</html>
