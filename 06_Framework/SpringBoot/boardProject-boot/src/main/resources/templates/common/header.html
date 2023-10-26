@@ -67,10 +67,9 @@
 
 <nav>
     <ul>
-        <li><a href="#">공지사항</a></li>
-        <li><a href="#">자유 게시판</a></li>
-        <li><a href="#">질문 게시판</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a href="/board/1">공지사항</a></li>
+        <li><a href="/board/2">자유 게시판</a></li>
+        <li><a href="/board/3">질문 게시판</a></li>
 
         <!-- 로그인한 회원의 권한(authority)이 2(관리자)인 경우 노출 -->
         <li th:if="${ session.loginMember != null && session.loginMember.authority == 2}">
