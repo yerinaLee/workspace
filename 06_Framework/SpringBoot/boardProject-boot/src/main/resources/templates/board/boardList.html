@@ -14,7 +14,7 @@
 <body>
 
     <!-- th:with="key=value" : 변수 선언 -->
-    <main th:with="boardList=${map.boardList}">
+    <main th:with="boardList=${map.boardList}, pagination=${map.pagination}">
         
         <th:block th:replace="~{common/header}"></th:block>
 
@@ -59,7 +59,8 @@
                                 <td> 
                                    <!-- 썸네일 추가 예정 -->
     
-                                   <a href="#"  th:text="*{boardTitle}">게시글 제목</a>
+                                   <a th:href="@{/board/{boardCode}/{boardNo}(boardCode=${boardCode}, boardNo=*{boardNo}, cp=${pagination.currentPage})}"
+                                    th:text="*{boardTitle}">게시글 제목</a>
                                    
                                    <!-- 댓글 수 -->
                                    <th:block  th:text="|[*{commentCount}]|"></th:block>
@@ -93,39 +94,45 @@
 
             <!-- ============================================================================================================== -->
 
-            <!-- 게시글이 있을 때만 페이지네이션이 보이게 할 예정 -->
-            <div class="pagination-area">
+            <!-- 게시글이 있을 때만 페이지네이션이 보이게 함 -->
+            <div class="pagination-area" th:if="${#lists.size(boardList) > 0}"> 
 
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="#">&lt;&lt;</a></li>
-
-                    <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="#">&lt;</a></li>
-
-                    <!-- 특정 페이지로 이동 -->
-                    <!-- 현재 보고있는 페이지 -->
                     <li>
-                        <a class="current">1</a>
+                        <a th:href="@{/board/{boardCode}(boardCode=${boardCode}, cp=1)}">&lt;&lt;</a>
                     </li>
 
-                    <!-- 보고있지 않은 페이지 -->                    
-                    <li> <a href="#">2</a> </li>
-                    <li> <a href="#">3</a> </li>
-                    <li> <a href="#">4</a> </li>
-                    <li> <a href="#">5</a> </li>
-                    <li> <a href="#">6</a> </li>
-                    <li> <a href="#">7</a> </li>
-                    <li> <a href="#">8</a> </li>
-                    <li> <a href="#">9</a> </li>
-                    <li> <a href="#">10</a> </li>
+                    <!-- 이전 목록 마지막 번호로 이동 -->
+                    <li>
+                        <a th:href="@{/board/{boardCode}(boardCode=${boardCode}, cp=${pagination.prevPage})}">&lt;</a>
+                    </li>
 
-                    <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="#">&gt;</a></li>
+
+
+                    <!-- 특정 페이지로 이동 -->
+
+                    <!-- 타임리프에서 특정 범위만큼 반복하기!! (1~10) -->
+                    <!-- #numbers.sequence(1,10, 1) : 1~10까지 1씩 증가하며 차례대로 추가한 리스트 생성 -->
+                    <th:block th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
+                        
+                        <!-- 현재 보고있는 페이지 -->
+                        <li th:if="${i == pagination.currentPage}">
+                            <a class="current" th:text="${i}">1</a>
+                        </li>
+    
+                        <!-- 보고있지 않은 페이지 -->                    
+                        <li th:unless="${i == pagination.currentPage}"> 
+                            <a th:href="@{/board/{boardCode}(boardCode=${boardCode}, cp=${i})}" th:text="${i}">2</a> 
+                        </li>
+                    </th:block>
+
+                   <!-- 다음 목록 시작 번호로 이동 -->
+                    <li><a th:href="@{/board/{boardCode}(boardCode=${boardCode}, cp=${pagination.nextPage})}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="#">&gt;&gt;</a></li>
+                    <li><a th:href="@{/board/{boardCode}(boardCode=${boardCode}, cp=${pagination.maxPage})}">&gt;&gt;</a></li>
                 </ul>
             </div>
 

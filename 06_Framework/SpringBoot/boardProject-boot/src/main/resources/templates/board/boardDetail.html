@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 이름</title>
+
+    <th:block th:replace="~{common/common}"></th:block>
+
+
+    <link rel="stylesheet" href="/css/board/boardDetail-style.css">
+    <link rel="stylesheet" href="/css/board/comment-style.css">
+
+</head>
+<body>
+    <main>
+        <th:block th:replace="~{common/header}"></th:block>
+
+        <section class="board-detail" th:object="${board}">
+            <!-- 제목 -->
+            <h1 class="board-title" th:text="*{boardTitle}">  게시글 제목  </h1>
+
+            <!-- 프로필 + 닉네임 + 작성일 + 조회수 -->
+            <div class="board-header">
+                <div class="board-writer">
+
+                    <!-- 프로필 이미지 -->
+                    <!-- 프로필 이미지가 없을 경우 기본 이미지 출력 -->
+
+                    <!-- 타임리프 if문에서 객체가 null이 아니면 true
+                        null이면 false
+                    -->
+                    <img th:unless="*{profileImg}" th:src="#{user.default.image}">
+                    
+                    <!-- 프로필 이미지가 있을 경우 출력 (예정)-->
+                    <img th:if="*{profileImg}" th:src="*{profileImg}}">
+
+                    <span th:text="*{memberNickname}">작성자 닉네임</span>
+
+                    
+                    <!-- 좋아요 하트 -->
+                    <span class="like-area">
+                        
+                        <!-- 좋아요 누른적이 있으면 fa-solid, 없으면 fa-regular 클래스 추가 -->
+                        <i class="fa-heart fa-regular" id="boardLike"></i>
+
+                        <!-- 좋아요 개수 -->
+                        <span th:text="*{likeCount}">0</span>
+                    </span>
+
+                </div>
+
+                <div class="board-info">
+                    <p> <span>작성일</span> [[*{boardWriteDate}]] </p>     
+
+                    <!-- 수정한 게시글인 경우 -->
+                    <p> <span>마지막 수정일</span> [[*{boardUpdateDate}]] </p>   
+
+                    <p> <span>조회수</span> [[*{readCount}]] </p>                    
+                </div>
+            </div>
+
+
+
+            <!-- ====================== 이미지가 있을 경우 출력하는 구문 (예정) ====================== -->
+           <!--  <h5>썸네일</h5>
+            <div class="img-box">
+                <div class="boardImg thumbnail">
+                    <img src=#">                     
+                    <a href="#">다운로드</a>         
+                </div>
+            </div>
+            
+            
+            <h5>업로드 이미지</h5>
+            <div class="img-box">
+                <div class="boardImg">
+                    <img src="#">   
+                    <a href="#">다운로드</a>                
+                </div>
+            </div> -->
+            <!-- ====================== 이미지가 있을 경우 출력하는 구문 (예정) ====================== -->
+            
+            <!-- 내용 -->
+            <div class="board-content" th:text="*{boardContent}">내용</div>
+
+
+
+            <!-- 버튼 영역-->
+            <div class="board-btn-area">
+
+                <!-- 로그인한 회원과 게시글 작성자 번호가 같은 경우-->
+                <th:block th:if="${session.loginMember != null and
+                                 session.loginMember.memberNo == board.memberNo}">
+                    <button id="updateBtn">수정</button>
+                    <button id="deleteBtn">삭제</button>
+                </th:block>
+
+                <button id="goToListBtn">목록으로</button>
+            </div>
+
+        </section>
+
+
+        <!-- 댓글 영역-->
+        <th:block th:replace="~{board/comment}"></th:block>
+
+    </main>
+
+
+    <th:block th:replace="~{common/footer}"></th:block>
+
+
+    <script src="/js/board/boardDetail.js"></script>
+    <script src="/js/board/comment.js"></script>
+    
+</body>
+</html>
