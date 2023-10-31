@@ -43,7 +43,11 @@
                     <span class="like-area">
                         
                         <!-- 좋아요 누른적이 있으면 fa-solid, 없으면 fa-regular 클래스 추가 -->
-                        <i class="fa-heart fa-regular" id="boardLike"></i>
+                        <!-- ${likeCheck} ? fa-solid : fa-regular
+                            -> ${likeCheck}가 참조하는 값이 있으면 fa-solid
+                            없으면 (==null) fa-regular
+                        -->
+                        <i class="fa-heart" th:classappend="${likeCheck} ? fa-solid : fa-regular" id="boardLike"></i>
 
                         <!-- 좋아요 개수 -->
                         <span th:text="*{likeCount}">0</span>
@@ -111,7 +115,21 @@
 
     <th:block th:replace="~{common/footer}"></th:block>
 
+    <script th:inline="javascript">
+        
+        /***** JS파일에서 사용할 값을 전역 변수로 선언 *****/
 
+        // @PathVariable로 인해 request scope에 세팅된 값 얻어오기
+        const boardCode = /*[[${boardCode}]]*/ "게시글 코드";
+        const boardNo = /*[[${boardNo}]]*/ "게시글 번호";
+
+        // session에 세팅된 loginMember 존재 여부 확인
+        const loginCheck = /*[[${session.loginMember != null ? true : false}]]*/ "로그인 여부" ;
+
+        // ---------------------------------------------------------
+
+    </script>
+    
     <script src="/js/board/boardDetail.js"></script>
     <script src="/js/board/comment.js"></script>
     

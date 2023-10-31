@@ -62,6 +62,7 @@ COMMIT;
 SELECT * FROM MEMBER;
 
 
+
 -- 로그인
 SELECT MEMBER_NO , MEMBER_EMAIL , MEMBER_NICKNAME , MEMBER_TEL , MEMBER_ADDRESS , PROFILE_IMG , AUTHORITY, 
 	TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE 
@@ -633,3 +634,42 @@ AND BOARD_NO = 1300
  INSERT INTO "COMMENT" 
       VALUES(SEQ_COMMENT_NO.NEXTVAL, '자식 댓글 1', DEFAULT, DEFAULT,
             1, 1119, 88);
+            
+           
+-- 좋아요 테이블           
+SELECT * FROM BOARD_LIKE bl ;
+
+-- 좋아요 여부 확인 (1 : 좋아요 o, 0 : 좋아요 x)
+SELECT COUNT(*)
+FROM BOARD_LIKE
+WHERE BOARD_NO  = 1002
+AND MEMBER_NO =1
+;
+
+-- 좋아요 테이블 행 삭제(회원번호, 게시글 번호 일치하는 행 삭제)
+DELETE FROM BOARD_LIKE
+WHERE MEMBER_NO = 2
+AND BOARD_NO = 1482
+;
+
+ROLLBACK;
+
+-- 좋아요 테이블 행 삽입(회원번호, 게시글 번호)
+INSERT INTO BOARD_LIKE (MEMBER_NO , BOARD_NO)
+VALUES (#{memberNo}, #{boardNo})
+;
+
+INSERT INTO BOARD_LIKE (MEMBER_NO , BOARD_NO)
+VALUES (4, 1504)
+;
+
+COMMIT;
+
+SELECT COUNT(*) FROM BOARD_LIKE
+WHERE 
+           
+           
+           
+           
+           
+           

@@ -110,6 +110,43 @@
 	</select>
   
   
+  	<!--게시글 좋아요 여부 확인-->
+  	<select id="likeCheck" resultType="_int">
+		SELECT COUNT(*) FROM BOARD_LIKE
+		WHERE BOARD_NO  = #{boardNo}
+		AND MEMBER_NO = #{memberNo}
+	</select>
+  
+  	<!--좋아요 테이블에서 행 삭제-->
+  	<delete id="deleteBoardLike">
+		DELETE FROM BOARD_LIKE
+		WHERE MEMBER_NO = #{memberNo}
+		AND BOARD_NO = #{boardNo}  
+	</delete>
+  
+
+  	<!--좋아요 테이블에 행 삽입-->
+  	<insert id="insertBoardLike">
+		INSERT INTO BOARD_LIKE (MEMBER_NO , BOARD_NO)
+		VALUES (#{memberNo}, #{boardNo})
+	</insert>
+  
+  
+  	<!--좋아요 수 조회-->
+  	<select id="countBoardLike" resultType="_int">
+		SELECT COUNT(*) FROM BOARD_LIKE
+		WHERE BOARD_NO  = #{boardNo}
+	</select>
+  
+ 
+ 	<!--조회수 증가-->
+  	<update id="updateReadCount">
+		  UPDATE BOARD SET
+		  READ_COUNT = READ_COUNT + 1
+		  WHERE BOARD_NO = #{boardNo}
+		  
+	</update>
+  
   
   
    

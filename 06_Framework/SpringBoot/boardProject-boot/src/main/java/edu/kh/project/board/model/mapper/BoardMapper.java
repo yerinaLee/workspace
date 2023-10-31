@@ -32,4 +32,37 @@ public interface BoardMapper {
 	 */
 	Board boardDetail(Map<String, Object> map);
 
+	/** 게시글 좋아요 여부확인
+	 * @param map
+	 * @return
+	 */
+	int likeCheck(Map<String, Object> map);
+
+	/** 좋아요 테이블에서 행 삭제
+	 * @param paramMap
+	 * @return
+	 */
+	int deleteBoardLike(Map<String, Object> paramMap);
+
+	/** 좋아요 테이블에 행 삽입
+	 * @param paramMap
+	 * @return
+	 */
+	int insertBoardLike(Map<String, Object> paramMap);
+
+	/** 좋아요 수 조회
+	 * @param integer
+	 * @return count
+	 */
+	int countBoardLike(Integer boardNo);
+
+	/** 조회수 증가
+	 * @param boardNo
+	 * @return result
+	 */
+	int updateReadCount(int boardNo);
+	
+	
+	
+
 }
