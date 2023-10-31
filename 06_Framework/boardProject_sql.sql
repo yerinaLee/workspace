@@ -666,7 +666,8 @@ VALUES (4, 1504)
 COMMIT;
 
 SELECT COUNT(*) FROM BOARD_LIKE
-WHERE 
+WHERE BOARD_NO  = 
+;
            
            
            
