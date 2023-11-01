@@ -176,9 +176,12 @@
                 타임리프코드인 #{} 구문을 해석해서
                 현재 태그의 src 속성의 값으로 삽입
               -->
-              <img th:src="#{user.default.image}" id="memberProfile">
-  
-              <!-- 프로필 이미지가 있으면 프로필 이미지(작성 예정) -->
+              <img th:if="${session.loginMember.profileImg == null}"
+                 th:src="#{user.default.image}" id="memberProfile">
+                 
+              <!-- 프로필 이미지가 있으면 프로필 이미지-->
+              <img th:unless="${session.loginMember.profileImg == null}"
+              th:src="${session.loginMember.profileImg}" id="memberProfile">
   
             </a>
   

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--연결할 인터페이스의 패키지명.인터페이스명 작성-->
+<mapper namespace="edu.kh.project.board.model.mapper.EditBoardMapper">
+
+
+	<!--게시글 삭제-->
+  <update id="deleteBoard">
+	UPDATE "BOARD"
+	SET BOARD_DEL_FL = 'Y'
+	WHERE BOARD_NO = #{boardNo}
+	AND BOARD_CODE = #{boardCode}
+	AND MEMBER_NO = #{memberNo}
+  </update>
+  
+  
+   
+</mapper>

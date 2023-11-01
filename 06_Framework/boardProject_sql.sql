@@ -669,8 +669,40 @@ SELECT COUNT(*) FROM BOARD_LIKE
 WHERE BOARD_NO  = 
 ;
            
-           
+-- 게시글 삭제
+UPDATE "BOARD"
+SET BOARD_DEL_FL = 'Y'
+WHERE BOARD_NO = 3
+AND BOARD_CODE = 4
+AND MEMBER_NO = 6;
      
-           
-           
-           
+-- 삭제여부 확인           
+SELECT * FROM BOARD
+WHERE BOARD_NO = 1500;
+
+
+-- 회원 프로필 이미지 추가
+UPDATE MEMBER SET 
+PROFILE_IMG ='/images/member/profile-sample.jpg'
+WHERE MEMBER_NO = 4;
+
+UPDATE MEMBER SET 
+PROFILE_IMG ='/images/member/profile-sample.jpg'
+WHERE MEMBER_NO = 1;
+
+COMMIT;
+
+SELECT * FROM BOARD
+WHERE MEMBER_NO = 4;
+
+
+
+SELECT PROFILE_IMG FROM MEMBER
+WHERE MEMBER_NO = 1;
+
+
+
+
+
+
+

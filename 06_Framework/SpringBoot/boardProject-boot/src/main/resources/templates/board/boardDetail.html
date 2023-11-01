@@ -34,7 +34,7 @@
                     <img th:unless="*{profileImg}" th:src="#{user.default.image}">
                     
                     <!-- 프로필 이미지가 있을 경우 출력 (예정)-->
-                    <img th:if="*{profileImg}" th:src="*{profileImg}}">
+                    <img th:if="*{profileImg}" th:src="*{profileImg}">
 
                     <span th:text="*{memberNickname}">작성자 닉네임</span>
 

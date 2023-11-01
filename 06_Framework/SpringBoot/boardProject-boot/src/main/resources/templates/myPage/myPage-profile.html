@@ -22,17 +22,33 @@
                 <h1 class="myPage-title">프로필</h1>
                 <span class="myPage-subject">프로필 이미지를 변경할 수 있습니다.</span>
 
+                <!-- 
+                - 파일 제출 시 무조건 POST 방식
+                - enctype 속성 추가
+
+                - enctype : form 태그 데이터가 서버로 제출 될 때 인코딩(압축) 되는 방법을 지정. (POST 방식일 때만 사용 가능)
+                
+                - application/x-www-form-urlencoded : 모든 문자를 서버로 전송하기 전에 인코딩 (form태그 기본값)
+                
+                - multipart/form-data : 모든 문자를 인코딩 하지 않음.(원본 데이터가 유지되어 이미지, 파일등을 서버로 전송 할 수 있음.) 
+                -->
                 <form action="profile" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data" >     
                     <div class="profile-image-area">
 
-                        <img src="/images/user.png" id="profileImage">
+                        <!-- 프로필 이미지가 없을 경우 -->
+                        <img th:if="${session.loginMember.profileImg == null}"
+                            th:src="#{user.default.image}" id="profileImg">
+                        
+                        <!-- 프로필 이미지가 있을 경우 -->
+                        <img th:unless="${session.loginMember.profileImg == null}"
+                        th:src="${session.loginMember.profileImg}" id="profileImg">
 
                     </div>
                     <span id="deleteImage">x</span>
 
                     <div class="profile-btn-area">
                         <label for="imageInput">이미지 선택</label>
-                        <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                        <input type="file" name="profileImg" id="imageInput" accept="image/*">
                         <button>변경하기</button>
                     </div>
                     
