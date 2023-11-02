@@ -44,5 +44,8 @@ public class Board {
     // 댓글 목록을 저장할 필드
     private List<Comment> commentList;
     
+    // 게시글 이미지 목록
+    private List<BoardImg> imageList;
+    
 }
 

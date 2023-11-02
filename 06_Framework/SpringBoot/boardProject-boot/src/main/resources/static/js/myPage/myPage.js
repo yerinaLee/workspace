@@ -190,9 +190,4 @@ if(imageInput != null){ // #imageInput 존재할때
             alert("이미지 변경 후 클릭해주세요");
         }
     });
-
-
-
-
-
 }

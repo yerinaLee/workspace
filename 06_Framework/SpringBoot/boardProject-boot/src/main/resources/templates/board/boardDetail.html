@@ -68,22 +68,53 @@
 
 
             <!-- ====================== 이미지가 있을 경우 출력하는 구문 (예정) ====================== -->
-           <!--  <h5>썸네일</h5>
-            <div class="img-box">
-                <div class="boardImg thumbnail">
-                    <img src=#">                     
-                    <a href="#">다운로드</a>         
-                </div>
-            </div>
-            
-            
-            <h5>업로드 이미지</h5>
-            <div class="img-box">
-                <div class="boardImg">
-                    <img src="#">   
-                    <a href="#">다운로드</a>                
-                </div>
-            </div> -->
+
+            <!-- 이미지가 있을 경우 -->
+            <th:block th:if="${#lists.size(board.imageList) > 0}" >
+        
+                <!-- 썸네일 영역(썸네일이 있을 경우) -->
+                <!--  
+                    - 이미지는 IMG_ORDER 오름차순을 정렬된다
+                    - IMG_ORDER의 값이 0인 이미지가 썸네일이다
+                    -> imageList에 썸네일이 있다면
+                        조회 되었을 때 IMG_ORDER가 0인 이미지가
+                        imageList [0]에 저장 되었을 것이다
+                -->
+                <th:bloack th:if="${thumbnail}">
+                    <h5>썸네일</h5>
+                    <div class="img-box">
+                        <div class="boardImg thumbnail">
+                            <img th:src="|${thumbnail.imgPath}${thumbnail.imgRename}|">                     
+                            <a th:href="|${thumbnail.imgPath}${thumbnail.imgRename}|"
+                                th:download="${thumbnail.imgOriginalName}">다운로드</a>         
+                        </div>
+                    </div>
+                </th:bloack>
+
+
+
+                <!-- 일반 이미지가 있을 경우 -->
+                <th:block th:if="${#lists.size(board.imageList) > start}" >
+
+                    <!-- 업로드 이미지 영역 -->
+                    <h5>업로드 이미지</h5>
+                    <div class="img-box">
+
+                        <div th:each="i : ${#numbers.sequence(start, #lists.size(board.imageList)-1, 1)}" 
+                            th:with="path=|${board.imageList[i].imgPath}${board.imageList[i].imgRename}|"
+                            class="boardImg">
+
+                            <img th:src="${path}">   
+
+                            <a href="${path}" 
+                                th:download="${board.imageList[i].imgOriginalName}">다운로드</a>                
+                        </div>
+
+                    </div>
+                </th:block>
+          
+          </th:block>
+
             <!-- ====================== 이미지가 있을 경우 출력하는 구문 (예정) ====================== -->
             
             <!-- 내용 -->
@@ -127,6 +158,15 @@
         const loginCheck = /*[[${session.loginMember != null ? true : false}]]*/ "로그인 여부" ;
 
         // ---------------------------------------------------------
+
+        const imageList = /*[[${board.imageList}]]*/ [];
+        
+        const previewList = document.querySelectorAll('.boardImg > img');
+
+        previewList.forEach((preview, i)=>{
+            console.log(preview);
+            preview.src = imageList[i].imgPath + imageList[i].imgRename;
+        })
 
     </script>
     
