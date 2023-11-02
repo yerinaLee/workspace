@@ -86,8 +86,12 @@
 
 
 
-            <div class="btn-area">
+            <div class="btn-area" th:if="${session.loginMember!=null}">
                 <!-- 로그인 상태일 때만 글쓰기 버튼 노출 -->
+
+                <!-- /board/{boardCode}
+                    -> /editBoard/{boardCode}/insert(GET)
+                -->
                 <button id="insertBtn">글쓰기</button>                     
             </div>
 
@@ -159,6 +163,13 @@
     
 
     <th:block th:replace="~{common/footer}"></th:block>
+
+    <script th:inline="javascript">
+
+        const boardCode = /*[[${boardCode}]]*/ "게시판 코드";
+        
+
+    </script>
 
     <script src="/js/board/boardList.js"></script>
 

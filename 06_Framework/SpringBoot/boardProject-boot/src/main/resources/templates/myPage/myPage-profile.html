@@ -72,6 +72,19 @@
 
     <th:block th:replace="~{common/footer}"></th:block>
 
+    <script th:inline="javascript">
+        // th:inline="javascript"
+        // - script 태그 내부에 타임리프 쓸거야
+        // - 타임리프로 출력된 값을 JS에 맞는 자료형으로 변경해줘
+
+        // message.properties의 값을 얻어와 전역 변수로 선언
+        const defaultImage  = /*[[#{user.default.image}]]*/ "기본이미지";
+
+        // 로그인한 회원의 프로필 이미지 얻어오기 (없으면 null)
+        const loginMemberProfileImg = /*[[${session.loginMember.profileImg}]]*/ "프로필 이미지";
+
+    </script>
     <script src="/js/myPage/myPage.js"></script>
+
 </body>
 </html>
