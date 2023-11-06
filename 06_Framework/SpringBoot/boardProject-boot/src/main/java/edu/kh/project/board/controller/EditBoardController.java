@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.mapper.EditBoardMapper;
+import edu.kh.project.board.model.service.BoardService;
 import edu.kh.project.board.model.service.EditBoardService;
 import edu.kh.project.member.model.dto.Member;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +32,8 @@ import lombok.RequiredArgsConstructor;
 public class EditBoardController {
 	
 	private final EditBoardService service;
+	private final BoardService boardService; // 게시글 수정 시 상세조회 호출용
+	
 	
 	
 	/** 게시글 삭제
@@ -146,6 +150,89 @@ public class EditBoardController {
 		
 		return "redirect:insert";
 	}
+	
+	
+	
+	/** 게시글 수정 화면 전환
+	 * @return
+	 */
+	@GetMapping("{boardCode:[0-9]+}/{boardNo:[0-9]+}/update")
+	public String updateBoard(
+			@PathVariable("boardCode") int boardCode,
+			@PathVariable("boardNo") int boardNo,
+			Model model
+			) {
+		
+		// 게시글 수정 화면에는
+		// 수정하려는 게시글의 상세 내용이 작성되어있어야한다!
+		// -> 게시글 상세 조회 진행
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		Board board = boardService.boardDetail(map);
+		
+		model.addAttribute("board", board);
+		
+		return "board/boardUpdate";
+	}
+	
+	
+	
+	/** 게시글 수정
+	 * @param boardCode  
+	 * @param boardNo
+	 * @param board : 커맨드 객체
+	 * @param querystring : 쿼리스트링 유지용 파라미터
+	 * @param deleteOrder : 삭제된 이미지 순서(1,2,3 모양)
+	 * @param images : 제출된 file 타입 요소 모음(5개 요소 존재)
+	 * @param ra
+	 * @return
+	 * @throws IOException 
+	 * @throws IllegalStateException 
+	 */
+	@PostMapping("{boardCode:[0-9]+}/{boardNo:[0-9]+}/update")
+	public String updateBoard(
+			@PathVariable("boardCode") int boardCode,
+			@PathVariable("boardNo") int boardNo,
+			Board board, String querystring,
+			String deleteOrder,
+			@RequestParam("images") List<MultipartFile> images,
+			RedirectAttributes ra
+			) throws IllegalStateException, IOException {
+		
+		// 1. 커맨드 객체에 boardCode, boardNo 세팅
+		board.setBoardCode(boardCode);
+		board.setBoardNo(boardNo);
+		
+		// 2. 게시글 수정 서비스 호출
+		int result = service.updateBoard(board, images, deleteOrder);
+		
+		// 3. 서비스 결과에 따라 응답 제어
+		String message = null;
+		String path = null;
+		
+		if(result > 0) { // 성공
+			message = "게시글이 수정되었습니다.";
+			path = String.format("redirect:/board/%d/%d%s", boardCode, boardNo, querystring);
+			
+		} else { // 실패
+			message = "게시글 수정 실패";
+			path = "redirect:update";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		return path;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }

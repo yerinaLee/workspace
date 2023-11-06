@@ -231,8 +231,10 @@ public class BoardController {
 	         // ----------------------------------------------------
 			
 	         if (board.getImageList().size() > 0) {
-
+	        	 
 	             BoardImg thumbnail = null;
+	             
+	             // 썸네일이 존재하면
 	             if (board.getImageList().get(0).getImgOrder() == 0) {
 	                thumbnail = board.getImageList().get(0);
 	             }
@@ -241,10 +243,6 @@ public class BoardController {
 	             model.addAttribute("start", thumbnail != null ? 1 : 0);
 	          }
 	          
-	          // 썸네일이 있을 경우 1, 없으면 0을 start로 세팅
-	          model.addAttribute("start", board.getThumbnail() != null ? 1 : 0);
-	         
-			
 		} else { // 게시글이 없을 경우
 			path = "redirect:/board/" + boardCode;
 			ra.addFlashAttribute("message", "해당 게시글이 존재하지 않습니다.");

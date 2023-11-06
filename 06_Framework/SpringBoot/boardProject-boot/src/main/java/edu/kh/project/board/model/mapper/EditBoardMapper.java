@@ -29,4 +29,27 @@ public interface EditBoardMapper {
 	 */
 	int insertUploadList(List<BoardImg> uploadList);
 
+	/** 게시글(제목, 내용) 수정
+	 * @param board
+	 * @return
+	 */
+	int updateBoard(Board board);
+
+	/** 이미지 삭제
+	 * @param map
+	 * @return result
+	 */
+	int imageDelete(Map<String, Object> map);
+
+	/** 이미지 한개 수정
+	 * @param img
+	 * @return result
+	 */
+	int updateBoardImg(BoardImg img);
+
+	/** 이미지 한 개 삽입
+	 * @param img
+	 */
+	void boardImgInsert(BoardImg img);
+
 }

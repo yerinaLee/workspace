@@ -71,7 +71,42 @@
 	 </foreach>
 	 	
  </insert>
-  
-  
+ 
+ <!-- 게시글(제목, 내용) 수정 -->
+ <update id="updateBoard">
+	 UPDATE BOARD SET
+	 BOARD_TITLE = #{boardTitle},
+	 BOARD_CONTENT = #{boardContent},
+	 BOARD_UPDATE_DATE = SYSDATE
+	 WHERE BOARD_CODE = #{boardCode}
+	 AND BOARD_NO = #{boardNo}
+ </update>
+ 
+ <!-- 이미지 삭제 -->
+ <delete id="imageDelete">
+	DELETE FROM BOARD_IMG
+	WHERE BOARD_NO = #{boardNo}
+	AND IMG_ORDER IN (${deleteOrder})
+ </delete>
+ 
+ <!-- 이미지 1개 수정 -->
+ <update id="updateBoardImg">
+	 UPDATE BOARD_IMG SET
+	 IMG_PATH = #{imgPath},
+	 IMG_RENAME = #{imgRename},
+	 IMG_ORIGINAL_NAME = #{imgOriginalName}
+	 WHERE BOARD_NO = #{boardNo}
+	 AND IMG_ORDER = #{imgOrder}
+ </update>
+ 
+ <!-- 이미지 1개 삽입 -->
+ <insert id="boardImgInsert">
+      INSERT INTO "BOARD_IMG"
+      VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{imgRename},
+         #{imgOriginalName}, #{imgOrder}, #{boardNo})
+ </insert>
+ 
+ 
+ 
    
 </mapper>
