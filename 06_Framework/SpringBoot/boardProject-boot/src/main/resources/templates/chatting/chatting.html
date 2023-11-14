@@ -9,7 +9,7 @@
 
 	<th:block th:replace="~{common/common}"></th:block>
 
-    <link rel="stylesheet" href="/css/board/boardDetail-style.css">
+  <link rel="stylesheet" href="/css/board/boardDetail-style.css">
 	<link rel="stylesheet" href="/css/chatting/chatting-style.css">
 
 </head>
@@ -50,7 +50,7 @@
 					<!-- th:chat-no : li 태그에 임의의 속성 chat-no를 추가하는데
 						타임리프를 이용해 출력된 값을 chat-no 속성 값으로 대입 -->
 					<li class="chatting-item" th:chat-no="${room.chattingNo}" th:target-no="${room.targetNo}">
-						<div class="item-header">
+						<div class="item-header"> 
 
 							<img th:if="${room.targetProfile}" class="list-profile" th:src="${room.targetProfile}">
 

@@ -234,7 +234,20 @@
 	white-space: pre-wrap;
 }
 
+.my-chat {
+	text-align: right;
+}
 
+.my-chat>p {
+	background-color: yellow;
+}
+
+.chatDate {
+	font-size: 9px;
+}
+
+
+/* 텍스트 입력 */
 .input-area {
 	height: 80px;
 	width: 100%;
@@ -252,23 +265,15 @@
 	width: 20%;
 }
 
-.my-chat {
-	text-align: right;
-}
 
-.my-chat>p {
-	background-color: yellow;
-}
 
-.chatDate {
-	font-size: 9px;
-}
+
+/* 채팅 종료 */
 
 #exit-area {
 	text-align: right;
 	margin-bottom: 10px;
 }
-
 
 .exit {
 	text-align: center;
