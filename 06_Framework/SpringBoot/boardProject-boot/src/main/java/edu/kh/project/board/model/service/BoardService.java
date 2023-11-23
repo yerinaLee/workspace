@@ -1,5 +1,6 @@
 package edu.kh.project.board.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.kh.project.board.model.dto.Board;
@@ -46,6 +47,11 @@ public interface BoardService {
 	 * @return result
 	 */
 	int updateReadCount(int boardNo);
+
+	/** DB 이미지 파일명 목록 조회
+	 * @return list
+	 */
+	List<String> selectDbImageList();
 
 
 

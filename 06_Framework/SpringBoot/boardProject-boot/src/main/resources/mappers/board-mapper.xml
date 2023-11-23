@@ -275,12 +275,18 @@
       ORDER BY IMG_ORDER
    </select>
    
+   <!--DB 이미지 파일명 목록 조회-->
+   <select id="selectDbImageList" resultType="string">
+	    SELECT IMG_RENAME "rename"
+		FROM BOARD_IMG
+		WHERE IMG_NO != 0
+		UNION
+		SELECT SUBSTR(PROFILE_IMG, INSTR(PROFILE_IMG, '/', -1) +1 ) "rename"
+		FROM "MEMBER"
+		WHERE MEMBER_NO  != 0
+		AND PROFILE_IMG IS NOT NULL
+   </select>
    
-   
-   
-   
-  
-  
   
   
    
