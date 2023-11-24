@@ -287,6 +287,15 @@
 		AND PROFILE_IMG IS NOT NULL
    </select>
    
+   
+   <!--게시판 종류 조회-->
+   <select id="selectBoardTypeList" resultType="map">
+		SELECT BOARD_CODE "boardCode", BOARD_NAME "boardName"
+		FROM BOARD_TYPE
+		WHERE BOARD_CODE != 0
+		ORDER BY 1	
+   </select>
+   
   
   
    
