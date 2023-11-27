@@ -1014,4 +1014,18 @@ COMMIT;
 WHERE BOARD_NAME = '1:1문의';
 
 
+-- bee-keepers DB생성
 
+/* bee-keepers 계정 생성(관리자) */
+
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+
+-- 계정 생성
+CREATE USER beekeepers IDENTIFIED BY beekeepers1234;
+
+-- 권한 부여
+GRANT CONNECT, RESOURCE, CREATE VIEW TO beekeepers;
+
+-- 객체 생성 공간 할당
+ALTER USER beekeepers DEFAULT TABLESPACE "A230724"
+QUOTA 20M ON "A230724";
