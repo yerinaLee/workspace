@@ -2,9 +2,14 @@ import './App.css';
 // import 여기서사용할 이름 from js파일 경로;
 import ClassComponent from './components/R01_ClassComponent';
 import FunctionComponent from './components/R02_FunctionComponent';
+
 import Props1 from './components/R03_Props1';
 import Props2 from './components/R04_Props2';
 import Props3 from './components/R05_Props3';
+
+import State1 from './components/R06_State1';
+import State2 from './components/R07_State2';
+import State3 from './components/R08_State3';
 
 /* ================================================================== */
 /* 
@@ -26,7 +31,7 @@ function App() { // 부모 컴포넌트
       {/* <FunctionComponent /> */}
       {/* <FunctionComponent /> */}
 
-      <hr/>
+      {/*<hr/>
       <Props1 />
       <Props1 name='홍길동' num='1'/>
       <Props1 name='전원우' num='2'/>
@@ -37,8 +42,14 @@ function App() { // 부모 컴포넌트
 
       <hr/>
       <Props3 name='윤정한'/>
-      <Props3 name='최승철'/>
+      <Props3 name='최승철'/> */}
 
+      <State1/>
+      <State2 init={10}/>
+      <State2 init={0}/>
+
+      <hr />
+      <State3/>
 
     </>
   );
