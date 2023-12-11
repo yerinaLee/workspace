@@ -11,6 +11,8 @@ import State1 from './components/R06_State1';
 import State2 from './components/R07_State2';
 import State3 from './components/R08_State3';
 
+import TodoList from './components/R09_TodoList';
+
 /* ================================================================== */
 /* 
   - React의 컴포넌트는 딱 하나의 요소만을 반환할 수 있다
@@ -21,12 +23,12 @@ function App() { // 부모 컴포넌트
   return (
     /* <></> : (fragment, 조각) : 반환되는 요소를 감싸는 태그, 해석 X(th:block느낌) */
     <>
-      <h1>테스트</h1>
+      {/* <h1>테스트</h1> */}
       {/* <ClassComponent /> */}  {/* 자식 컴포넌트 */}
 
       {/* jsx 주석 */}
       {/* <ClassComponent /> */}
-      <hr/> {/* 시작하고 바로 종료된다고 표시해줘야함! */}
+      {/* <hr/> */} {/* 시작하고 바로 종료된다고 표시해줘야함! */}
 
       {/* <FunctionComponent /> */}
       {/* <FunctionComponent /> */}
@@ -44,12 +46,14 @@ function App() { // 부모 컴포넌트
       <Props3 name='윤정한'/>
       <Props3 name='최승철'/> */}
 
-      <State1/>
+      {/* <State1/>
       <State2 init={10}/>
       <State2 init={0}/>
 
       <hr />
-      <State3/>
+      <State3/> */}
+
+      <TodoList/>
 
     </>
   );
