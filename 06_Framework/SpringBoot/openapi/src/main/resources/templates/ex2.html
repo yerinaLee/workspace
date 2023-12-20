@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java> HttpURLConnection 이용한 동기식 요청(옛날 버전)</title>
+
+    <style>
+        *{ box-sizing: border-box;}
+
+        #regionName{
+            margin-bottom: 30px;
+            text-decoration: underline;
+        }
+
+        .current-weather{
+            margin: 0 0 80px 80px;
+            height: 150px;
+        }
+
+        .current-weather  p{
+            margin: 0;
+        }
+
+
+        .container{ 
+            display: flex; 
+            position: relative;
+        }
+
+        .side{
+            padding-right: 10px;
+            border-right: 2px solid black;
+        }
+
+        .side > p{ width: 100px; }
+
+        .container-body{ display: flex; }
+
+        .col{
+            padding: 0 5px;
+            border-right: 1px solid #ccc;
+            text-align: center;
+            position: relative;
+            width: 80px;
+        }
+
+        .date-mark{
+            position: absolute;
+            padding: 5px;
+            background-color: gray;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 10px;
+            top: -35px;
+            left: -10px;
+        }
+
+
+        #loading{
+            position: absolute;
+            left: 270px;
+            top: 84px;
+            display: none;
+        }
+
+        #loading.show{ display: block; }
+    </style>
+</head>
+<body th:object="${weatherMap}">
+    
+    <h1>Java> HttpURLConnection 이용한 동기식 요청(옛날 버전)</h1>
+
+    <label for="region">지역 선택</label>
+    <select name="region" id="region">
+        <option>서울</option>
+        <option>경기</option>
+        <option>인천</option>
+        <option>제주</option>
+        <option>세종</option>
+        <option>광주</option>
+        <option>대구</option>
+        <option>대전</option>
+        <option>부산</option>
+        <option>울산</option>
+        <option>강원</option>
+        <option>경북</option>
+        <option>경남</option>
+        <option>전북</option>
+        <option>전남</option>
+        <option>충북</option>
+        <option>충남</option>
+    </select>
+
+    <hr>
+
+    <div>
+        <h2 id="regionName" th:text="${param.regionName} ?: _">서울</h2>
+
+
+        <div class="current-weather">
+            <h1 th:text="|*{T1H}℃|">12℃</h1>
+            <p th:text="*{SKY}">흐림</p>
+            <p th:text="|습도(%) : *{REH}|">습도</p>
+            <p th:text="*{PTY}">강수형태</p>
+            <p th:text="|강수 확률(%) : *{RN1}|">강수량</p>
+        </div>
+    </div>
+
+
+    <script th:inline="javascript">
+        
+        const region = document.querySelector("#region");
+        region.addEventListener("change", e => {
+            location.href = "/ex2?regionName=" + e.target.value;
+        })
+
+
+        const regionName = /*[[${param.regionName}]]*/ '지역명';
+
+        document.querySelectorAll("#region > option").forEach( item => {
+            if(item.value == regionName) item.selected = true;
+
+        })
+    </script>
+</body>
+</html>
