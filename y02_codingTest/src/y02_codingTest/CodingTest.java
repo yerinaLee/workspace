@@ -1,7 +1,9 @@
 package y02_codingTest;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class CodingTest {
@@ -157,14 +159,206 @@ public class CodingTest {
 //        System.out.println(array[array.length/2]);
         
         
-        int answer = 0;
-        int price = 580000;
-        
-        if(price >= 500000) answer = price-(int)(price*0.2);
-        else if(price >= 300000) answer = price-(int)(price*0.1);
-        else if(price >= 100000) answer = price-(int)(price*0.05);
-        else answer = price;
+//        int answer = 0;
+//        int price = 580000;
+//        
+//        if(price >= 500000) answer = price-(int)(price*0.2);
+//        else if(price >= 300000) answer = price-(int)(price*0.1);
+//        else if(price >= 100000) answer = price-(int)(price*0.05);
+//        else answer = price;
 		
+//			int n = 10;
+//			
+//	        int idx = 0;
+//	        for(int i=0; i<n; i++){
+//	            if((n-i)%2 != 0) idx++;
+//	        }
+//	        
+//	        int[] answer = new int[idx];
+//	        
+//	        idx = 0;
+//	        
+//	        for(int i = 1; i<=n; i+=2) {
+//	        	if(i <= n) answer[idx] = i; 
+//	        	idx++;
+//	        }
+//	        
+//	        for(int i : answer)   System.out.print(i);
+	        
+//			String my_string = "nice to meet you";
+//	        String answer = "";
+//	        
+//	        for(char c : my_string.toCharArray()){
+//	           if(c == 'a' || c == 'e'|| c == 'i'|| c == 'o'|| c == 'u') {
+//	               answer += "";
+//	           } else {
+//	               answer += Character.toString(c);
+//	           }
+//	        }
+	        
+		
+//			int[] numlist = {4, 5, 6, 7, 8, 9, 10, 11, 12};
+//			int n = 3;
+			
+//	        List<Integer> answerList = new ArrayList<Integer>();
+//	        
+//	        for(int i : numlist){
+//	            if(i%n == 0) answerList.add(i);
+//	        }
+//	        
+//	                
+//	        int[] answer = new int[answerList.size()];
+//	        for(int i=0; i<answerList.size(); i++){
+//	            answer[i] = answerList.get(i).intValue();
+//	        }
+	        
+//	        int[] answer = answerList.stream().mapToInt(Integer::intValue).toArray();
+	        
+	        
+	        
+	        
+//	        int[] answerArr = new int[numlist.length];
+//
+//	        int idx = 0;
+//	        for(int i : numlist){
+//	            if(i % n == 0) {
+//	                answerArr[idx] = i;
+//	                idx++;
+//	            }
+//	        }
+//
+//	        for(int i : answerArr)   System.out.print(i); // 6912000000
+//	        
+//	        int[] answer = new int[idx];
+//	        
+//	        idx = 0;
+//
+//	        for(int i : answerArr){
+//	            if(i != 0){
+//	                answer[idx] = i;
+//	                idx++;
+//	            }        
+//	        }
+//	        
+//	        for(int i : answer)   System.out.print(i);
+	        
+//			String my_string = "cccCCC";
+//			
+//			String answer="";
+//			
+//	        for(char c : my_string.toCharArray()) {
+//	        	if((int)c < 97) {
+//	        		c = Character.toLowerCase(c);
+//	        		answer += c;
+//	        	} else {
+//	        		c = Character.toUpperCase(c);
+//	        		answer += c;
+//	        	}
+//	        }
+	        
+	        
+	        
+//	        String rsp = "205";
+//	            String answer = "";
+//	            
+//	            for(int i=0; i<rsp.length(); i++){
+//	                
+//	                switch(rsp.charAt(i)){
+//	                    case '2' : answer += "0"; break;
+//	                    case '0' : answer += "5"; break;
+//	                    case '5' : answer += "2"; break;
+//	                }     
+//	                
+//	            }
+	            
+			
+//			String cipher="pfqallllabwaoclk"; int code=2;        
+//	        String answer = "";
+//	        
+//	        for(int i=1; i*code <= cipher.length(); i++){
+//	            answer += cipher.charAt(i*code-1);
+//	        }
+//		
+//            System.out.println(answer);
+            
+            
+//			int[] numbers = {10, 20, 30, 5, 5, 20, 5};
+			
+//			int answer = 0;
+//			int num = 0;
+//			
+//			for(int i=0; i<numbers.length; i++) {
+//				for(int j=i+1; j<numbers.length; j++) {
+//					if(answer <= (numbers[i]*numbers[j])) {
+//						answer = (numbers[i]*numbers[j]);
+//						num++;
+//					}
+//				}
+//			} // 이게맞는데 대체 왜 안되는 테스트가 있는지 모르겠다...^^
+//			
+//			System.out.println(answer);
+//			System.out.println(num);
+			
+			
+//			for(int i=0; i<numbers.length; i++) {
+//				if(numbers[i] < 0) numbers[i] *= -1;
+//			}
+//			
+//			for(int i=0; i<numbers.length; i++) {
+//				for(int j=i+1; j<numbers.length; j++) {
+//					if(numbers[i] < numbers[j]) {
+//						int temp = numbers[i];
+//						numbers[i] = numbers[j];
+//						numbers[j] = temp;
+//					}
+//				}
+//			}
+//			
+//			System.out.println(numbers[0]*numbers[1]);
+			
+			
+//	        for(int i : numbers)   System.out.print(i);
+			
+			
+//			String myString="aBcDeFg";
+//		        String answer = "";
+//		        
+//		        for(char c : myString.toCharArray()){
+//		            if(c=>97) {
+//		            	c = Character.toUpperCase(c);
+//		                answer += c;
+//		            }else{
+//		                answer += c;
+//		            }
+//		        }
+			
+//	        System.out.println(answer);
+			
+			int n=0; String control="wsdawsdassw";
+			
+		        int answer = 0;
+//		        for(char c : control.toCharArray()){
+//		        	
+//		            switch(c){
+//		                case 'w' : answer += 1; break;
+//		                case 's' : answer -= 1; break;
+//		                case 'd' : answer += 10; break;
+//		                case 'a' : answer -= 10; break;          
+//		                    
+//		            }
+//		        }
+		        
+		        for(int i=0; i<control.length(); i++){
+		        	
+		            switch(control.charAt(i)){
+		                case 'w' : answer += 1; break;
+		                case 's' : answer -= 1; break;
+		                case 'd' : answer += 10; break;
+		                case 'a' : answer -= 10; break;                             
+		            }
+		        }
+		        
+		        System.out.println(answer);
 		
 	}
 
