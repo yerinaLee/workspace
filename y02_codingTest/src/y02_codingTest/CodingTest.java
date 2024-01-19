@@ -1,5 +1,6 @@
 package y02_codingTest;
 
+import java.util.Arrays;
 
 public class CodingTest {
 
@@ -540,7 +541,7 @@ public class CodingTest {
 //		int[] answerArr = answer.stream().mapToInt(Integer::intValue).toArray(); 
 //
 //		System.out.println(answerArr);
-		
+
 //		int[] num_list = {2, 3, 4, 5};
 //	        int answer = 0;
 //	        
@@ -552,11 +553,10 @@ public class CodingTest {
 //	                answer *= i;
 //	            }
 //	        }
-		
-		
+
 //		System.arraycopy(복사할 배열, (복사할 배열에서) 복사를 시작할 인덱스, 
 //		    붙여넣기 할 배열, 붙여넣기를 시작할 인덱스, (복사할 배열에서) 얼마나 복사해 붙여넣을지 길이를 지정)
-		
+
 //		int[] num_list= {5, 2, 1, 7, 5}; int n = 3;
 ////		int[] num_list= {2, 1, 6}; int n = 1;
 //		
@@ -576,8 +576,7 @@ public class CodingTest {
 //	        }
 //	        
 //		for(int i : answer) System.out.println(i);
-		
-		
+
 //		String myString = "PrOgRaMmErS";
 //	        String answer = "";
 //	        
@@ -586,28 +585,88 @@ public class CodingTest {
 //	            else if(myString.charAt(i) != 'A' && myString.charAt(i) < 97) answer += Character.toLowerCase(myString.charAt(i));
 //	            else answer += myString.charAt(i);
 //	        }
-	        
-	        
-	        String n_str ="0010";
-	        
-	        String answer = "";
-	        int idx = 0;
-	        
-	        for(int i=0; i<n_str.length(); i++) {
-	        	if(n_str.charAt(i) == '0') answer += "";
-	        	else {
-	        		idx = i;
-	        		break;
-	        	} 
-	        }
-	        
-	        for(int i = idx; i<n_str.length(); i++) {
-	        	answer += n_str.charAt(i);
-	        }
-		
-	        System.out.println(answer);
-	        
-	}
 
+//	        String n_str ="0010";
+//	        
+//	        String answer = "";
+//	        int idx = 0;
+//	        
+//	        for(int i=0; i<n_str.length(); i++) {
+//	        	if(n_str.charAt(i) == '0') answer += "";
+//	        	else {
+//	        		idx = i;
+//	        		break;
+//	        	} 
+//	        }
+//	        
+//	        for(int i = idx; i<n_str.length(); i++) {
+//	        	answer += n_str.charAt(i);
+//	        }
+
+//		String my_string = "hi12392";
+//	        String subString = "";
+//	        
+//	        for(int i=0; i<my_string.length(); i++){
+//	            if(my_string.charAt(i) < 58){
+//	                subString += my_string.charAt(i);
+//	            }
+//	        }
+//	        
+//	        System.out.println(subString);
+//	        
+//	        int[] answer = new int[subString.length()];
+//	        
+//	        for(int i=0; i<subString.length(); i++){
+//	            answer[i] = subString.charAt(i) - '0';
+//	        }
+//	        
+//	        Arrays.sort(answer);
+
+//		int n = 24;
+//		int num = 0;
+//		for (int i = 1; i <= n; i++) {
+//			if (n % i == 0)
+//				num++;
+//		}
+//
+//		int[] answer = new int[num];
+//
+//		num = 0;
+//		for (int i = 1; i <= n; i++) {
+//			if (n % i == 0) {
+//				answer[num] = i;
+//				num++;
+//			}
+//		}
+//
+//		Arrays.sort(answer);
+//		for (int i : answer) System.out.println(i);
+		
+		int age = 23;
+		String answer = "";
+        String ageString = String.valueOf(age);
+        
+        for(int i=0; i<ageString.length(); i++) {
+        	
+        	switch(ageString.charAt(i)){
+        	case '0' : answer += "a"; break;
+        	case '1' : answer += "b";  break;
+        	case '2' : answer += "c";  break;
+        	case '3' : answer += "d";  break;
+        	case '4' : answer += "e";  break;
+        	case '5' : answer += "f";  break;
+        	case '6' : answer += "g";  break;
+        	case '7' : answer += "h";  break;
+        	case '8' : answer += "i";  break;
+        	case '9' : answer += "j";  break;
+        	}
+        }
+        
+        System.out.println(answer);
+		
+		
+		
+
+	}
 
 }
