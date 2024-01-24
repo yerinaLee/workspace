@@ -1,6 +1,8 @@
 package y02_codingTest;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CodingTest {
 
@@ -641,32 +643,285 @@ public class CodingTest {
 //
 //		Arrays.sort(answer);
 //		for (int i : answer) System.out.println(i);
+
+//		int age = 23;
+//		String answer = "";
+//        String ageString = String.valueOf(age);
+//        
+//        for(int i=0; i<ageString.length(); i++) {
+//        	
+//        	switch(ageString.charAt(i)){
+//        	case '0' : answer += "a"; break;
+//        	case '1' : answer += "b";  break;
+//        	case '2' : answer += "c";  break;
+//        	case '3' : answer += "d";  break;
+//        	case '4' : answer += "e";  break;
+//        	case '5' : answer += "f";  break;
+//        	case '6' : answer += "g";  break;
+//        	case '7' : answer += "h";  break;
+//        	case '8' : answer += "i";  break;
+//        	case '9' : answer += "j";  break;
+//        	}
+//        }
+
+//        int radix = 10; //10진수
+//        int value_int = 6;
+//        char value_char = Character.forDigit(value_int, value_int);
+//		
+//        System.out.println(value_char);
+
+//        int num = 29183; int k =1;
+//            
+//            String numbers = Integer.toString(num);
+//            
+//            for(int i=0; i<numbers.length(); i++){
+//                if(numbers.charAt(i) == (char)(k + '0')){
+//                    System.out.println(i); 
+//                }
+//            }
+//            
+//            System.out.println("-1");
+//            int answer = -1;
+
+//		int n = 6;
+//
+//		int answer = 1;
+//
+//		while ((6 * answer) % n != 0) {
+//			answer++;
+//		}
+
+//		int order = 29423;
+//		
+//		String orderNumbers = String.valueOf(order);
+//	        int answer = 0;
+//	        
+//	        for(int i=0; i<orderNumbers.length(); i++){
+//
+//	        	if(orderNumbers.charAt(i) == (char)(3+'0') || 
+//	        			orderNumbers.charAt(i) == (char)(6+'0') ||
+//	        			orderNumbers.charAt(i) == (char)(9+'0'))
+//	             answer++;
+//	        }
+//	        
+//	        
+//
+
+//		int n = 15;
+//		int answer = 0;
+//		int number = 0; // 약수 갯수
+//
+//		for (int i = 1; i <= n; i++) {
+//			
+//			number = 0;
+//			for (int j = 1; j <= i; j++) {
+//				if (i%j == 0) {
+//					number++;
+//				}
+//			}
+//			
+////			System.out.print(i);
+////			System.out.println(number);
+//
+//			if (number >= 3) answer++;
+//		}
+
+//		String my_string = "people";
+//		String answer = "";
+//		
+//		StringBuilder sb = new StringBuilder();
+//		for(char c : my_string.toCharArray()) {
+//			if(sb.indexOf(String.valueOf(c)) == -1) {
+//				sb.append(c);
+//			}
+//		}
+
+//		String before ="allpe";
+//		String after = "apple";
+//		
+//		int answer = 0;
+//        int check = 0;
+//        
+//        for(char c:before.toCharArray()){
+//            if(after.contains(c + "")) check++;
+//        }
+//        
+////        System.out.println(check);
+////        System.out.println(check == after.length() ? 1 : 0);
+//        
+//        
+//        char[] beforeArr = before.toCharArray();
+//        Arrays.sort(beforeArr);
+//        
+//        char[] afterArr = after.toCharArray();
+//        Arrays.sort(afterArr);
+//        
+//        for(int i=0; i<beforeArr.length; i++) {
+//        	if(!(beforeArr[i]==afterArr[i])) System.out.println(0);
+//        }
+//        
+//        System.out.println(1);
+////        for(char c  : beforeArr) System.out.print(c);
+//		
+//
+//        
+
+//		String letter = ".... . .-.. .-.. ---";
+//	        String answer = "";
+//
+//	        String[] morse = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+//	        String[] alpha = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+//	        
+//	        String[] letters = letter.split(" ");
+//	        
+//	        for(int i=0; i<letters.length; i++){
+//	            
+//	        	for(int j=0; j<morse.length; j++) {
+//	        		
+//	        		if(morse[j].equals(letters[i])) {
+//	        			answer += alpha[j];
+//	        		}
+//	        	}
+//	        }
+//	        
+//	        System.out.println(answer);
+
+	        
+	        
+//		int n = 3628800;
+//		int answer = 0;
+//		int sum = 1;
+//
+//		for (int i = 1; sum <= n; i++) {
+//
+//			sum = 1;
+//			
+//			for (int j = i; j >= 1; j--) {
+//				sum *= j;
+//				System.out.println(sum);
+//			}
+//			
+//			answer = i;
+//			System.out.println("=======================================");
+//		}
+//
+//		if(sum>n) answer -= 1;
+//		
+//		System.out.println(answer);
+	        
+	        
+	        
+		// int를 모두 String배열로 바꾸고, 해당 String에서 k를 포함하고있는지 확인
 		
-		int age = 23;
-		String answer = "";
-        String ageString = String.valueOf(age);
-        
-        for(int i=0; i<ageString.length(); i++) {
-        	
-        	switch(ageString.charAt(i)){
-        	case '0' : answer += "a"; break;
-        	case '1' : answer += "b";  break;
-        	case '2' : answer += "c";  break;
-        	case '3' : answer += "d";  break;
-        	case '4' : answer += "e";  break;
-        	case '5' : answer += "f";  break;
-        	case '6' : answer += "g";  break;
-        	case '7' : answer += "h";  break;
-        	case '8' : answer += "i";  break;
-        	case '9' : answer += "j";  break;
-        	}
-        }
-        
-        System.out.println(answer);
+//		int i=3, j=10, k=1;
+//		int answer = 0;
+//		String numbers = "";
+//		
+//		for(int num = i; num <= j; num++) {
+//			numbers += num+"";
+//		}
+//		
+//		System.out.println(numbers);
+//		
+//		String[] numberArr = numbers.split(k+"");
+//		
+//		for(String s : numberArr) System.out.println(s);
+//		
+//		String js = j+"";
+//		
+//		if(js.endsWith((k+""))) {
+//			System.out.println(numberArr.length + 1);
+//		} else {
+//			System.out.println(numberArr.length-1);
+//		}
+//		
+		
+		
+//		for(String s : numberArr) System.out.println(s);
+		
+//		String[] digitArr = new String[j-i+1];
+//		
+//		int idx = 0;
+//		
+//		for(int num = i; num <= j; num++) {
+//			digitArr[idx] = num+"";
+//			idx++;
+//		}
+//		
+//		for(String s : digitArr) {
+//			if(s.contains(k+"")) {
+//				++answer;
+//				System.out.println(s);
+//			}
+//		}
+		
+//		System.out.println(answer);
+	        
+	        
+	        
+		
+//		String my_string="aAb1B2cC34oOp";
+//	        int answer = 0;
+//	        
+//	        String[] stringArr = my_string.split("[A-z]");
+//	        
+//	        for(String s : stringArr) {
+//	        	if(!s.equals("")) {
+//	        		System.out.println(s);
+//	        		answer+= Integer.valueOf(s);
+//	        	}
+//	        }
+//	        
+//	        System.out.println(answer);
+	        
+	        
+	        
+	        
+//	        my_string = my_string.replaceAll("[A-Z]", "");
+//	        
+//	        System.out.println(my_string);
+//	        
+//	        for(int i=0; i<my_string.length(); i++){
+//	            answer += my_string.charAt(i);
+//	        }
+//	        
+//	        System.out.println(answer);
+	        
+	        
+		
+		int[] array= {10, 11, 12}; int n=13;
+		int answer = 0;
+		int value = 100000;
+		
+		// array돌려가면서 n과 차이의 절대값을 구해서 새로운 배열에 집어넣음
+		
+		int[] arrays = new int[array.length];
+		
+		for(int i=0; i<array.length; i++) {
+			arrays[i] = Math.abs(array[i]-n); 
+		}
+		
+		for(int i =0; i<arrays.length; i++) {
+			if(arrays[i] < value) {
+				value = arrays[i]; 
+				answer = array[i];
+				
+			} else if(arrays[i] == value) {
+				if(array[i] < array[i-1]) answer = array[i];
+				else answer = array[i-1];
+			}
+		}
+		
+		System.out.println(answer);
+	        
 		
 		
 		
+		
+	        
+	        
 
 	}
 
 }
+ 
