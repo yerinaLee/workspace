@@ -123,18 +123,62 @@ public class CodingTest2 {
 //			
 //		System.out.println(answer);
 		
-		String bin1="10"; String bin2="11";
-		
-		// 2진수 -> 10진수 변환
-		int bin11 = Integer.parseInt(bin1, 2);
-		int bin22 = Integer.parseInt(bin2, 2);
-		
-		String answer = Integer.toBinaryString(bin11+bin22);
-		
-		System.out.println(answer);
+//		String bin1="10"; String bin2="11";
+//		
+//		// 2진수 -> 10진수 변환
+//		int bin11 = Integer.parseInt(bin1, 2);
+//		int bin22 = Integer.parseInt(bin2, 2);
+//		
+//		String answer = Integer.toBinaryString(bin11+bin22);
+//		
+//		System.out.println(answer);
         
+		
+		
+		int n=0, m=5;
+	        
+	        int[] answer = new int[2];
+	        
+	        // 최대공약수 유클리드 호제법
+	        
+//	        int gcd(int n, int m) {
+//	        	
+//	        	int r=0;
+//	        	while(m>0) {
+//	        		
+//	        		r = n % m;
+//	        		n = m;
+//	        		m = r;
+//	        	}
+//	        	
+//	        	return n;
+//	        }
+	        
+	        
+	        int max = (n>m? n : m);
+	        int min = (n>m? m : n);
+	        
+	        // 최대공약수
+	        for(int i=1; i<=min; i++) {
+	            if(n%i==0 && m%i==0){                
+	                answer[0] = i;
+	            } 
+	        }
+	        
+	        // 최소공배수
+	        for(int i=1; i<=max*min; i++){
+	            for(int j=1; j<=max*min; j++){
+	                
+	                if(max*i==min*j) {
+	                    answer[1] = max*i;
+	                    break;
+	                } 
+	            }
+	            
+	            if(answer[1] != 0) break;
+	        }
         
-        
+        for(int i : answer) System.out.println(i);
 		
 	}
 
