@@ -1,7 +1,12 @@
 package y02_codingTest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 public class CodingTest2 {
 	
@@ -135,9 +140,8 @@ public class CodingTest2 {
         
 		
 		
-		int n=0, m=5;
-	        
-	        int[] answer = new int[2];
+//			int n=2, m=5;
+//	        int[] answer = new int[2];
 	        
 	        // 최대공약수 유클리드 호제법
 	        
@@ -155,31 +159,140 @@ public class CodingTest2 {
 //	        }
 	        
 	        
-	        int max = (n>m? n : m);
-	        int min = (n>m? m : n);
-	        
-	        // 최대공약수
-	        for(int i=1; i<=min; i++) {
-	            if(n%i==0 && m%i==0){                
-	                answer[0] = i;
-	            } 
-	        }
-	        
-	        // 최소공배수
-	        for(int i=1; i<=max*min; i++){
-	            for(int j=1; j<=max*min; j++){
-	                
-	                if(max*i==min*j) {
-	                    answer[1] = max*i;
-	                    break;
-	                } 
-	            }
-	            
-	            if(answer[1] != 0) break;
-	        }
+//	        int max = (n>m? n : m);
+//	        int min = (n>m? m : n);
+//	        
+//	        // 최대공약수
+//	        for(int i=1; i<=min; i++) {
+//	            if(n%i==0 && m%i==0){                
+//	                answer[0] = i;
+//	            } 
+//	        }
+//	        
+//	        // 최소공배수
+//	        for(int i=1; i<=max*min; i++){
+//	            for(int j=1; j<=max*min; j++){
+//	                
+//	                if(max*i==min*j) {
+//	                    answer[1] = max*i;
+//	                    break;
+//	                } 
+//	            }
+//	            
+//	            if(answer[1] != 0) break;
+//	        }
+//        
+//        for(int i : answer) System.out.println(i);
         
-        for(int i : answer) System.out.println(i);
+        
+        
+        
+        
+//        String[] seoul = {"Jane", "Kim"};
+//            String answer = "";
+//            
+//            for(int i=0; i<seoul.length; i++){
+//                if(seoul[i].equals("Kim")) answer = "김서방은 " + i + "에 있다";
+//            }
+            
+            
+		String today= "2022.05.02";
+		String[] terms= {"A 6", "B 20", "C 3"};
+		String[] privacies= {"2021.05.02 A", "2021.12.01 B", "2022.02.19 C", "2022.02.20 C"};
+		
+		// 1. 28일이 넘어가면 달이 올라가고, 달이 다 지나면 년이 올라가는 계산하는 메서드
+		
+		// privacies를 일단 나누고
+		// 나눈 날짜를 약관 번호에 따라서 개월수를 더하고
+		// 더해서 나온 날짜가 today랑 비교해서 크면 최종 배열에 인덱스 번호 넣기
+		
+		List<Integer> answer = new ArrayList<Integer>();
+		
+		for(int i=0; i<privacies.length; i++) {
+			
+			int months = 0;
+			
+			String[] devidePri = privacies[i].split(" "); // devidePri[0] : 날짜, [1] : 약관(A)
+			
+			// 약관 기한 데이터 구하기
+			for(String s : terms) {
+				if(s.contains(devidePri[1])) { // 약관번호와 일치한다면
+					
+					// 약관 개월수 구하기
+					String[] monthDevi = s.split(" ");
+					months = Integer.valueOf(monthDevi[1]);
+					
+					// 약관 마감 날짜 구하기
+					String deadline = calDate(devidePri[0], months);
+					
+					System.out.println(deadline);
+					
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+					
+					// 오늘 날짜와 약관날짜 비교하기
+					try {
+						//System.out.println(sdf.parse(deadline)); // Thu May 19 00:00:00 KST 2022
+						
+						if((sdf.parse(today)).after(sdf.parse(deadline))) {
+							answer.add(i+1);
+						}
+						
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			
+		}
+		
+		System.out.println(answer);
+        
+		// int 배열로 바꾸기
+		int[] answerArr = new int[answer.size()];
+		for(int i = 0; i<answer.size(); i++) {
+			answerArr[i] = answer.get(i).intValue();
+		}
+		
 		
 	}
+	
+	// 날짜 더하는 데이트(12개월 넘어갈때 1년 +)
+	private static String calDate(String date, int months) {
+		
+		String[] dateDevide = date.split("\\.");
 
+		if(Integer.valueOf(dateDevide[1]) + months > 12) {
+			
+			// 년 수가 2년을 넘어가게된다면?
+			if((Integer.valueOf(dateDevide[1]) + months) - 12 > 12) {
+				
+				if(Integer.valueOf(dateDevide[2])-1 == 0) {
+					dateDevide[1] = (Integer.valueOf(dateDevide[1]) + months) -25 + "";
+				} else {
+					dateDevide[1] = (Integer.valueOf(dateDevide[1]) + months) -24 + "";
+				}
+				
+				dateDevide[0] = Integer.valueOf(dateDevide[0]) + 2 + "";
+				
+				
+			} else {
+				dateDevide[1] = (Integer.valueOf(dateDevide[1]) + months) -12 + "";
+				dateDevide[0] = Integer.valueOf(dateDevide[0]) + 1 + "";
+			}
+			
+		} else {
+			dateDevide[1] = Integer.valueOf(dateDevide[1]) + months + "";
+		}
+		
+		// 일수에서 하루를 빼고, 0이 된다면 28로 바꾸기
+		if(Integer.valueOf(dateDevide[2])-1 == 0) {
+			dateDevide[2] = "28";
+		} else {
+			dateDevide[2] = Integer.valueOf(dateDevide[2]) - 1 + "";
+		}
+		
+		return dateDevide[0] + "." + dateDevide[1] + "." + dateDevide[2];
+	}
+	
+	
 }
