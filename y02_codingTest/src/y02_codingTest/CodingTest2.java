@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class CodingTest2 {
 	
@@ -196,65 +200,94 @@ public class CodingTest2 {
 //            }
             
             
-		String today= "2022.05.02";
-		String[] terms= {"A 6", "B 20", "C 3"};
-		String[] privacies= {"2021.05.02 A", "2021.12.01 B", "2022.02.19 C", "2022.02.20 C"};
+//		String today= "2022.05.02";
+//		String[] terms= {"A 6", "B 20", "C 3"};
+//		String[] privacies= {"2021.05.02 A", "2021.12.01 B", "2022.02.19 C", "2022.02.20 C"};
+//		
+//		// 1. 28일이 넘어가면 달이 올라가고, 달이 다 지나면 년이 올라가는 계산하는 메서드
+//		
+//		// privacies를 일단 나누고
+//		// 나눈 날짜를 약관 번호에 따라서 개월수를 더하고
+//		// 더해서 나온 날짜가 today랑 비교해서 크면 최종 배열에 인덱스 번호 넣기
+//		
+//		List<Integer> answer = new ArrayList<Integer>();
+//		
+//		for(int i=0; i<privacies.length; i++) {
+//			
+//			int months = 0;
+//			
+//			String[] devidePri = privacies[i].split(" "); // devidePri[0] : 날짜, [1] : 약관(A)
+//			
+//			// 약관 기한 데이터 구하기
+//			for(String s : terms) {
+//				if(s.contains(devidePri[1])) { // 약관번호와 일치한다면
+//					
+//					// 약관 개월수 구하기
+//					String[] monthDevi = s.split(" ");
+//					months = Integer.valueOf(monthDevi[1]);
+//					
+//					// 약관 마감 날짜 구하기
+//					String deadline = calDate(devidePri[0], months);
+//					
+//					System.out.println(deadline);
+//					
+//					SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+//					
+//					// 오늘 날짜와 약관날짜 비교하기
+//					try {
+//						//System.out.println(sdf.parse(deadline)); // Thu May 19 00:00:00 KST 2022
+//						
+//						if((sdf.parse(today)).after(sdf.parse(deadline))) {
+//							answer.add(i+1);
+//						}
+//						
+//					} catch (ParseException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//			
+//		}
+//		
+//		System.out.println(answer);
+//        
+//		// int 배열로 바꾸기
+//		int[] answerArr = new int[answer.size()];
+//		for(int i = 0; i<answer.size(); i++) {
+//			answerArr[i] = answer.get(i).intValue();
+//		}
 		
-		// 1. 28일이 넘어가면 달이 올라가고, 달이 다 지나면 년이 올라가는 계산하는 메서드
 		
-		// privacies를 일단 나누고
-		// 나눈 날짜를 약관 번호에 따라서 개월수를 더하고
-		// 더해서 나온 날짜가 today랑 비교해서 크면 최종 배열에 인덱스 번호 넣기
 		
-		List<Integer> answer = new ArrayList<Integer>();
 		
-		for(int i=0; i<privacies.length; i++) {
-			
-			int months = 0;
-			
-			String[] devidePri = privacies[i].split(" "); // devidePri[0] : 날짜, [1] : 약관(A)
-			
-			// 약관 기한 데이터 구하기
-			for(String s : terms) {
-				if(s.contains(devidePri[1])) { // 약관번호와 일치한다면
-					
-					// 약관 개월수 구하기
-					String[] monthDevi = s.split(" ");
-					months = Integer.valueOf(monthDevi[1]);
-					
-					// 약관 마감 날짜 구하기
-					String deadline = calDate(devidePri[0], months);
-					
-					System.out.println(deadline);
-					
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-					
-					// 오늘 날짜와 약관날짜 비교하기
-					try {
-						//System.out.println(sdf.parse(deadline)); // Thu May 19 00:00:00 KST 2022
-						
-						if((sdf.parse(today)).after(sdf.parse(deadline))) {
-							answer.add(i+1);
-						}
-						
-					} catch (ParseException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-			
+		// 귤 고르기
+		
+		// 1. 주어진 배열을 종류+갯수 리스트로 만들기
+		
+		int k=6; int[] tangerine = {1, 3, 2, 5, 4, 5, 2, 3};
+		Map<Integer, Integer> kindMap = new HashMap<Integer, Integer>();
+		
+		// key
+		for(int i:tangerine) {
+			if(!kindMap.containsKey(i)) kindMap.put(i, 1);
+			else kindMap.put(i, kindMap.get(i)+1);
 		}
 		
-		System.out.println(answer);
-        
-		// int 배열로 바꾸기
-		int[] answerArr = new int[answer.size()];
-		for(int i = 0; i<answer.size(); i++) {
-			answerArr[i] = answer.get(i).intValue();
-		}
+		// map을 value들의 내림차순으로 정렬하고
+		// value들의 값을 더하다가 k를 넘어가면 stop. 이때 더해진 k의 수가 정답임
+		
+		List<Integer> keys = new ArrayList<Integer>(kindMap.keySet());
+		
+		Collections.sort(keys, (v1, v2) -> (kindMap.get(v2).compareTo(kindMap.get(v1))));
+		
+		System.out.println(keys);
+		
 		
 		
 	}
+	
+	
+	
 	
 	// 날짜 더하는 데이트(12개월 넘어갈때 1년 +)
 	private static String calDate(String date, int months) {
