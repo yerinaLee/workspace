@@ -282,6 +282,12 @@ public class CodingTest2 {
 		
 		System.out.println(keys);
 		
+		// map.values() -> map의 value들만 출력 가능
+
+		// map에서 k값이 있으면 반환, 없으면 디폴트밸류(0)반환 함수
+//		for(int t : tangerine) {
+//	         map.put(t, map.getOrDefault(t, 0)+1);
+//		}
 		
 		
 	}
