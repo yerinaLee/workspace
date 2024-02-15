@@ -264,23 +264,45 @@ public class CodingTest2 {
 		
 		// 1. 주어진 배열을 종류+갯수 리스트로 만들기
 		
-		int k=6; int[] tangerine = {1, 3, 2, 5, 4, 5, 2, 3};
-		Map<Integer, Integer> kindMap = new HashMap<Integer, Integer>();
+//		int k=4; int[] tangerine = {1, 3, 2, 5, 4, 5, 2, 3};
+//		Map<Integer, Integer> kindMap = new HashMap<Integer, Integer>();
+//		
+//		// key
+//		for(int i:tangerine) {
+//			if(!kindMap.containsKey(i)) kindMap.put(i, 1);
+//			else kindMap.put(i, kindMap.get(i)+1);
+//		}
+//		
+//		// map을 value들의 내림차순으로 정렬하고
+//		// value들의 값을 더하다가 k를 넘어가면 stop. 이때 더해진 k의 수가 정답임
+//		
+//		int[] keys = new int[kindMap.size()];
+//		
+//		int idx = 0;
+//		
+//		for(int i:kindMap.values()) {
+//			keys[idx] = i;
+//			idx++;
+//		}
+//		
+//		Integer[] keys2 = Arrays.stream(keys).boxed().toArray(Integer[]::new);
+//		Arrays.sort(keys2, Collections.reverseOrder());
+//		
+//		for(int i:keys2) System.out.println(i);
+//		
+//		
+//		int count = 0;
+//		int answer = 0;
+//		
+//		for(int i=0; i<keys2.length; i++) {
+//			count += keys2[i];
+//			if(count > k) {
+//				answer = i; break;
+//			}
+//		}
+//		
+//		System.out.println(answer);
 		
-		// key
-		for(int i:tangerine) {
-			if(!kindMap.containsKey(i)) kindMap.put(i, 1);
-			else kindMap.put(i, kindMap.get(i)+1);
-		}
-		
-		// map을 value들의 내림차순으로 정렬하고
-		// value들의 값을 더하다가 k를 넘어가면 stop. 이때 더해진 k의 수가 정답임
-		
-		List<Integer> keys = new ArrayList<Integer>(kindMap.keySet());
-		
-		Collections.sort(keys, (v1, v2) -> (kindMap.get(v2).compareTo(kindMap.get(v1))));
-		
-		System.out.println(keys);
 		
 		// map.values() -> map의 value들만 출력 가능
 
@@ -288,6 +310,35 @@ public class CodingTest2 {
 //		for(int t : tangerine) {
 //	         map.put(t, map.getOrDefault(t, 0)+1);
 //		}
+		
+		
+		
+		// 행렬의 덧셈
+		
+		int[][] arr1 = {
+						{1},
+						{2}
+						};
+		
+		int[][] arr2={
+					{3},
+					{5}
+					}; 
+		
+		int[][] answer = new int[arr1.length][arr1[0].length];
+		
+		for(int i=0; i<arr1.length; i++) {
+			
+			for(int j=0; j<arr1[0].length; j++) {
+				
+				answer[i][j] = arr1[i][j] + arr2[i][j];
+				System.out.println(answer[i][j]);
+				
+			}
+		}
+		
+		
+		
 		
 		
 	}
