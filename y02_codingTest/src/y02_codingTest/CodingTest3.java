@@ -178,26 +178,26 @@ public class CodingTest3 {
 		
 		// 성격 유형 검사하기
 		
-		String[] survey= {"AN", "CF", "MJ", "RT", "NA"};
-		int[] choices = {5, 3, 2, 7, 5};
-		
-		// survey for문 돌면서 choices의 선택에 맞게 해당 글자 split해서 점수 부여(map으로 만들기)
-		// 
-		
-		for(int i=0; i<survey.length; i++) {
-			
-			switch(choices[i]) {
-			case 1 :  
-			case 2 :  
-			case 3 :  
-			case 4 : break;  
-			case 5 :  
-			case 6 :  
-			case 7 :  
-			}
-			
-			
-		}
+//		String[] survey= {"AN", "CF", "MJ", "RT", "NA"};
+//		int[] choices = {5, 3, 2, 7, 5};
+//		
+//		// survey for문 돌면서 choices의 선택에 맞게 해당 글자 split해서 점수 부여(map으로 만들기)
+//		// 
+//		
+//		for(int i=0; i<survey.length; i++) {
+//			
+//			switch(choices[i]) {
+//			case 1 :  
+//			case 2 :  
+//			case 3 :  
+//			case 4 : break;  
+//			case 5 :  
+//			case 6 :  
+//			case 7 :  
+//			}
+//			
+//			
+//		}
 		
 		
 		
