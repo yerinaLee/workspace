@@ -2,7 +2,9 @@ package y02_codingTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CodingTest3 {
 	
@@ -178,26 +180,98 @@ public class CodingTest3 {
 		
 		// 성격 유형 검사하기
 		
-//		String[] survey= {"AN", "CF", "MJ", "RT", "NA"};
-//		int[] choices = {5, 3, 2, 7, 5};
+//		String[] survey= {"TR", "RT", "TR"};
+//		int[] choices = {7,1,3};
 //		
 //		// survey for문 돌면서 choices의 선택에 맞게 해당 글자 split해서 점수 부여(map으로 만들기)
-//		// 
+//		
+//		Map<String, Integer> count = new HashMap<String, Integer>();
+//		
+//		count.put("R", 0);
+//		count.put("T", 0);
+//		count.put("C", 0);
+//		count.put("F", 0);
+//		count.put("J", 0);
+//		count.put("M", 0);
+//		count.put("A", 0);
+//		count.put("N", 0);
 //		
 //		for(int i=0; i<survey.length; i++) {
 //			
+//			String x = survey[i].substring(0, 1);
+//			String y = survey[i].substring(1, 2);
+//			
 //			switch(choices[i]) {
-//			case 1 :  
-//			case 2 :  
-//			case 3 :  
-//			case 4 : break;  
-//			case 5 :  
-//			case 6 :  
-//			case 7 :  
+//			case 1 : count.put(x, count.get(x) + 3 ); break;
+//			case 2 : count.put(x, count.get(x) + 2 ); break;
+//			case 3 : count.put(x, count.get(x) + 1 ); break;
+//			case 4 : break;
+//			case 5 : count.put(y, count.get(y)+1 ); break;
+//			case 6 : count.put(y, count.get(y)+2 ); break;  
+//			case 7 : count.put(y, count.get(y)+3 ); break;
 //			}
 //			
-//			
 //		}
+//		
+//		String answer = "";
+//		
+//		answer += count.get("R") >= count.get("T") ? "R" : "T";
+//		answer += count.get("C") >= count.get("F") ? "C" : "F";
+//		answer += count.get("J") >= count.get("M") ? "J" : "M";
+//		answer += count.get("A") >= count.get("N") ? "A" : "N";
+//		
+//		System.out.println(answer);
+		
+		
+		
+		// 점프와 순간이동
+		// n을 2로 나누고 나머지가 0이 아니면(홀수이면) -1(ans +1)
+		
+//		int n = 5000;
+//		int ans = 0;
+		
+//		do {
+//			if(n%2 == 0) n /= 2;
+//			else {
+//				n -=1;
+//				ans++;
+//			}
+//			
+//		} while(n!=0);
+//		
+//		System.out.println(ans);
+		
+		
+		
+		// 카펫
+		
+		// brown + yellow를 더한 값을
+		// 중간을 나누고, 중간 나눈 값에서부터 2까지 줄어들면서 나머지가 없는 수를 찾음
+		
+//		int brown=10; int yellow=2;
+//        int[] answer = new int[2];
+//        
+//        int div = (brown + yellow)/2;
+//        
+//        for(int i=div-1; i>=2; i--) {
+//        	if((brown+yellow) % i == 0 &&
+//        			(i*2 + (((brown+yellow) / i -2)*2) == brown)) {
+//        		answer[0] = i;
+//        		answer[1] = (brown+yellow) / i;
+//        		System.out.println(answer[0]);
+//        		System.out.println(answer[1]);
+//        		
+//        		break;
+//        	}
+//        }
+		
+		
+		// 정수 삼각형
+		
+		int[][] triangle = {{7}, {3,8}, {8,1,0}, {2,7,4,4},{4,5,2,6,5}};
+		
+		// 한 개의 수는 다음 행의 배열 중 인덱스가 같거나 +1인 수 중에서 더 큰 수를 선택
+		// 만약 다음 수가 값이 똑같다면 앞의 것을 선택하고, 그 다음 선택에서는 +2까지의 인덱스를 탐색(if문으로 따로 빼기)
 		
 		
 		
