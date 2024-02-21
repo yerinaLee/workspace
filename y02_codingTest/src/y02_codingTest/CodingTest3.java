@@ -269,11 +269,38 @@ public class CodingTest3 {
 		// 정수 삼각형
 		
 		int[][] triangle = {{7}, {3,8}, {8,1,0}, {2,7,4,4},{4,5,2,6,5}};
+		int answer = 0;
 		
 		// 한 개의 수는 다음 행의 배열 중 인덱스가 같거나 +1인 수 중에서 더 큰 수를 선택
 		// 만약 다음 수가 값이 똑같다면 앞의 것을 선택하고, 그 다음 선택에서는 +2까지의 인덱스를 탐색(if문으로 따로 빼기)
 		
+//		answer += triangle[0][0];
+//		int idx=0;
+//		
+//		for(int i=0; i<triangle.length-1; i++) {
+//			
+// 			if(triangle[i+1][idx] >= triangle[i+1][idx+1]) {
+//				answer += triangle[i+1][idx];
+//			} else {
+//				answer += triangle[i+1][idx+1];
+//				idx++;
+//			}
+//		}
+//		
+//		System.out.println(answer);
 		
+		
+		// 첫 줄에서 둘쨋줄을 선택할때, 단순히 큰 수가 아닌 그 다음 수와의 합이 더 큰 수를 선택할 것
+		
+		for(int i=triangle.length-1; i>0; i--) {
+			
+			for(int j=0; j<triangle[i].length-1; j++) {
+				
+				triangle[i-1][j] += Math.max(triangle[i][j], triangle[i][j+1]);
+			}
+		}
+		
+		System.out.println(triangle[0][0]);
 		
 		
 	}
