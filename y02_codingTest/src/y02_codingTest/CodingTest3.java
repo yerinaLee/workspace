@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CodingTest3 {
 	
@@ -37,8 +38,6 @@ public class CodingTest3 {
 //		}
 //		
 //		for(String s : answer) System.out.println(s);
-		
-		
 		
 		
 		
@@ -292,15 +291,15 @@ public class CodingTest3 {
 		
 		// 첫 줄에서 둘쨋줄을 선택할때, 단순히 큰 수가 아닌 그 다음 수와의 합이 더 큰 수를 선택할 것
 		
-		for(int i=triangle.length-1; i>0; i--) {
-			
-			for(int j=0; j<triangle[i].length-1; j++) {
-				
-				triangle[i-1][j] += Math.max(triangle[i][j], triangle[i][j+1]);
-			}
-		}
-		
-		System.out.println(triangle[0][0]);
+//		for(int i=triangle.length-1; i>0; i--) {
+//			
+//			for(int j=0; j<triangle[i].length-1; j++) {
+//				
+//				triangle[i-1][j] += Math.max(triangle[i][j], triangle[i][j+1]);
+//			}
+//		}
+//		
+//		System.out.println(triangle[0][0]);
 		
 		
 	}
