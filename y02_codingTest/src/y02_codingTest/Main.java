@@ -16,12 +16,26 @@ public class Main {
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int num = Integer.parseInt(st.nextToken()); 
-		int times = Integer.parseInt(st.nextToken()); 
+		int[] arr = new int[5];
+		for(int i=0; i<5; i++) arr[i] = Integer.parseInt(st.nextToken());
 		
-		int[] arr = new int[num];
-		for(int i=0; i<arr.length; i++) arr[i] = i+1;
+		int times = 0;
+		int answer = 0;
 		
+		for(int i=1; ; i++) {
+			
+			times = 0;
+			
+			for(int j=0; j<5; j++) {
+				if(i % arr[j] == 0) times++; 
+			}
+			
+			if(times >= 3) {
+				answer = i; break;
+			}
+		}
+		
+		bw.write(answer+"");
 		
 		br.close();
 		bw.close();
