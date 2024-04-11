@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -14,28 +13,59 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		String str = br.readLine();
+		str = str.toUpperCase();
 		
-		int[] arr = new int[5];
-		for(int i=0; i<5; i++) arr[i] = Integer.parseInt(st.nextToken());
+		int[] abc = new int[26];
+//		int[] arr = new int[str.length()];
 		
-		int times = 0;
-		int answer = 0;
+		for(int i=0; i<str.length(); i++) {
+			
+			int a = str.charAt(i);
+			abc[a-65]++;
+			
+//			if(i+1<str.length()) {
+//				if(str.charAt(i) == str.charAt(i+1)) arr[i]++;
+//			}
+		}
 		
-		for(int i=1; ; i++) {
-			
-			times = 0;
-			
-			for(int j=0; j<5; j++) {
-				if(i % arr[j] == 0) times++; 
-			}
-			
-			if(times >= 3) {
-				answer = i; break;
+		int max = abc[0];
+		int idx = 0;
+		
+		for(int i=1; i<26; i++) {
+			if(abc[i] > max) {
+				max = abc[i];
+				idx=i;
 			}
 		}
 		
-		bw.write(answer+"");
+//		for(int i=0; i<arr.length; i++) {
+//			if(max < arr[i]) {
+//				max = arr[i]; idx = i;
+//			}
+//		}
+		
+		int count = 0;
+		
+		for(int i=1; i<26; i++) {
+			if(max == abc[i]) count++;
+		}
+		
+//		for(int i=0; i<arr.length; i++) {
+//			if(arr[i] == max && i != idx) {
+//				bw.write("?");
+//				count++;
+//				break;
+//			} 
+//		}
+		
+//		if(count<1) bw.write(str.charAt(idx));
+		
+		if(count > 1) {
+			bw.write("?");
+		} else {
+			bw.write((char)(idx+65));
+		}
 		
 		br.close();
 		bw.close();
