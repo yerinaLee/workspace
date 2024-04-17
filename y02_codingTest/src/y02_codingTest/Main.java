@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -14,60 +13,43 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int i = Integer.parseInt(st.nextToken());
-		int j = Integer.parseInt(st.nextToken());
+		String str = br.readLine();
+		str = str.toUpperCase();
 		
-		int[][] arr = new int[i][j];
+		int[] abc = new int[26];
 		
-		for(int n=0; n<i; n++) {
-			
-			String str = br.readLine();
-			
-			for(int m=0; m<j; m++) {
-				if(str.charAt(m) == 'X') {
-					arr[n][m]++;
-				}
+		for(int i=0; i<str.length(); i++) {
+			int a = str.charAt(i);
+			abc[a-65]++;
+		}
+		
+		int max = abc[0];
+		int idx = 0;
+		
+		for(int i=1; i<26; i++) {
+			if(abc[i] > max) {
+				max = abc[i];
+				idx=i;
 			}
 		}
 		
-		int answer = 0;
-		boolean flag = false;
+		int count = 0;
 		
-		// 행의 빈칸을 파악함
-		for(int n=0; n<i; n++) {
-			
-			flag = false;
-			
-			for(int m=0; m<j; m++) {
-				if(arr[n][m] == 1) {
-					flag = true;
-				}
-			}
-			
-			if(!flag) answer++; 
+		for(int i=0; i<26; i++) {
+			if(max == abc[i]) count++;
 		}
 		
-		// 열의 빈칸을 파악함
-		for(int n=0; n<i; n++) {
-			flag = false;
-			for(int m=0; m<j; m++) {
-				if(arr[n][m] == 1) {
-					flag = true;
-				}
-			}
-			
-			if(!flag) answer++; 
+		if(count > 1) {
+			bw.write("?");
+		} else {
+			bw.write((char)(idx+65));
 		}
-		
-		
-		
-		bw.write(answer+"");
 		
 		br.close();
 		bw.close();
 	}
 }
+
 
 
 
