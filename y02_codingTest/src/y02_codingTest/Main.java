@@ -1,10 +1,7 @@
 package y02_codingTest;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
@@ -13,36 +10,39 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		String str = br.readLine();
-		str = str.toUpperCase();
+		int num = Integer.parseInt(br.readLine());
+		int[][] arr = new int[num][5];
 		
-		int[] abc = new int[26];
-		
-		for(int i=0; i<str.length(); i++) {
-			int a = str.charAt(i);
-			abc[a-65]++;
+		for(int i=0; i<num; i++) {
+			
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			
+			for(int j=0; j<5; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
 		}
-		
-		int max = abc[0];
-		int idx = 0;
-		
-		for(int i=1; i<26; i++) {
-			if(abc[i] > max) {
-				max = abc[i];
-				idx=i;
+
+
+		int[] answer = new int[num];
+
+		for(int i=0; i<num; i++) {
+			
+			for(int col=0; col<5; col++) {
+				for(int row=0; row<answer.length; row++) {
+					if(arr[i][col] == arr[row][col]) answer[i]++;
+				}
 			}
 		}
 		
-		int count = 0;
+		int max = answer[0];
 		
-		for(int i=0; i<26; i++) {
-			if(max == abc[i]) count++;
-		}
+		for(int i : answer) max = Math.max(max, i);
 		
-		if(count > 1) {
-			bw.write("?");
-		} else {
-			bw.write((char)(idx+65));
+		for(int i=0; i<answer.length; i++) {
+			if(answer[i] == max) {
+				bw.write(i+1+"");
+				break;
+			}
 		}
 		
 		br.close();
