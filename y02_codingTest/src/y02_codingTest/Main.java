@@ -10,30 +10,17 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		int t = Integer.parseInt(br.readLine());
+		List<Integer> list = new ArrayList<Integer>();
 		
-		for(int i = 0; i<t; i++) {
-			
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			
-			int max = Math.max(a, b);
-			int min = Math.min(a, b);
-			
-			int idx = 1;
-			while(true) {
-				
-				if(max * idx % min == 0) {
-					bw.write(max * idx+"\n");
-					break;
-				}
-				
-				idx++;
-			}
-			
+		String str = br.readLine();
+		
+		for(int i=0; i<str.length(); i++) {
+			list.add(Integer.parseInt(String.valueOf(str.charAt(i))));
 		}
+		
+		list.sort(Comparator.reverseOrder());
+		
+		for(int i:list) bw.write(i+"");
 		
 		br.close();
 		bw.close();
