@@ -10,17 +10,41 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		List<Integer> list = new ArrayList<Integer>();
+		// 1475- 방번호
 		
-		String str = br.readLine();
+		String n = br.readLine();
+		int answer = 1;
 		
-		for(int i=0; i<str.length(); i++) {
-			list.add(Integer.parseInt(String.valueOf(str.charAt(i))));
+		Set<Integer> set = new HashSet<Integer>();
+		
+		for(int i=0; i<n.length(); i++) {
+			
+			boolean exist = false;
+			
+			if(n.charAt(i)-'0' == 9) {
+				if(set.contains(9)) {
+					exist = set.add(6);
+				} else {
+					exist = set.add(9);
+				}
+
+			} else if(n.charAt(i)-'0' == 6) {
+				if(set.contains(6)) {
+					exist = set.add(9);
+				} else {
+					exist = set.add(6);
+				}
+			}
+			else exist = set.add(n.charAt(i)-'0');
+			
+			if(!exist) {
+				answer++;
+				set.clear();
+				set.add(n.charAt(i)-'0');
+			}
 		}
 		
-		list.sort(Comparator.reverseOrder());
-		
-		for(int i:list) bw.write(i+"");
+		bw.write(answer+"");
 		
 		br.close();
 		bw.close();
