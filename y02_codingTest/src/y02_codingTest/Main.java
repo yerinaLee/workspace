@@ -19,30 +19,46 @@ public class Main {
 		
 		for(int i=0; i<n.length(); i++) {
 			
-			boolean exist = false;
+			if(set.contains(n.charAt(i)-'0')) continue;
 			
-			if(n.charAt(i)-'0' == 9) {
-				if(set.contains(9)) {
-					exist = set.add(6);
-				} else {
-					exist = set.add(9);
-				}
+			set.add(n.charAt(i)-'0');
+			
+			for(int j=i+1; j<n.length(); j++) {
 
-			} else if(n.charAt(i)-'0' == 6) {
-				if(set.contains(6)) {
-					exist = set.add(9);
-				} else {
-					exist = set.add(6);
+				if(n.charAt(i)==n.charAt(j)) {
+					answer++;
+					bw.write(n.charAt(i));
 				}
 			}
-			else exist = set.add(n.charAt(i)-'0');
 			
-			if(!exist) {
-				answer++;
-				set.clear();
-				set.add(n.charAt(i)-'0');
-			}
+			
 		}
+			
+			
+//			boolean exist = false;
+//			if(n.charAt(i)-'0' == 9) {
+//				if(set.contains(9)) {
+//					exist = set.add(6);
+//				} else {
+//					exist = set.add(9);
+//				}
+//
+//			} else if(n.charAt(i)-'0' == 6) {
+//				if(set.contains(6)) {
+//					exist = set.add(9);
+//				} else {
+//					exist = set.add(6);
+//				}
+//			}
+//			
+//			else exist = set.add(n.charAt(i)-'0');
+//			
+//			if(!exist) {
+//				answer++;
+//				set.clear();
+//				set.add(n.charAt(i)-'0');
+//			}
+//		}
 		
 		bw.write(answer+"");
 		
