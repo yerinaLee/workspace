@@ -10,63 +10,31 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		// 1475- 방번호
+		// 세로읽기
+		String[] arr = new String[5];
 		
-		String n = br.readLine();
-		int answer = 1;
-		
-		Set<Integer> set = new HashSet<Integer>();
-		
-		for(int i=0; i<n.length(); i++) {
-			
-			if(set.contains(n.charAt(i)-'0')) continue;
-			
-			set.add(n.charAt(i)-'0');
-			
-			for(int j=i+1; j<n.length(); j++) {
-
-				if(n.charAt(i)==n.charAt(j)) {
-					answer++;
-					bw.write(n.charAt(i));
-				}
-			}
-			
-			
+		for(int i=0; i<5; i++) {
+			arr[i] = br.readLine();
 		}
-			
-			
-//			boolean exist = false;
-//			if(n.charAt(i)-'0' == 9) {
-//				if(set.contains(9)) {
-//					exist = set.add(6);
-//				} else {
-//					exist = set.add(9);
-//				}
-//
-//			} else if(n.charAt(i)-'0' == 6) {
-//				if(set.contains(6)) {
-//					exist = set.add(9);
-//				} else {
-//					exist = set.add(6);
-//				}
-//			}
-//			
-//			else exist = set.add(n.charAt(i)-'0');
-//			
-//			if(!exist) {
-//				answer++;
-//				set.clear();
-//				set.add(n.charAt(i)-'0');
-//			}
-//		}
 		
-		bw.write(answer+"");
+		String answer = "";
 		
+		for(int col = 0; col<5; col++) {
+			for(int row = 0; row<5; row++) {
+				
+				if((arr[row].charAt(col))+"" == "") continue;
+				
+				answer += arr[row].charAt(col);
+			}
+		}
+		
+		bw.write(answer);
+				
+				
 		br.close();
 		bw.close();
 	}
 }
-
 
 
 
