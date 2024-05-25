@@ -11,6 +11,8 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		// 세로읽기
+		
+		
 		String[] arr = new String[5];
 		
 		for(int i=0; i<5; i++) {
