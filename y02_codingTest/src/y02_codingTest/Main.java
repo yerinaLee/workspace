@@ -12,19 +12,17 @@ public class Main {
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int day = Integer.parseInt(st.nextToken());
-		int night = Integer.parseInt(st.nextToken());
-		int height = Integer.parseInt(st.nextToken());
+		long n = Integer.parseInt(st.nextToken());
+		long m = Integer.parseInt(st.nextToken());
 		
-		int maxLength = 0;
-		double days = 1;
+		long sum = n-m;
 		
-		days = height - day - 1;
+		if(sum < 0) sum *= -1;
 		
-		bw.write(days+"");
-		
+		bw.write(sum+"");
+			
+			
 		bw.flush();
-		
 		br.close();
 		bw.close();
 	}
