@@ -9,28 +9,21 @@ public class Main {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-		int t = Integer.parseInt(br.readLine());
-		List<Map<Object, Object>> list = new ArrayList<Map<Object,Object>>();
 		
-		for(int i=0; i<t; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			
-			Map<Object, Object> map = new HashMap<Object, Object>();
-			map.put("age", Integer.parseInt(st.nextToken()));
-			map.put("name", st.nextToken());
-
-			list.add(map);
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+		
+		List<Long> list = new ArrayList<Long>();
+		
+		StringTokenizer st2 = new StringTokenizer(br.readLine());
+		for(int i=0; i<N; i++) {
+			list.add(Long.parseLong(st2.nextToken()));
 		}
 		
-		for(int i=0; i<t; i++) {
-			for(int j=i+1; j<t; j++) {
-				
-				
-			}
-		}
+		Collections.sort(list);
 		
-		
+		bw.write(list.get(K-1)+"");
 		
 		bw.flush();
 		br.close();
