@@ -10,53 +10,33 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		int M = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		
-		int[][] arr = new int[N][M];
+		for(int i=0; i<M; i++) {
+			
+			int card = Integer.parseInt(st.nextToken());
+			
+			if(map.containsKey(card)) map.put(card, map.get(card)+1);
+			else map.put(card , 1);
+		}
+		
+		
+		int N = Integer.parseInt(br.readLine());
+		StringTokenizer st2 = new StringTokenizer(br.readLine());
+		
+		StringBuilder sb = new StringBuilder();
+		
 		for(int i=0; i<N; i++) {
 			
-			String str = br.readLine();
-
-			for(int j=0; j<M; j++) {
-				if(str.charAt(j) == 'W') arr[i][j] = 1; 
-				else  arr[i][j] = 0; 
-			}
-		}
-		
-		List<Integer> list = new ArrayList<Integer>();
-		Boolean flag = false;
-		
-		for(int i=0; i<=N-8; i++) {
-			for(int j=0; j<=M-8; j++) {
-				
-				int sum = 0;
-				
-				for(int x=0; x<8; x++) {
-					for(int y=0; y<7; y++) {
-						if(arr[x][y] == arr[x][y+1]) {
-							sum++;
-							y++;
-						}
-					}
-				}
-				
-				if(sum == 0) {
-					flag = true;
-					break;
-				}
-				else list.add(sum);
-			}
+			int num = Integer.parseInt(st2.nextToken());
 			
-			if(flag) break;
+			if(map.containsKey(num)) sb.append(map.get(num)+" "); 
+			else sb.append("0 ");
 		}
 		
-		if(flag) bw.write(0+"");
-		else {
-			Collections.sort(list);
-			bw.write(list.get(0));
-		}
+		bw.write(sb+"");
 		
 		bw.flush();
 		br.close();
