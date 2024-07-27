@@ -22,22 +22,6 @@ public class Main {
 			else map.put(card , 1);
 		}
 		
-		
-		int N = Integer.parseInt(br.readLine());
-		StringTokenizer st2 = new StringTokenizer(br.readLine());
-		
-		StringBuilder sb = new StringBuilder();
-		
-		for(int i=0; i<N; i++) {
-			
-			int num = Integer.parseInt(st2.nextToken());
-			
-			if(map.containsKey(num)) sb.append(map.get(num)+" "); 
-			else sb.append("0 ");
-		}
-		
-		bw.write(sb+"");
-		
 		bw.flush();
 		br.close();
 		bw.close();
