@@ -14,8 +14,7 @@ public class Main {
 		
 		int t = Integer.parseInt(br.readLine());
 		
-		for(int i=0; i<t; i++) {
-			
+		for(int i=0; i<t; i++) {			
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			
 			String order = st.nextToken();
